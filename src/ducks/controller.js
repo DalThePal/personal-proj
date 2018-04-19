@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const monstURL = 'http://www.dnd5eapi.co/api/monsters/';
-const spellURL = 'http://www.dnd5eapi.co/api/spells/';
-const equipURL = 'http://www.dnd5eapi.co/api/equipment/';
+const monstURL = 'https://www.dnd5eapi.co/api/monsters/';
+const spellURL = 'https://www.dnd5eapi.co/api/spells/';
+const equipURL = 'https://www.dnd5eapi.co/api/equipment/';
 
 export const getEquipment = function () {
     return axios.get(equipURL).then(res => res.data.results);
