@@ -1,0 +1,43 @@
+
+.Window {
+
+    .Header {
+
+        @include header();
+    }
+    
+    .Body {
+
+        @include width-height(100%, 85vh);
+        
+        .Armor {
+            
+            @include width-height(100%, 100%);
+            @include content();
+        
+            .ArmDiv {
+
+                @include width-height(48%, 30%);
+                margin-bottom: 20px;
+                margin-right: 20px;
+            }
+        }
+    }
+
+}
+
+::-webkit-scrollbar {
+    width: 20px; 
+}
+    
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+    
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+        
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

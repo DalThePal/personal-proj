@@ -1,0 +1,43 @@
+
+.Dashboard {
+    @include width-height(30%, 100%);
+    @include textDefault();
+
+    font-size: 25px;
+    background-color: beige;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    border: 2px solid black;
+
+    .SectionTitle {
+        text-align: center;
+        border-bottom: 2px solid red;
+        padding-bottom: 10px;
+    }
+    
+    .Items {
+        width: 100%;
+        padding-top: 10px;
+        
+    } 
+    
+}
+
+::-webkit-scrollbar {
+    width: 20px; 
+}
+    
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+    
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+        
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

@@ -1,0 +1,26 @@
+
+.Monster {
+    @include width-height(100%, 100%);
+    @include contentDiv();
+    @include textDefault();
+
+    .Title {
+        display: flex;
+        justify-content: center;
+
+        h1 {
+            margin-right: 10px;
+        }
+    }
+
+    .addButton {
+
+        display: flex;
+        justify-content: center;
+        
+        button {
+            @include textDefault();
+            @include button($button-shadow-tan);
+        }
+    }
+}

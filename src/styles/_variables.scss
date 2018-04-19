@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Nodesto Caps Condensed Bold';
+    src: url('./fonts/Nodesto-Caps-Condensed-Bold.otf');
+}
+
+@font-face {
+    font-family: 'Nodesto Caps Condensed';
+    src: url('./fonts/Nodesto-Caps-Condensed.otf');
+}
+
+$default-gray: #404646;
+$button-shadow-gray: #ABB2B9;
+$button-shadow-tan: #87735a;
+$default-font-bold: 'Nodesto Caps Condensed Bold';
+$default-font: 'Nodesto Caps Condensed'

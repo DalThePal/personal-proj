@@ -1,0 +1,32 @@
+
+.Equip {
+
+    @include width-height(100%, 100%); 
+    @include contentDiv();
+    @include textDefault();
+
+    h1 {
+        @include h1Tag();
+    }
+
+    h2 {
+        @include h2Tag();
+    }
+
+    p {
+        @include pTag();
+
+    }
+    
+    .addButton {
+
+        display: flex;
+        justify-content: center;
+        
+        button {
+            @include textDefault();
+            @include button($button-shadow-tan);
+            
+        }
+    }
+}

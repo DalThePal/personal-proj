@@ -1,0 +1,44 @@
+
+.Window {
+
+    .Header {
+        @include header();
+
+    }
+    
+    .Body {
+
+        @include width-height(100%, 85vh);
+    
+        .Mounts {
+            
+            @include width-height(100%, 100%);
+            @include content();
+        
+            .MountDiv {
+                
+                @include width-height(48%, 35%);
+                margin-bottom: 20px;
+                margin-right: 20px;
+                
+            }
+        }
+    }
+
+}
+
+::-webkit-scrollbar {
+    width: 20px; 
+}
+    
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+    
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+        
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

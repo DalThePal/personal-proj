@@ -1,0 +1,741 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+html {
+  box-sizing: border-box; }
+
+*, * :before, *:after {
+  box-sizing: inherit; }
+
+@font-face {
+  font-family: 'Nodesto Caps Condensed Bold';
+  src: url("./fonts/Nodesto-Caps-Condensed-Bold.otf"); }
+
+@font-face {
+  font-family: 'Nodesto Caps Condensed';
+  src: url("./fonts/Nodesto-Caps-Condensed.otf"); }
+
+.Dashboard {
+  width: 30%;
+  height: 100%;
+  font-family: "Nodesto Caps Condensed";
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 25px;
+  background-color: beige;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+  border: 2px solid black; }
+  .Dashboard .SectionTitle {
+    text-align: center;
+    border-bottom: 2px solid red;
+    padding-bottom: 10px; }
+  .Dashboard .Items {
+    width: 100%;
+    padding-top: 10px; }
+
+::-webkit-scrollbar {
+  width: 20px; }
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; }
+
+::-webkit-scrollbar-thumb {
+  background: #888; }
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; }
+
+.Window .Header {
+  width: 100%;
+  height: 15vh;
+  font-family: "Nodesto Caps Condensed";
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 5px;
+  background-color: #404646;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black; }
+  .Window .Header .linkDiv {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center; }
+    .Window .Header .linkDiv a {
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 7vh; }
+  .Window .Header .logoDiv {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start; }
+
+.Window .Body {
+  width: 100%;
+  height: 85vh; }
+  .Window .Body .Monsters {
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    overflow-y: scroll;
+    padding-top: 20px;
+    padding-left: 20px;
+    display: flex;
+    flex-wrap: wrap; }
+    .Window .Body .Monsters .MonsterDiv {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 20px;
+      margin-right: 20px; }
+
+::-webkit-scrollbar {
+  width: 20px; }
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; }
+
+::-webkit-scrollbar-thumb {
+  background: #888; }
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; }
+
+.Monster {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background-color: tan;
+  box-shadow: 5px 10px 10px #ABB2B9;
+  border: 2px solid black;
+  font-family: "Nodesto Caps Condensed";
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase; }
+  .Monster .Title {
+    display: flex;
+    justify-content: center; }
+    .Monster .Title h1 {
+      margin-right: 10px; }
+  .Monster .addButton {
+    display: flex;
+    justify-content: center; }
+    .Monster .addButton button {
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      background-color: beige;
+      border-color: black;
+      font-size: 18px;
+      box-shadow: 4px 4px 4px #87735a; }
+
+.Window .Header {
+  width: 100%;
+  height: 15vh;
+  font-family: "Nodesto Caps Condensed";
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 5px;
+  background-color: #404646;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black; }
+  .Window .Header .linkDiv {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center; }
+    .Window .Header .linkDiv a {
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 7vh; }
+  .Window .Header .logoDiv {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start; }
+
+.Window .Body {
+  width: 100%;
+  height: 85vh; }
+  .Window .Body .Spells {
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    overflow-y: scroll;
+    padding-top: 20px;
+    padding-left: 20px;
+    display: flex;
+    flex-wrap: wrap; }
+    .Window .Body .Spells .SpellDiv {
+      width: 100%;
+      height: 80%;
+      margin-bottom: 20px;
+      margin-right: 20px; }
+
+::-webkit-scrollbar {
+  width: 20px; }
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; }
+
+::-webkit-scrollbar-thumb {
+  background: #888; }
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; }
+
+.Spell {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background-color: tan;
+  box-shadow: 5px 10px 10px #ABB2B9;
+  border: 2px solid black;
+  font-family: "Nodesto Caps Condensed";
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase; }
+  .Spell h1 {
+    text-align: center;
+    font-size: 4vh; }
+  .Spell h2 {
+    text-align: center;
+    font-size: 2vh; }
+  .Spell p {
+    font-size: 2vh;
+    margin-bottom: 5px; }
+  .Spell .addButton {
+    display: flex;
+    justify-content: center; }
+    .Spell .addButton button {
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      background-color: beige;
+      border-color: black;
+      font-size: 18px;
+      box-shadow: 4px 4px 4px #87735a; }
+
+.DashItem {
+  width: 100%;
+  height: 100%;
+  border: 2px, solid, black;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between; }
+  .DashItem .ItemBut {
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+    height: 100%;
+    background-color: beige;
+    border-color: black;
+    font-size: 18px;
+    box-shadow: 4px 4px 4px #ABB2B9;
+    margin-right: 10px; }
+  .DashItem .DelBut {
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: beige;
+    border-color: black;
+    font-size: 18px;
+    box-shadow: 4px 4px 4px #ABB2B9;
+    height: 100%; }
+
+.Window .Header {
+  width: 100%;
+  height: 15vh;
+  font-family: "Nodesto Caps Condensed";
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 5px;
+  background-color: #404646;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black; }
+  .Window .Header .linkDiv {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center; }
+    .Window .Header .linkDiv a {
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 7vh; }
+  .Window .Header .logoDiv {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start; }
+
+.Window .Body {
+  width: 100%;
+  height: 85vh; }
+  .Window .Body .Weapons {
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    overflow-y: scroll;
+    padding-top: 20px;
+    padding-left: 20px;
+    display: flex;
+    flex-wrap: wrap; }
+    .Window .Body .Weapons .WeaponDiv {
+      width: 48%;
+      height: 30%;
+      margin-bottom: 20px;
+      margin-right: 20px; }
+
+::-webkit-scrollbar {
+  width: 20px; }
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; }
+
+::-webkit-scrollbar-thumb {
+  background: #888; }
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; }
+
+.Weapon {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background-color: tan;
+  box-shadow: 5px 10px 10px #ABB2B9;
+  border: 2px solid black;
+  font-family: "Nodesto Caps Condensed";
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase; }
+  .Weapon h1 {
+    text-align: center;
+    font-size: 4vh; }
+  .Weapon h2 {
+    text-align: center;
+    font-size: 2vh; }
+  .Weapon .properties {
+    display: flex; }
+  .Weapon p {
+    font-size: 2vh;
+    margin-bottom: 5px; }
+  .Weapon .addButton {
+    display: flex;
+    justify-content: center; }
+    .Weapon .addButton button {
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      background-color: beige;
+      border-color: black;
+      font-size: 18px;
+      box-shadow: 4px 4px 4px #87735a; }
+
+.Window .Header {
+  width: 100%;
+  height: 15vh;
+  font-family: "Nodesto Caps Condensed";
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 5px;
+  background-color: #404646;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black; }
+  .Window .Header .linkDiv {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center; }
+    .Window .Header .linkDiv a {
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 7vh; }
+  .Window .Header .logoDiv {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start; }
+
+.Window .Body {
+  width: 100%;
+  height: 85vh; }
+  .Window .Body .Armor {
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    overflow-y: scroll;
+    padding-top: 20px;
+    padding-left: 20px;
+    display: flex;
+    flex-wrap: wrap; }
+    .Window .Body .Armor .ArmDiv {
+      width: 48%;
+      height: 30%;
+      margin-bottom: 20px;
+      margin-right: 20px; }
+
+::-webkit-scrollbar {
+  width: 20px; }
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; }
+
+::-webkit-scrollbar-thumb {
+  background: #888; }
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; }
+
+.Arm {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background-color: tan;
+  box-shadow: 5px 10px 10px #ABB2B9;
+  border: 2px solid black;
+  font-family: "Nodesto Caps Condensed";
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column; }
+  .Arm h1 {
+    text-align: center;
+    font-size: 4vh; }
+  .Arm h2 {
+    text-align: center;
+    font-size: 2vh; }
+  .Arm p {
+    font-size: 2vh;
+    margin-bottom: 5px; }
+  .Arm .addButton {
+    width: 100%;
+    height: 18%;
+    display: flex;
+    justify-content: center; }
+    .Arm .addButton button {
+      height: 100%;
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      background-color: beige;
+      border-color: black;
+      font-size: 18px;
+      box-shadow: 4px 4px 4px #87735a; }
+
+.Window .Header {
+  width: 100%;
+  height: 15vh;
+  font-family: "Nodesto Caps Condensed";
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 5px;
+  background-color: #404646;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black; }
+  .Window .Header .linkDiv {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center; }
+    .Window .Header .linkDiv a {
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 7vh; }
+  .Window .Header .logoDiv {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start; }
+
+.Window .Body {
+  width: 100%;
+  height: 85vh; }
+  .Window .Body .Equipment {
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    overflow-y: scroll;
+    padding-top: 20px;
+    padding-left: 20px;
+    display: flex;
+    flex-wrap: wrap; }
+    .Window .Body .Equipment .EquipDiv {
+      width: 48%;
+      height: 45%;
+      margin-bottom: 20px;
+      margin-right: 20px; }
+
+::-webkit-scrollbar {
+  width: 20px; }
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; }
+
+::-webkit-scrollbar-thumb {
+  background: #888; }
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; }
+
+.Equip {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background-color: tan;
+  box-shadow: 5px 10px 10px #ABB2B9;
+  border: 2px solid black;
+  font-family: "Nodesto Caps Condensed";
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase; }
+  .Equip h1 {
+    text-align: center;
+    font-size: 4vh; }
+  .Equip h2 {
+    text-align: center;
+    font-size: 2vh; }
+  .Equip p {
+    font-size: 2vh;
+    margin-bottom: 5px; }
+  .Equip .addButton {
+    display: flex;
+    justify-content: center; }
+    .Equip .addButton button {
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      background-color: beige;
+      border-color: black;
+      font-size: 18px;
+      box-shadow: 4px 4px 4px #87735a; }
+
+.HomeScreen {
+  width: 100vw;
+  height: 100vh;
+  background-color: #404646;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .HomeScreen .Links {
+    display: flex; }
+    .HomeScreen .Links a {
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 55px; }
+
+.LoginScreen {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #404646; }
+  .LoginScreen .LoginBut {
+    width: 150px;
+    height: 50px; }
+
+.Window .Header {
+  width: 100%;
+  height: 15vh;
+  font-family: "Nodesto Caps Condensed";
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 5px;
+  background-color: #404646;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black; }
+  .Window .Header .linkDiv {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center; }
+    .Window .Header .linkDiv a {
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 7vh; }
+  .Window .Header .logoDiv {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start; }
+
+.Window .Body {
+  width: 100%;
+  height: 85vh; }
+  .Window .Body .Mounts {
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    overflow-y: scroll;
+    padding-top: 20px;
+    padding-left: 20px;
+    display: flex;
+    flex-wrap: wrap; }
+    .Window .Body .Mounts .MountDiv {
+      width: 48%;
+      height: 35%;
+      margin-bottom: 20px;
+      margin-right: 20px; }
+
+::-webkit-scrollbar {
+  width: 20px; }
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; }
+
+::-webkit-scrollbar-thumb {
+  background: #888; }
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; }
+
+.Mount {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background-color: tan;
+  box-shadow: 5px 10px 10px #ABB2B9;
+  border: 2px solid black;
+  font-family: "Nodesto Caps Condensed";
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase; }
+  .Mount h1 {
+    text-align: center;
+    font-size: 4vh; }
+  .Mount h2 {
+    text-align: center;
+    font-size: 2vh; }
+  .Mount p {
+    font-size: 2vh;
+    margin-bottom: 5px; }
+  .Mount .addButton {
+    display: flex;
+    justify-content: center; }
+    .Mount .addButton button {
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      background-color: beige;
+      border-color: black;
+      font-size: 18px;
+      box-shadow: 4px 4px 4px #87735a; }

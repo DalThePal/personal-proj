@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+
+.Body {
+  display: flex;
+
+}
+
+.wrapContainer {
+  width: 100%;
+}

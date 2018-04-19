@@ -1,0 +1,35 @@
+
+.Arm {
+    @include width-height(100%, 100%);
+    @include contentDiv();
+    @include textDefault();
+
+    display: flex;
+    flex-direction: column;
+    
+    
+    
+    h1 {
+        @include h1Tag();
+    }
+    
+    h2 {
+        @include h2Tag();
+    }
+    
+    p {
+        @include pTag();
+    }
+
+    .addButton {
+        @include width-height(100%, 18%);
+        display: flex;
+        justify-content: center;
+        
+        button {
+            height: 100%;
+            @include textDefault();
+            @include button($button-shadow-tan);
+        }
+    }
+}

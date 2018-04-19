@@ -1,0 +1,28 @@
+
+.DashItem {
+    @include width-height(100%, 100%);
+    
+
+    border: 2px, solid, black;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    
+    
+    .ItemBut {
+        @include textDefault();
+        @include width-height(100%, 100%);
+        @include button($button-shadow-gray);
+        margin-right: 10px;
+        
+
+        
+    }
+
+    .DelBut {
+
+        @include textDefault();
+        @include button($button-shadow-gray);
+        height: 100%;
+    }
+}
