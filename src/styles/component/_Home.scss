@@ -9,7 +9,9 @@
     align-items: center;
     
     .Links {
+        width: 100%;
         display: flex;
+        justify-content: space-around;
         
         a {
             @include textDefault();

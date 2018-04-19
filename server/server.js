@@ -10,6 +10,8 @@ const Auth0strategy = require('passport-auth0')
 
 const app = express();
 
+massive(process.env.CONNECTION_STRING).then(dbInstance => app.set('db', dbInstance));
+
 const {
     SESSION_SECRET,
     DOMAIN,
@@ -27,7 +29,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.json());
-app.use( express.static( `${__dirname}/../build` ) );
+app.use(express.static(`${__dirname}/../build`));
 
 passport.use(new Auth0strategy({
     domain: DOMAIN,
@@ -39,11 +41,11 @@ passport.use(new Auth0strategy({
     return done(null, profile);
 }));
 
-passport.serializeUser( (profile, done) => {
+passport.serializeUser((profile, done) => {
     done(null, profile);
 });
 
-passport.deserializeUser( (profile, done) => {
+passport.deserializeUser((profile, done) => {
     done(null, profile);
 });
 
@@ -51,5 +53,6 @@ app.get('/login', passport.authenticate('auth0', {
     successRedirect: process.env.SUCCESS_REDIRECT,
     failureRedirect: process.env.FAILURE_REDIRECT,
 }))
+
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

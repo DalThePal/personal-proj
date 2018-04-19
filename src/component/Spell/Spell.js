@@ -25,7 +25,7 @@ class Spell extends Component {
                 <p>{this.state.spell.desc}</p>
                 <p>{spell.higher_level ? `at higher levels: ${spell.higher_level}` : ''}</p>
                 <div className='addButton'>
-                    <button onClick={() => this.props.addToDash(this.state.arm)}>ADD</button>
+                    <button onClick={() => this.props.addToDash(this.state.spell)}>ADD</button>
                 </div>
             </div>
         )

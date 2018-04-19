@@ -9,6 +9,10 @@
     background-color: $default-gray;
 
     .LoginBut {
+        @include textDefault();
         @include width-height(150px, 50px);
+        @include button($button-shadow-gray);
+
+
     }
 }

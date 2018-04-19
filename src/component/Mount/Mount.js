@@ -31,7 +31,7 @@ export default class Mount extends Component {
                 <p>{mount.weight ? `weight: ${mount.weight} lb.` : ''}</p>
                 <p>{mount.desc ? mount.desc : ''}</p>
                 <div className='addButton'>
-                    <button onClick={() => this.props.addToDash(this.state.arm)}>ADD</button>
+                    <button onClick={() => this.props.addToDash(this.state.mount)}>ADD</button>
                 </div>
             </div>
         )

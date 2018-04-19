@@ -16,14 +16,21 @@
             @include content();
         
             .MonsterDiv {
-                @include width-height(100%, 100%);
+
+                @include width-height(100%, 135%);
+
                 margin-bottom: 20px;
+
                 margin-right: 20px;
+
             }
+
         }
+
     }
 
 }
+
 
 ::-webkit-scrollbar {
     width: 20px; 
@@ -33,6 +40,7 @@
     background: #f1f1f1;
 }
     
+
 ::-webkit-scrollbar-thumb {
     background: #888;
 }

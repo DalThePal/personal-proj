@@ -4,13 +4,32 @@
     @include contentDiv();
     @include textDefault();
 
-    .Title {
-        display: flex;
-        justify-content: center;
+    h1 {
+        @include h1Tag();
+    }
 
-        h1 {
-            margin-right: 10px;
-        }
+    h2 {
+        @include h2Tag();
+    }
+
+    h3 {
+        @include h3Tag();
+    }
+
+    p {
+        @include pTag();
+    }
+
+    .Stats {
+        display: flex;
+        justify-content: space-around;
+        
+    }
+
+    .ActAb {
+        display: flex;
+        flex-direction: row;
+
     }
 
     .addButton {

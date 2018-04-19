@@ -82,38 +82,38 @@ class Dashboard extends Component {
         return (
             <div className='Dashboard'>
                 <div className='SectionTitle'>
-                    SPELLS
-                    </div>
-                <div className='Items'>
-                    {spellItems}
-                </div>
-                <div className='SectionTitle'>
                     MONSTERS
-                    </div>
+                </div>
                 <div className='Items'>
                     {monstItems}
                 </div>
                 <div className='SectionTitle'>
+                    SPELLS
+                </div>
+                <div className='Items'>
+                    {spellItems}
+                </div>
+                <div className='SectionTitle'>
                     ARMOR
-                    </div>
+                </div>
                 <div className='Items'>
                     {armorItems}
                 </div>
                 <div className='SectionTitle'>
                     WEAPONS
-                    </div>
+                </div>
                 <div className='Items'>
                     {weaponItems}
                 </div>
                 <div className='SectionTitle'>
                     EQUIPMENT
-                    </div>
+                </div>
                 <div className='Items'>
                     {equipItems}
                 </div>
                 <div className='SectionTitle'>
                     MOUNTS & VEHICLES
-                    </div>
+                </div>
                 <div className='Items'>
                     {mountItems}
                 </div>

@@ -12,7 +12,7 @@
     .ItemBut {
         @include textDefault();
         @include width-height(100%, 100%);
-        @include button($button-shadow-gray);
+        @include button($button-shadow-beige);
         margin-right: 10px;
         
 
@@ -22,7 +22,7 @@
     .DelBut {
 
         @include textDefault();
-        @include button($button-shadow-gray);
+        @include button($button-shadow-beige);
         height: 100%;
     }
 }

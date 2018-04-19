@@ -19,7 +19,6 @@ export default class Arm extends Component {
 
     render() {
         const { arm, cost, armorClass } = this.state;
-        console.log(arm)
         return (
             <div className='Arm'>
                 <h1>{arm.name}</h1>

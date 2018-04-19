@@ -8,11 +8,12 @@ class DashItem extends Component {
     render() {
 
         const { item } = this.props;
-        console.log( this.props.item )
+        console.log(this.props.item)
         return (
             <Motion
                 defaultStyle={{ width: 0 }}
-                style={{ width: spring(100) }}>
+                style={{ width: spring(100) }}
+            >
                 {({ width }) =>
 
                     <div className='DashItem' style={{

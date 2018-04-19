@@ -27,7 +27,13 @@
 
 @mixin h2Tag() {
     text-align: center;
+    
     font-size: 2vh;
+}
+
+@mixin h3Tag() {
+    font-size: 2vh;
+    font-family: $default-font-bold
 }
 
 @mixin pTag() {
@@ -42,6 +48,7 @@
     font-size: 18px;
     box-shadow: 4px 4px 4px $color;
 }
+
 
 @mixin header() {
 

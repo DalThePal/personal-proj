@@ -8,6 +8,7 @@ export default class Home extends Component {
         return (
             <div className='HomeScreen'>
                 <div><img src='/DND.png' height='350' width='1000' /></div>
+                
                 <div className='Links'>
                     <div>
                         <div>

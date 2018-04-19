@@ -38,7 +38,7 @@ export default class Weapon extends Component {
                 <p>weight: {weapon.weight} lb.</p>
                 <p className='properties'>properties: {properties}</p>
                 <div className='addButton'>
-                    <button onClick={() => this.props.addToDash(this.state.arm)}>ADD</button>
+                    <button onClick={() => this.props.addToDash(this.state.weapon)}>ADD</button>
                 </div>
             </div>
         )
