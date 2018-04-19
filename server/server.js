@@ -48,7 +48,7 @@ passport.deserializeUser( (profile, done) => {
 });
 
 app.get('/login', passport.authenticate('auth0', {
-    successRedirect: process.env.SUCCES_REDIRECT,
+    successRedirect: process.env.SUCCESS_REDIRECT,
     failureRedirect: process.env.FAILURE_REDIRECT,
 }))
 
