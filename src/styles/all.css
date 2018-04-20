@@ -194,7 +194,7 @@ html {
       text-transform: uppercase;
       background-color: beige;
       border-color: black;
-      font-size: 18px;
+      font-size: 16px;
       box-shadow: 4px 4px 4px #87735a; }
 
 .Window .Header {
@@ -292,7 +292,7 @@ html {
       text-transform: uppercase;
       background-color: beige;
       border-color: black;
-      font-size: 18px;
+      font-size: 16px;
       box-shadow: 4px 4px 4px #87735a; }
 
 .DashItem {
@@ -311,7 +311,7 @@ html {
     height: 100%;
     background-color: beige;
     border-color: black;
-    font-size: 18px;
+    font-size: 16px;
     box-shadow: 4px 4px 4px #919182;
     margin-right: 10px; }
   .DashItem .DelBut {
@@ -321,7 +321,7 @@ html {
     text-transform: uppercase;
     background-color: beige;
     border-color: black;
-    font-size: 18px;
+    font-size: 16px;
     box-shadow: 4px 4px 4px #919182;
     height: 100%; }
 
@@ -422,7 +422,7 @@ html {
       text-transform: uppercase;
       background-color: beige;
       border-color: black;
-      font-size: 18px;
+      font-size: 16px;
       box-shadow: 4px 4px 4px #87735a; }
 
 .Window .Header {
@@ -525,7 +525,7 @@ html {
       text-transform: uppercase;
       background-color: beige;
       border-color: black;
-      font-size: 18px;
+      font-size: 16px;
       box-shadow: 4px 4px 4px #87735a; }
 
 .Window .Header {
@@ -623,7 +623,7 @@ html {
       text-transform: uppercase;
       background-color: beige;
       border-color: black;
-      font-size: 18px;
+      font-size: 16px;
       box-shadow: 4px 4px 4px #87735a; }
 
 .HomeScreen {
@@ -662,7 +662,7 @@ html {
     height: 50px;
     background-color: beige;
     border-color: black;
-    font-size: 18px;
+    font-size: 16px;
     box-shadow: 4px 4px 4px #252828; }
 
 .Window .Header {
@@ -760,5 +760,5 @@ html {
       text-transform: uppercase;
       background-color: beige;
       border-color: black;
-      font-size: 18px;
+      font-size: 16px;
       box-shadow: 4px 4px 4px #87735a; }
