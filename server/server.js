@@ -6,7 +6,7 @@ const massive = require('massive');
 const port = process.env.SERVER_PORT || 3005;
 const axios = require('axios');
 const passport = require('passport');
-const Auth0strategy = require('passport-auth0')
+const Auth0strategy = require('passport-auth0');
 
 const app = express();
 
