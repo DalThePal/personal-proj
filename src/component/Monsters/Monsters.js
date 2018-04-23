@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToMonstDash, getMonsters, displayDashItem } from '../../ducks/reducer';
+import { getUser, addToMonstDash, getMonsters, displayDashItem } from '../../ducks/reducer';
 import Monster from '../Monster/Monster';
 import Dashboard from '../Dashboard/Dashboard';
 import { Link } from 'react-router-dom';
@@ -8,10 +8,10 @@ import { Link } from 'react-router-dom';
 class Monsters extends Component {
 
     componentDidMount() {
+        this.props.getUser();
         this.props.getMonsters();
-
     }
-
+    
     componentDidUpdate() {
         if (this.props.displayItem) {
             console.log(this.props.displayItem)
@@ -19,6 +19,8 @@ class Monsters extends Component {
             console.log(elmnt)
             elmnt.scrollIntoView();
         }
+
+        console.log(this.props.user)
     }
 
     render() {
@@ -52,6 +54,7 @@ class Monsters extends Component {
                         <img src='DND.png' height='100%' />
                     </div>
                     <div className='ProfileDiv'>
+                        <img src={this.props.user.picture} height='50' width='50'/>
                         <button><a href={'/logout'}>LOGOUT</a></button>
                     </div>
                 </div>
@@ -70,8 +73,9 @@ class Monsters extends Component {
 function mapStateToProps(state) {
     return {
         monsters: state.monsters,
-        displayItem: state.displayItem
+        displayItem: state.displayItem,
+        user: state.user
     }
 }
 
-export default connect(mapStateToProps, { addToMonstDash, getMonsters, displayDashItem })(Monsters);
+export default connect(mapStateToProps, { getUser, addToMonstDash, getMonsters, displayDashItem })(Monsters);

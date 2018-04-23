@@ -1,13 +1,15 @@
 
 module.exports = {
-
+ // req.session.passport.user
     // MONSTER DASH
 
     getMonstDash: (req, res) => {
-        console.log('got t0 getMonstDash')
-        const userId = req.params.userId;
+        const userId = req.session.passport.user.id;
         const dbInstance = req.app.get('db');
-        dbInstance.get_monst_dash().then((monsters) => res.status(200).send(monsters))
+        dbInstance.get_monst_dash(userId).then((monsters) => {
+            res.status(200).send(monsters)
+        })
+        
             .catch(() => res.status(500).send('didnt get monster'))
 
     },
@@ -29,6 +31,7 @@ module.exports = {
         const dbInstance = req.app.get('db');
         dbInstance.rem_monst_dash([
             req.body.name,
+            req.session.passport.user.id
         ]).then((monsters) => res.status(200).send(monsters))
             .catch(() => res.status(500).send('didnt delete monster'))
 
@@ -38,8 +41,10 @@ module.exports = {
 
     getSpellDash: (req, res) => {
         console.log('got t0 getSpellDash')
+        const userId = req.session.passport.user.id;
+
         const dbInstance = req.app.get('db');
-        dbInstance.get_spell_dash().then((spells) => res.status(200).send(spells))
+        dbInstance.get_spell_dash(userId).then((spells) => res.status(200).send(spells))
             .catch(() => res.status(500).send('didnt get spells'))
 
     },
@@ -60,6 +65,7 @@ module.exports = {
         const dbInstance = req.app.get('db');
         dbInstance.rem_spell_dash([
             req.body.name,
+            req.session.passport.user.id
         ]).then((spells) => res.status(200).send(spells))
             .catch(() => res.status(500).send('didnt delete spell'))
     },
@@ -68,8 +74,10 @@ module.exports = {
 
     getArmorDash: (req, res) => {
         console.log('got t0 getArmorDash')
+        const userId = req.session.passport.user.id;
+
         const dbInstance = req.app.get('db');
-        dbInstance.get_armor_dash().then((armor) => res.status(200).send(armor))
+        dbInstance.get_armor_dash(userId).then((armor) => res.status(200).send(armor))
             .catch(() => res.status(500).send('didnt get armor'))
 
     },
@@ -90,6 +98,7 @@ module.exports = {
         const dbInstance = req.app.get('db');
         dbInstance.rem_armor_dash([
             req.body.name,
+            req.session.passport.user.id
         ]).then((armor) => res.status(200).send(armor))
             .catch(() => res.status(500).send('didnt delete armor'))
     },
@@ -98,8 +107,10 @@ module.exports = {
 
     getWeaponDash: (req, res) => {
         console.log('got t0 getWeaponDash')
+        const userId = req.session.passport.user.id;
+
         const dbInstance = req.app.get('db');
-        dbInstance.get_weapon_dash().then((weapon) => res.status(200).send(weapon))
+        dbInstance.get_weapon_dash(userId).then((weapon) => res.status(200).send(weapon))
             .catch(() => res.status(500).send('didnt get weapon'))
 
     },
@@ -120,6 +131,7 @@ module.exports = {
         const dbInstance = req.app.get('db');
         dbInstance.rem_weapon_dash([
             req.body.name,
+            req.session.passport.user.id
         ]).then((weapon) => res.status(200).send(weapon))
             .catch(() => res.status(500).send('didnt delete weapon'))
     },
@@ -128,8 +140,10 @@ module.exports = {
 
     getEquipDash: (req, res) => {
         console.log('got t0 getEquipDash')
+        const userId = req.session.passport.user.id;
+
         const dbInstance = req.app.get('db');
-        dbInstance.get_equip_dash().then((equip) => res.status(200).send(equip))
+        dbInstance.get_equip_dash(userId).then((equip) => res.status(200).send(equip))
             .catch(() => res.status(500).send('didnt get equip'))
 
     },
@@ -150,6 +164,7 @@ module.exports = {
         const dbInstance = req.app.get('db');
         dbInstance.rem_equip_dash([
             req.body.name,
+            req.session.passport.user.id
         ]).then((equip) => res.status(200).send(equip))
             .catch(() => res.status(500).send('didnt delete equip'))
     },
@@ -158,8 +173,10 @@ module.exports = {
 
     getMountDash: (req, res) => {
         console.log('got t0 getMountDash')
+        const userId = req.session.passport.user.id;
+
         const dbInstance = req.app.get('db');
-        dbInstance.get_mount_dash().then((mount) => res.status(200).send(mount))
+        dbInstance.get_mount_dash(userId).then((mount) => res.status(200).send(mount))
             .catch(() => res.status(500).send('didnt get mount'))
 
     },
@@ -180,6 +197,8 @@ module.exports = {
         const dbInstance = req.app.get('db');
         dbInstance.rem_mount_dash([
             req.body.name,
+            req.session.passport.user.id
+
         ]).then((mount) => res.status(200).send(mount))
             .catch(() => res.status(500).send('didnt delete mount'))
     },

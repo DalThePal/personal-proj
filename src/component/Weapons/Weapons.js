@@ -53,6 +53,7 @@ class Weapons extends Component {
                         <img src='DND.png' height='100%' />
                     </div>
                     <div className='ProfileDiv'>
+                        <img src={this.props.user.picture} height='50' width='50'/>
                         <button><a href={'/logout'}>LOGOUT</a></button>
                     </div>
                 </div>
@@ -70,7 +71,8 @@ class Weapons extends Component {
 function mapStateToProps(state) {
     return {
         weapons: state.weapons,
-        displayItem: state.displayItem
+        displayItem: state.displayItem,
+        user: state.user
     }
 }
 

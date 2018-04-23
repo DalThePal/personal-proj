@@ -1,1 +1,2 @@
-select * from mountDash;
+select * from mountDash
+where userid = $1;

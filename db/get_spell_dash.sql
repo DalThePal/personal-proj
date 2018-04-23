@@ -1,1 +1,2 @@
-select * from spellDash;
+select * from spellDash
+where userid = $1;

@@ -1,1 +1,2 @@
-select * from armorDash;
+select * from armorDash
+where userid = $1;

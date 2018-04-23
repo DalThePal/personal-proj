@@ -1,1 +1,2 @@
-select * from equipDash;
+select * from equipDash
+where userid = $1;

@@ -15,7 +15,7 @@ let initialState = {
     armor: [],
     weapons: [],
     displayItem: '',
-
+    user: {}
 
 };
 
@@ -39,12 +39,26 @@ const UPDATE_ARMOR_DASH = 'UPDATE_ARMOR_DASH';
 const UPDATE_EQUIP_DASH = 'UPDATE_EQUIP_DASH';
 const UPDATE_MOUNT_DASH = 'UPDATE_MOUNT_DASH';
 const UPDATE_WEAPON_DASH = 'UPDATE_WEAPON_DASH';
+const UPDATE_USER_INFO = 'UPDATE_USER_INFO';
 
 const GET_MONSTERS = 'GET_MONSTERS';
 const GET_SPELLS = 'GET_SPELLS';
 const GET_EQUIPMENT = 'GET_EQUIPMENT';
 
 const DISPLAY_DASH_ITEM = 'DISPLAY_DASH_ITEM';
+
+export function getUser() {
+
+    const userData = axios.get('/auth/me').then(res => {
+        return res.data;
+    })
+
+    return {
+        type: UPDATE_USER_INFO,
+        payload: userData
+    }
+
+}
 
 // DASHBOARD
 
@@ -59,12 +73,13 @@ export function displayDashItem(item) {
 // MONSTER DASH
 
 export function getMonstDash() {
+    console.log(initialState.user)
     const promise = axios.get(`/monstDashItems`)
     return {
         type: UPDATE_MONST_DASH,
         payload: promise
     }
-    
+
 }
 
 export function addToMonstDash(item) {
@@ -73,7 +88,7 @@ export function addToMonstDash(item) {
         type: UPDATE_MONST_DASH,
         payload: promise
     }
-    
+
 }
 
 export function remFromMonstDash(item) {
@@ -93,7 +108,7 @@ export function getSpellDash() {
         type: UPDATE_SPELL_DASH,
         payload: promise
     }
-    
+
 }
 
 export function addToSpellDash(item) {
@@ -120,7 +135,7 @@ export function getArmorDash() {
         type: UPDATE_ARMOR_DASH,
         payload: promise
     }
-    
+
 }
 
 export function addToArmorDash(item) {
@@ -147,7 +162,7 @@ export function getWeaponDash() {
         type: UPDATE_WEAPON_DASH,
         payload: promise
     }
-    
+
 }
 
 export function addToWeaponDash(item) {
@@ -174,7 +189,7 @@ export function getEquipDash() {
         type: UPDATE_EQUIP_DASH,
         payload: promise
     }
-    
+
 }
 export function addToEquipDash(item) {
     const promise = axios.post('/equipDashItems', item)
@@ -200,7 +215,7 @@ export function getMountDash() {
         type: UPDATE_MOUNT_DASH,
         payload: promise
     }
-    
+
 }
 
 export function addToMountDash(item) {
@@ -248,6 +263,9 @@ export default function reducer(state = initialState, action) {
     switch (action.type) {
         case DISPLAY_DASH_ITEM:
             return Object.assign({}, state, { displayItem: action.payload });
+
+        case UPDATE_USER_INFO + '_FULFILLED':
+            return Object.assign({}, state, { user: action.payload });
 
         case UPDATE_MOUNT_DASH + '_FULFILLED':
             return Object.assign({}, state, { mountDash: action.payload.data });

@@ -44,7 +44,7 @@ passport.use(new Auth0strategy({
     db.find_user(profile.id).then( user => {
         if( user[0] ) {
             console.log( 'old user!' )
-            return done( null, user )
+            return done( null, user[0] )
         }
         else {
             console.log( 'new user!' )
@@ -68,6 +68,13 @@ app.get('/login', passport.authenticate('auth0', {
     successRedirect: process.env.SUCCESS_REDIRECT,
     failureRedirect: process.env.FAILURE_REDIRECT,
 }))
+
+app.get('/auth/me', function (req, res) {
+    if (req.session.passport) {
+        return res.status(200).send(req.session.passport.user)
+    }
+    return res.status(500).send('No user found')
+})
 
 app.get('/logout', (req, res) => {
     req.logout();

@@ -126,6 +126,7 @@ class Favorites extends Component {
                         <img src='DND.png' height='100%' />
                     </div>
                     <div className='ProfileDiv'>
+                        <img src={this.props.user.picture} height='50' width='50'/>
                         <button><a href={'/logout'}>LOGOUT</a></button>
                     </div>
                 </div>
@@ -153,7 +154,8 @@ function mapStateToProps(state) {
         armor: state.armorDash,
         weapons: state.weaponDash,
         equipment: state.equipDash,
-        mounts: state.mountDash
+        mounts: state.mountDash,
+        user: state.user
     }
 }
 

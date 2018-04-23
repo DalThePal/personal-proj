@@ -155,6 +155,9 @@ html {
     display: flex;
     align-items: center;
     justify-content: flex-end; }
+    .Window .Header .ProfileDiv img {
+      border: 2px solid black;
+      margin-right: 10px; }
     .Window .Header .ProfileDiv button {
       background-color: beige;
       border-color: black;
@@ -283,6 +286,9 @@ html {
     display: flex;
     align-items: center;
     justify-content: flex-end; }
+    .Window .Header .ProfileDiv img {
+      border: 2px solid black;
+      margin-right: 10px; }
     .Window .Header .ProfileDiv button {
       background-color: beige;
       border-color: black;
@@ -432,6 +438,9 @@ html {
     display: flex;
     align-items: center;
     justify-content: flex-end; }
+    .Window .Header .ProfileDiv img {
+      border: 2px solid black;
+      margin-right: 10px; }
     .Window .Header .ProfileDiv button {
       background-color: beige;
       border-color: black;
@@ -553,6 +562,9 @@ html {
     display: flex;
     align-items: center;
     justify-content: flex-end; }
+    .Window .Header .ProfileDiv img {
+      border: 2px solid black;
+      margin-right: 10px; }
     .Window .Header .ProfileDiv button {
       background-color: beige;
       border-color: black;
@@ -677,6 +689,9 @@ html {
     display: flex;
     align-items: center;
     justify-content: flex-end; }
+    .Window .Header .ProfileDiv img {
+      border: 2px solid black;
+      margin-right: 10px; }
     .Window .Header .ProfileDiv button {
       background-color: beige;
       border-color: black;
@@ -835,6 +850,9 @@ html {
     display: flex;
     align-items: center;
     justify-content: flex-end; }
+    .Window .Header .ProfileDiv img {
+      border: 2px solid black;
+      margin-right: 10px; }
     .Window .Header .ProfileDiv button {
       background-color: beige;
       border-color: black;
@@ -954,6 +972,9 @@ html {
     display: flex;
     align-items: center;
     justify-content: flex-end; }
+    .Window .Header .ProfileDiv img {
+      border: 2px solid black;
+      margin-right: 10px; }
     .Window .Header .ProfileDiv button {
       background-color: beige;
       border-color: black;

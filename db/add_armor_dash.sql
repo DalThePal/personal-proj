@@ -1,3 +1,4 @@
 insert into armorDash (userid, name, url)
 values ($1, $2, $3);
-select * from armorDash;
+select * from armorDash
+where userid = $1;

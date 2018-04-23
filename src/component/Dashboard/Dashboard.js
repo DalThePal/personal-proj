@@ -9,12 +9,13 @@ import {
     getEquipDash, remFromEquipDash,
     getWeaponDash, remFromWeaponDash,
     getArmorDash, remFromArmorDash,
-    displayDashItem
+    displayDashItem, getUser
 } from '../../ducks/reducer';
 
 class Dashboard extends Component {
 
     componentDidMount() {
+        this.props.getUser();
         this.props.getMonstDash();
         this.props.getSpellDash();
         this.props.getArmorDash();
@@ -167,5 +168,5 @@ export default connect(mapStateToProps, {
     getArmorDash, remFromArmorDash,
     getEquipDash, remFromEquipDash,
     getWeaponDash, remFromWeaponDash,
-    displayDashItem
+    displayDashItem, getUser
 })(Dashboard);
