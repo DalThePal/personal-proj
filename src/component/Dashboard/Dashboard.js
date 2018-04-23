@@ -107,40 +107,40 @@ class Dashboard extends Component {
         return (
             <div className='Dashboard'>
                 <div className='displayButton'>
-                    <Link to='/favorites'><button>Display all</button></Link>
+                    <Link to='/favorites' onClick={() => { this.props.displayDashItem(''); }}><button>Display all</button></Link>
                 </div>
                 <div className='SectionTitle'>
-                    <Link to='/Monsters'>MONSTERS</Link>
+                    <Link to='/Monsters' onClick={() => { this.props.displayDashItem(''); }}>MONSTERS</Link>
                 </div>
                 <div className='Items'>
                     {monstItems}
                 </div>
                 <div className='SectionTitle'>
-                    <Link to='/Spells'>SPELLS</Link>
+                    <Link to='/Spells' onClick={() => { this.props.displayDashItem(''); }}>SPELLS</Link>
                 </div>
                 <div className='Items'>
                     {spellItems}
                 </div>
                 <div className='SectionTitle'>
-                    <Link to='/Armor'>ARMOR</Link>
+                    <Link to='/Armor' onClick={() => { this.props.displayDashItem(''); }}>ARMOR</Link>
                 </div>
                 <div className='Items'>
                     {armorItems}
                 </div>
                 <div className='SectionTitle'>
-                    <Link to='/Weapons'>WEAPONS</Link>
+                    <Link to='/Weapons' onClick={() => { this.props.displayDashItem(''); }}>WEAPONS</Link>
                 </div>
                 <div className='Items'>
                     {weaponItems}
                 </div>
                 <div className='SectionTitle'>
-                    <Link to='/Equipment'>EQUIPMENT</Link>
+                    <Link to='/Equipment' onClick={() => { this.props.displayDashItem(''); }}>EQUIPMENT</Link>
                 </div>
                 <div className='Items'>
                     {equipItems}
                 </div>
                 <div className='SectionTitle'>
-                    <Link to='/Mounts'>MOUNTS & VEHICLES</Link>
+                    <Link to='/Mounts' onClick={() => { this.props.displayDashItem(''); }}>MOUNTS & VEHICLES</Link>
                 </div>
                 <div className='Items'>
                     {mountItems}
