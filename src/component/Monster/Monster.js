@@ -8,33 +8,45 @@ export default class Monster extends Component {
     }
 
     componentDidMount() {
-        axios.get(this.props.url).then(res => this.setState({
-            monster: res.data,
-        }));
+        axios.get(this.props.url).then(res => {
+            // let monster = Object.assign({}, res.data, {type:'monster'})
+            
+            
+            let monster = {
+                dashType: 'monster'
+            }
+
+            Object.assign(monster, res.data);
+
+            this.setState({
+                monster: monster,
+
+            })
+        });
     }
 
 
 
     render() {
         const { monster } = this.state;
-        console.log(this.state.specialAbilities)
+
         let specialAbilities = null;
         let actions = null;
         let legendaryActions = null;
 
-        if(this.state.monster.actions) {
+        if (this.state.monster.actions) {
 
-             actions = this.state.monster.actions.map((action) => {
-                 return (
-                     <div className='ActAb'>
-                         <h3>{action.name}.</h3>
-                         <p>{action.desc}</p>
-                     </div>
-                 )
-             })
+            actions = this.state.monster.actions.map((action) => {
+                return (
+                    <div className='ActAb'>
+                        <h3>{action.name}.</h3>
+                        <p>{action.desc}</p>
+                    </div>
+                )
+            })
         }
 
-        if(this.state.monster.legendary_actions) {
+        if (this.state.monster.legendary_actions) {
 
             legendaryActions = this.state.monster.legendary_actions.map((action) => {
                 return (
@@ -44,9 +56,9 @@ export default class Monster extends Component {
                     </div>
                 )
             })
-       }
+        }
 
-        if(this.state.monster.special_abilities) {
+        if (this.state.monster.special_abilities) {
 
             specialAbilities = this.state.monster.special_abilities.map((ability, index) => {
                 return (

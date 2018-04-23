@@ -9,6 +9,7 @@ import Equipment from './component/Equipment/Equipment';
 import Home from './component/Home/Home';
 import Login from './component/Login/Login';
 import Mounts from './component/Mounts/Mounts';
+import Favorites from './component/Favorites/Favorites';
 
 export default () => {
     return (
@@ -21,6 +22,7 @@ export default () => {
             <Route path='/Armor' component={Armor} />
             <Route path='/Equipment' component={Equipment} />
             <Route path='/Mounts' component={Mounts} />
+            <Route path='/Favorites' component={Favorites} />
         </Switch>
     )
 }

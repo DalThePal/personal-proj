@@ -12,10 +12,34 @@
     align-items: center;
     border: 2px solid black;
 
+    .displayButton {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        margin-top: 10px;
+
+
+        button {
+
+            @include textDefault();
+            @include button($button-shadow-beige);
+            width: 100%;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        }
+
+        width: 100%;
+        height: 100%;
+    }
+
     .SectionTitle {
         text-align: center;
         border-bottom: 2px solid red;
         padding-bottom: 10px;
+        a {
+            @include textDefault();
+
+        }
     }
     
     .Items {

@@ -1,4 +1,5 @@
 import * as controller from './controller';
+import axios from 'axios';
 
 let initialState = {
     monstDash: [],
@@ -14,6 +15,7 @@ let initialState = {
     armor: [],
     weapons: [],
     displayItem: '',
+
 
 };
 
@@ -31,11 +33,20 @@ const REM_FROM_WEAPON_DASH = 'REM_FROM_WEAPON_DASH';
 const REM_FROM_ARMOR_DASH = 'REM_FROM_ARMOR_DASH';
 const REM_FROM_MOUNT_DASH = 'REM_FROM_MOUNT_DASH';
 
+const UPDATE_MONST_DASH = 'UPDATE_MONST_DASH';
+const UPDATE_SPELL_DASH = 'UPDATE_SPELL_DASH';
+const UPDATE_ARMOR_DASH = 'UPDATE_ARMOR_DASH';
+const UPDATE_EQUIP_DASH = 'UPDATE_EQUIP_DASH';
+const UPDATE_MOUNT_DASH = 'UPDATE_MOUNT_DASH';
+const UPDATE_WEAPON_DASH = 'UPDATE_WEAPON_DASH';
+
 const GET_MONSTERS = 'GET_MONSTERS';
 const GET_SPELLS = 'GET_SPELLS';
 const GET_EQUIPMENT = 'GET_EQUIPMENT';
 
 const DISPLAY_DASH_ITEM = 'DISPLAY_DASH_ITEM';
+
+// DASHBOARD
 
 export function displayDashItem(item) {
     return ({
@@ -44,90 +55,171 @@ export function displayDashItem(item) {
     })
 }
 
-export function addToMountDash(item) {
-    return({
-        type: ADD_TO_MOUNT_DASH,
-        payload: item
-    })
+
+// MONSTER DASH
+
+export function getMonstDash() {
+    const promise = axios.get(`/monstDashItems`)
+    return {
+        type: UPDATE_MONST_DASH,
+        payload: promise
+    }
+    
 }
 
 export function addToMonstDash(item) {
-    return ({
-        type: ADD_TO_MONST_DASH,
-        payload: item
-    })
-}
-
-export function addToSpellDash(item) {
-    return ({
-        type: ADD_TO_SPELL_DASH,
-        payload: item
-    })
-}
-
-export function addToArmorDash(item) {
-    return ({
-        type: ADD_TO_ARMOR_DASH,
-        payload: item
-    })
-}
-
-export function addToWeaponDash(item) {
-    return ({
-        type: ADD_TO_WEAPON_DASH,
-        payload: item
-    })
-}
-
-export function addToEquipDash(item) {
-    return ({
-        type: ADD_TO_EQUIP_DASH,
-        payload: item
-    })
-}
-
-export function remFromMountDash(item) {
-    return ({
-        type: REM_FROM_MOUNT_DASH,
-        payload: item
-    })
+    const promise = axios.post('/monstDashItems', item)
+    return {
+        type: UPDATE_MONST_DASH,
+        payload: promise
+    }
+    
 }
 
 export function remFromMonstDash(item) {
-    return ({
-        type: REM_FROM_MONST_DASH,
-        payload: item
+    console.log('reducer object', item)
+    const promise = axios.put('/monstDashItems', item)
+    return {
+        type: UPDATE_MONST_DASH,
+        payload: promise
+    }
+}
 
-    })
+// SPELL DASH
+
+export function getSpellDash() {
+    const promise = axios.get('/spellDashItems')
+    return {
+        type: UPDATE_SPELL_DASH,
+        payload: promise
+    }
+    
+}
+
+export function addToSpellDash(item) {
+    const promise = axios.post('/spellDashItems', item)
+    return {
+        type: UPDATE_SPELL_DASH,
+        payload: promise
+    }
 }
 
 export function remFromSpellDash(item) {
-    return ({
-        type: REM_FROM_SPELL_DASH,
-        payload: item
-    })
+    const promise = axios.put('/spellDashItems', item)
+    return {
+        type: UPDATE_SPELL_DASH,
+        payload: promise
+    }
+}
+
+// ARMOR DASH
+
+export function getArmorDash() {
+    const promise = axios.get('/armorDashItems')
+    return {
+        type: UPDATE_ARMOR_DASH,
+        payload: promise
+    }
+    
+}
+
+export function addToArmorDash(item) {
+    const promise = axios.post('/armorDashItems', item)
+    return {
+        type: UPDATE_ARMOR_DASH,
+        payload: promise
+    }
 }
 
 export function remFromArmorDash(item) {
-    return ({
-        type: REM_FROM_ARMOR_DASH,
-        payload: item
-    })
+    const promise = axios.put('/armorDashItems', item)
+    return {
+        type: UPDATE_ARMOR_DASH,
+        payload: promise
+    }
+}
+
+// WEAPON DASH
+
+export function getWeaponDash() {
+    const promise = axios.get('/weaponDashItems')
+    return {
+        type: UPDATE_WEAPON_DASH,
+        payload: promise
+    }
+    
+}
+
+export function addToWeaponDash(item) {
+    const promise = axios.post('/weaponDashItems', item)
+    return {
+        type: UPDATE_WEAPON_DASH,
+        payload: promise
+    }
 }
 
 export function remFromWeaponDash(item) {
-    return ({
-        type: REM_FROM_WEAPON_DASH,
-        payload: item
-    })
+    const promise = axios.put('/weaponDashItems', item)
+    return {
+        type: UPDATE_WEAPON_DASH,
+        payload: promise
+    }
+}
+
+// EQUIP DASH
+
+export function getEquipDash() {
+    const promise = axios.get('/equipDashItems')
+    return {
+        type: UPDATE_EQUIP_DASH,
+        payload: promise
+    }
+    
+}
+export function addToEquipDash(item) {
+    const promise = axios.post('/equipDashItems', item)
+    return {
+        type: UPDATE_EQUIP_DASH,
+        payload: promise
+    }
 }
 
 export function remFromEquipDash(item) {
-    return ({
-        type: REM_FROM_EQUIP_DASH,
-        payload: item
-    })
+    const promise = axios.put('/equipDashItems', item)
+    return {
+        type: UPDATE_EQUIP_DASH,
+        payload: promise
+    }
 }
+
+// MOUNT DASH
+
+export function getMountDash() {
+    const promise = axios.get('/mountDashItems')
+    return {
+        type: UPDATE_MOUNT_DASH,
+        payload: promise
+    }
+    
+}
+
+export function addToMountDash(item) {
+    const promise = axios.post('/mountDashItems', item)
+    return {
+        type: UPDATE_MOUNT_DASH,
+        payload: promise
+    }
+}
+
+export function remFromMountDash(item) {
+    const promise = axios.put('/mountDashItems', item)
+    return {
+        type: UPDATE_MOUNT_DASH,
+        payload: promise
+    }
+}
+
+// DND API
 
 export function getMonsters() {
     return ({
@@ -155,25 +247,25 @@ export function getEquipment() {
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case DISPLAY_DASH_ITEM:
-            return Object.assign({}, state, { displayItem: action.payload});
+            return Object.assign({}, state, { displayItem: action.payload });
 
-        case ADD_TO_MOUNT_DASH:
-            return Object.assign({}, state, { mountDash: [...state.mountDash, action.payload] });
+        case UPDATE_MOUNT_DASH + '_FULFILLED':
+            return Object.assign({}, state, { mountDash: action.payload.data });
 
-        case ADD_TO_MONST_DASH:
-            return Object.assign({}, state, { monstDash: [...state.monstDash, action.payload] });
+        case UPDATE_MONST_DASH + '_FULFILLED':
+            return Object.assign({}, state, { monstDash: action.payload.data });
 
-        case ADD_TO_SPELL_DASH:
-            return Object.assign({}, state, { spellDash: [...state.spellDash, action.payload] });
+        case UPDATE_SPELL_DASH + '_FULFILLED':
+            return Object.assign({}, state, { spellDash: action.payload.data });
 
-        case ADD_TO_ARMOR_DASH:
-            return Object.assign({}, state, { armorDash: [...state.armorDash, action.payload] });
+        case UPDATE_ARMOR_DASH + '_FULFILLED':
+            return Object.assign({}, state, { armorDash: action.payload.data });
 
-        case ADD_TO_WEAPON_DASH:
-            return Object.assign({}, state, { weaponDash: [...state.weaponDash, action.payload] });
+        case UPDATE_WEAPON_DASH + '_FULFILLED':
+            return Object.assign({}, state, { weaponDash: action.payload.data });
 
-        case ADD_TO_EQUIP_DASH:
-            return Object.assign({}, state, { equipDash: [...state.equipDash, action.payload] });
+        case UPDATE_EQUIP_DASH + '_FULFILLED':
+            return Object.assign({}, state, { equipDash: action.payload.data });
 
         case REM_FROM_MOUNT_DASH:
             let mountIndex = state.mountDash.findIndex(mount => mount.name === action.payload)
@@ -223,7 +315,7 @@ export default function reducer(state = initialState, action) {
             let equipment = action.payload.slice(50, 191);
             let mounts = action.payload.slice(191);
             return Object.assign({}, state, { armor: armor, weapons: weapons, equipment: equipment, mounts: mounts });
-          
+
         default:
             return state;
     }

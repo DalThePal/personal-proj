@@ -1,9 +1,27 @@
 import React, { Component } from 'react';
 import DashItem from '../DashItem/DashItem';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { remFromMountDash, remFromMonstDash, remFromSpellDash, remFromEquipDash, remFromWeaponDash, remFromArmorDash, displayDashItem } from '../../ducks/reducer';
+import {
+    getMountDash, remFromMountDash,
+    getMonstDash, remFromMonstDash,
+    getSpellDash, remFromSpellDash,
+    getEquipDash, remFromEquipDash,
+    getWeaponDash, remFromWeaponDash,
+    getArmorDash, remFromArmorDash,
+    displayDashItem
+} from '../../ducks/reducer';
 
 class Dashboard extends Component {
+
+    componentDidMount() {
+        this.props.getMonstDash();
+        this.props.getSpellDash();
+        this.props.getArmorDash();
+        this.props.getWeaponDash();
+        this.props.getEquipDash();
+        this.props.getMountDash();
+    }
 
     render() {
         const monstItems = this.props.monstDash.map((monster, index) => {
@@ -12,7 +30,8 @@ class Dashboard extends Component {
                     key={index}
                     item={monster}
                     removeFromDash={this.props.remFromMonstDash}
-                    link={'/monsters'}
+                    dashType={'monster'}
+                    link='/monsters'
                     displayDashItem={this.props.displayDashItem}
 
                 />
@@ -25,6 +44,7 @@ class Dashboard extends Component {
                     key={index}
                     item={spell}
                     removeFromDash={this.props.remFromSpellDash}
+                    dashType={'spell'}
                     link={'/spells'}
                     displayDashItem={this.props.displayDashItem}
                 />
@@ -37,6 +57,7 @@ class Dashboard extends Component {
                     key={index}
                     item={arm}
                     removeFromDash={this.props.remFromArmorDash}
+                    dashType={'armor'}
                     link={'/armor'}
                     displayDashItem={this.props.displayDashItem}
                 />
@@ -49,6 +70,7 @@ class Dashboard extends Component {
                     key={index}
                     item={weapon}
                     removeFromDash={this.props.remFromWeaponDash}
+                    dashType={'weapon'}
                     link={'/weapons'}
                     displayDashItem={this.props.displayDashItem}
                 />
@@ -61,6 +83,7 @@ class Dashboard extends Component {
                     key={index}
                     item={equip}
                     removeFromDash={this.props.remFromEquipDash}
+                    dashType={'equipment'}
                     link={'/equipment'}
                     displayDashItem={this.props.displayDashItem}
                 />
@@ -73,6 +96,7 @@ class Dashboard extends Component {
                     key={index}
                     item={mount}
                     removeFromDash={this.props.remFromMountDash}
+                    dashType={'mount'}
                     link={'/mounts'}
                     displayDashItem={this.props.displayDashItem}
                 />
@@ -81,38 +105,41 @@ class Dashboard extends Component {
 
         return (
             <div className='Dashboard'>
+                <div className='displayButton'>
+                    <Link to='/favorites'><button>Display all</button></Link>
+                </div>
                 <div className='SectionTitle'>
-                    MONSTERS
+                    <Link to='/Monsters'>MONSTERS</Link>
                 </div>
                 <div className='Items'>
                     {monstItems}
                 </div>
                 <div className='SectionTitle'>
-                    SPELLS
+                    <Link to='/Spells'>SPELLS</Link>
                 </div>
                 <div className='Items'>
                     {spellItems}
                 </div>
                 <div className='SectionTitle'>
-                    ARMOR
+                    <Link to='/Armor'>ARMOR</Link>
                 </div>
                 <div className='Items'>
                     {armorItems}
                 </div>
                 <div className='SectionTitle'>
-                    WEAPONS
+                    <Link to='/Weapons'>WEAPONS</Link>
                 </div>
                 <div className='Items'>
                     {weaponItems}
                 </div>
                 <div className='SectionTitle'>
-                    EQUIPMENT
+                    <Link to='/Equipment'>EQUIPMENT</Link>
                 </div>
                 <div className='Items'>
                     {equipItems}
                 </div>
                 <div className='SectionTitle'>
-                    MOUNTS & VEHICLES
+                    <Link to='/Mounts'>MOUNTS & VEHICLES</Link>
                 </div>
                 <div className='Items'>
                     {mountItems}
@@ -133,4 +160,12 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { remFromMountDash, remFromMonstDash, remFromSpellDash, remFromArmorDash, remFromEquipDash, remFromWeaponDash, displayDashItem })(Dashboard);
+export default connect(mapStateToProps, {
+    getMountDash, remFromMountDash,
+    getMonstDash, remFromMonstDash,
+    getSpellDash, remFromSpellDash,
+    getArmorDash, remFromArmorDash,
+    getEquipDash, remFromEquipDash,
+    getWeaponDash, remFromWeaponDash,
+    displayDashItem
+})(Dashboard);

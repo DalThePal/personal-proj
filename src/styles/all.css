@@ -70,10 +70,33 @@ html {
   padding: 20px;
   align-items: center;
   border: 2px solid black; }
+  .Dashboard .displayButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width: 100%;
+    height: 100%; }
+    .Dashboard .displayButton button {
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      background-color: beige;
+      border-color: black;
+      font-size: 16px;
+      box-shadow: 4px 4px 4px #919182;
+      width: 100%; }
   .Dashboard .SectionTitle {
     text-align: center;
     border-bottom: 2px solid red;
     padding-bottom: 10px; }
+    .Dashboard .SectionTitle a {
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase; }
   .Dashboard .Items {
     width: 100%;
     padding-top: 10px; }
@@ -102,12 +125,12 @@ html {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
   border-top: 2px solid black;
   border-left: 2px solid black;
   border-right: 2px solid black; }
   .Window .Header .linkDiv {
-    width: 40%;
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: center; }
@@ -118,10 +141,31 @@ html {
       text-transform: uppercase;
       font-size: 7vh; }
   .Window .Header .logoDiv {
-    width: 60%;
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: flex-start; }
+  .Window .Header .ProfileDiv {
+    width: 100%;
+    height: 100%;
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; }
+    .Window .Header .ProfileDiv button {
+      background-color: beige;
+      border-color: black;
+      font-size: 16px;
+      box-shadow: 4px 4px 4px #252828;
+      margin-right: 20px; }
+      .Window .Header .ProfileDiv button a {
+        font-family: "Nodesto Caps Condensed";
+        color: black;
+        text-decoration: none;
+        text-transform: uppercase; }
 
 .Window .Body {
   width: 100%;
@@ -209,12 +253,12 @@ html {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
   border-top: 2px solid black;
   border-left: 2px solid black;
   border-right: 2px solid black; }
   .Window .Header .linkDiv {
-    width: 40%;
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: center; }
@@ -225,10 +269,31 @@ html {
       text-transform: uppercase;
       font-size: 7vh; }
   .Window .Header .logoDiv {
-    width: 60%;
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: flex-start; }
+  .Window .Header .ProfileDiv {
+    width: 100%;
+    height: 100%;
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; }
+    .Window .Header .ProfileDiv button {
+      background-color: beige;
+      border-color: black;
+      font-size: 16px;
+      box-shadow: 4px 4px 4px #252828;
+      margin-right: 20px; }
+      .Window .Header .ProfileDiv button a {
+        font-family: "Nodesto Caps Condensed";
+        color: black;
+        text-decoration: none;
+        text-transform: uppercase; }
 
 .Window .Body {
   width: 100%;
@@ -337,12 +402,12 @@ html {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
   border-top: 2px solid black;
   border-left: 2px solid black;
   border-right: 2px solid black; }
   .Window .Header .linkDiv {
-    width: 40%;
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: center; }
@@ -353,10 +418,31 @@ html {
       text-transform: uppercase;
       font-size: 7vh; }
   .Window .Header .logoDiv {
-    width: 60%;
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: flex-start; }
+  .Window .Header .ProfileDiv {
+    width: 100%;
+    height: 100%;
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; }
+    .Window .Header .ProfileDiv button {
+      background-color: beige;
+      border-color: black;
+      font-size: 16px;
+      box-shadow: 4px 4px 4px #252828;
+      margin-right: 20px; }
+      .Window .Header .ProfileDiv button a {
+        font-family: "Nodesto Caps Condensed";
+        color: black;
+        text-decoration: none;
+        text-transform: uppercase; }
 
 .Window .Body {
   width: 100%;
@@ -437,12 +523,12 @@ html {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
   border-top: 2px solid black;
   border-left: 2px solid black;
   border-right: 2px solid black; }
   .Window .Header .linkDiv {
-    width: 40%;
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: center; }
@@ -453,10 +539,31 @@ html {
       text-transform: uppercase;
       font-size: 7vh; }
   .Window .Header .logoDiv {
-    width: 60%;
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: flex-start; }
+  .Window .Header .ProfileDiv {
+    width: 100%;
+    height: 100%;
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; }
+    .Window .Header .ProfileDiv button {
+      background-color: beige;
+      border-color: black;
+      font-size: 16px;
+      box-shadow: 4px 4px 4px #252828;
+      margin-right: 20px; }
+      .Window .Header .ProfileDiv button a {
+        font-family: "Nodesto Caps Condensed";
+        color: black;
+        text-decoration: none;
+        text-transform: uppercase; }
 
 .Window .Body {
   width: 100%;
@@ -540,12 +647,12 @@ html {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
   border-top: 2px solid black;
   border-left: 2px solid black;
   border-right: 2px solid black; }
   .Window .Header .linkDiv {
-    width: 40%;
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: center; }
@@ -556,10 +663,31 @@ html {
       text-transform: uppercase;
       font-size: 7vh; }
   .Window .Header .logoDiv {
-    width: 60%;
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: flex-start; }
+  .Window .Header .ProfileDiv {
+    width: 100%;
+    height: 100%;
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; }
+    .Window .Header .ProfileDiv button {
+      background-color: beige;
+      border-color: black;
+      font-size: 16px;
+      box-shadow: 4px 4px 4px #252828;
+      margin-right: 20px; }
+      .Window .Header .ProfileDiv button a {
+        font-family: "Nodesto Caps Condensed";
+        color: black;
+        text-decoration: none;
+        text-transform: uppercase; }
 
 .Window .Body {
   width: 100%;
@@ -677,12 +805,12 @@ html {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
   border-top: 2px solid black;
   border-left: 2px solid black;
   border-right: 2px solid black; }
   .Window .Header .linkDiv {
-    width: 40%;
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: center; }
@@ -693,10 +821,31 @@ html {
       text-transform: uppercase;
       font-size: 7vh; }
   .Window .Header .logoDiv {
-    width: 60%;
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: flex-start; }
+  .Window .Header .ProfileDiv {
+    width: 100%;
+    height: 100%;
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; }
+    .Window .Header .ProfileDiv button {
+      background-color: beige;
+      border-color: black;
+      font-size: 16px;
+      box-shadow: 4px 4px 4px #252828;
+      margin-right: 20px; }
+      .Window .Header .ProfileDiv button a {
+        font-family: "Nodesto Caps Condensed";
+        color: black;
+        text-decoration: none;
+        text-transform: uppercase; }
 
 .Window .Body {
   width: 100%;
@@ -762,3 +911,114 @@ html {
       border-color: black;
       font-size: 16px;
       box-shadow: 4px 4px 4px #87735a; }
+
+.Window .Header {
+  width: 100%;
+  height: 15vh;
+  font-family: "Nodesto Caps Condensed";
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 5px;
+  background-color: #404646;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black; }
+  .Window .Header .linkDiv {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center; }
+    .Window .Header .linkDiv a {
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 7vh; }
+  .Window .Header .logoDiv {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start; }
+  .Window .Header .ProfileDiv {
+    width: 100%;
+    height: 100%;
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; }
+    .Window .Header .ProfileDiv button {
+      background-color: beige;
+      border-color: black;
+      font-size: 16px;
+      box-shadow: 4px 4px 4px #252828;
+      margin-right: 20px; }
+      .Window .Header .ProfileDiv button a {
+        font-family: "Nodesto Caps Condensed";
+        color: black;
+        text-decoration: none;
+        text-transform: uppercase; }
+
+.Window .Body {
+  width: 100%;
+  height: 85vh; }
+  .Window .Body .Content {
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    overflow-y: scroll;
+    padding-top: 20px;
+    padding-left: 20px;
+    display: flex;
+    flex-wrap: wrap; }
+    .Window .Body .Content .MonsterDiv {
+      width: 100%;
+      height: 135%;
+      margin-bottom: 20px;
+      margin-right: 20px; }
+    .Window .Body .Content .ArmDiv {
+      width: 48%;
+      height: 30%;
+      margin-bottom: 20px;
+      margin-right: 20px; }
+    .Window .Body .Content .SpellDiv {
+      width: 100%;
+      height: 80%;
+      margin-bottom: 20px;
+      margin-right: 20px; }
+    .Window .Body .Content .WeaponDiv {
+      width: 48%;
+      height: 30%;
+      margin-bottom: 20px;
+      margin-right: 20px; }
+    .Window .Body .Content .EquipDiv {
+      width: 48%;
+      height: 45%;
+      margin-bottom: 20px;
+      margin-right: 20px; }
+    .Window .Body .Content .MountDiv {
+      width: 48%;
+      height: 35%;
+      margin-bottom: 20px;
+      margin-right: 20px; }
+
+::-webkit-scrollbar {
+  width: 20px; }
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; }
+
+::-webkit-scrollbar-thumb {
+  background: #888; }
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; }

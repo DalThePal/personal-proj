@@ -52,6 +52,9 @@ class Weapons extends Component {
                     <div className='logoDiv'>
                         <img src='DND.png' height='100%' />
                     </div>
+                    <div className='ProfileDiv'>
+                        <button><a href={'/logout'}>LOGOUT</a></button>
+                    </div>
                 </div>
                 <div className='Body'>
                     <div className='Weapons'>

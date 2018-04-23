@@ -7,6 +7,7 @@ const port = process.env.SERVER_PORT || 3005;
 const axios = require('axios');
 const passport = require('passport');
 const Auth0strategy = require('passport-auth0');
+const controller = require('./controller');
 
 const app = express();
 
@@ -37,8 +38,22 @@ passport.use(new Auth0strategy({
     clientSecret: CLIENT_SECRET,
     callbackURL: CALLBACK_URL,
     scope: 'openid email profile'
-}, function (accessToken, refreshToken, extraParams, profile, done) {
-    return done(null, profile);
+}, function( accessToken, refreshToken, extraParams, profile, done ) {
+    const db = app.get('db')
+    console.log(profile)
+    db.find_user(profile.id).then( user => {
+        if( user[0] ) {
+            console.log( 'old user!' )
+            return done( null, user )
+        }
+        else {
+            console.log( 'new user!' )
+            db.create_user([profile.id, profile.nickname, profile.picture])
+                .then( user => {
+                    return done( null, user )
+                })
+        }
+    })
 }));
 
 passport.serializeUser((profile, done) => {
@@ -53,6 +68,43 @@ app.get('/login', passport.authenticate('auth0', {
     successRedirect: process.env.SUCCESS_REDIRECT,
     failureRedirect: process.env.FAILURE_REDIRECT,
 }))
+
+app.get('/logout', (req, res) => {
+    req.logout();
+    res.redirect(process.env.FAILURE_REDIRECT);
+})
+
+// DB ENDPOINTS
+
+// MONSTER DASH ENDPOINTS
+app.get(`/monstDashItems`, controller.getMonstDash);
+app.post('/monstDashItems', controller.addToMonstDash);
+app.put('/monstDashItems', controller.remFromMonstDash);
+
+// SPELL DASH ENDPOINTS
+app.get('/spellDashItems', controller.getSpellDash);
+app.post('/spellDashItems', controller.addToSpellDash);
+app.put('/spellDashItems', controller.remFromSpellDash);
+
+// ARMOR DASH ENDPOINTS
+app.get('/armorDashItems', controller.getArmorDash);
+app.post('/armorDashItems', controller.addToArmorDash);
+app.put('/armorDashItems', controller.remFromArmorDash);
+
+// WEAPON DASH ENDPOINTS
+app.get('/weaponDashItems', controller.getWeaponDash);
+app.post('/weaponDashItems', controller.addToWeaponDash);
+app.put('/weaponDashItems', controller.remFromWeaponDash);
+
+// EQUIP DASH ENDPOINTS
+app.get('/equipDashItems', controller.getEquipDash);
+app.post('/equipDashItems', controller.addToEquipDash);
+app.put('/equipDashItems', controller.remFromEquipDash);
+
+// MOUNT DASH ENDPOINTS
+app.get('/mountDashItems', controller.getMountDash);
+app.post('/mountDashItems', controller.addToMountDash);
+app.put('/mountDashItems', controller.remFromMountDash);
 
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

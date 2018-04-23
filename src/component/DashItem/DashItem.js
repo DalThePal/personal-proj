@@ -8,7 +8,6 @@ class DashItem extends Component {
     render() {
 
         const { item } = this.props;
-        console.log(this.props.item)
         return (
             <Motion
                 defaultStyle={{ width: 0 }}
@@ -27,7 +26,7 @@ class DashItem extends Component {
                         </Link>
                         <button
                             className='DelBut'
-                            onClick={() => { this.props.removeFromDash(item.name); }}
+                            onClick={() => { this.props.removeFromDash(item) }}
                         >del
                         </button>
                     </div>
