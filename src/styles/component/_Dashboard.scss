@@ -14,12 +14,11 @@
 
     .displayButton {
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        text-align: center;
+        @include textDefault();
+        width: 100%;
         margin-bottom: 20px;
-        margin-top: 10px;
-
+        
 
         button {
 
@@ -28,8 +27,6 @@
             width: 100%;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
         }
 
-        width: 100%;
-        height: 100%;
     }
 
     .SectionTitle {
