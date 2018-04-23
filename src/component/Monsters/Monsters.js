@@ -25,6 +25,7 @@ class Monsters extends Component {
 
     render() {
         const monsters = this.props.monsters.map((monster, index) => {
+            console.log(monster.name)
             return (
                 <div
                     className='MonsterDiv'

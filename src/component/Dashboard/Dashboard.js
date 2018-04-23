@@ -32,7 +32,7 @@ class Dashboard extends Component {
                     item={monster}
                     removeFromDash={this.props.remFromMonstDash}
                     dashType={'monster'}
-                    link='/monsters'
+                    link={'/Monsters'}
                     displayDashItem={this.props.displayDashItem}
 
                 />
@@ -46,7 +46,7 @@ class Dashboard extends Component {
                     item={spell}
                     removeFromDash={this.props.remFromSpellDash}
                     dashType={'spell'}
-                    link={'/spells'}
+                    link={'/Spells'}
                     displayDashItem={this.props.displayDashItem}
                 />
             )
@@ -59,7 +59,7 @@ class Dashboard extends Component {
                     item={arm}
                     removeFromDash={this.props.remFromArmorDash}
                     dashType={'armor'}
-                    link={'/armor'}
+                    link={'/Armor'}
                     displayDashItem={this.props.displayDashItem}
                 />
             )
@@ -72,7 +72,7 @@ class Dashboard extends Component {
                     item={weapon}
                     removeFromDash={this.props.remFromWeaponDash}
                     dashType={'weapon'}
-                    link={'/weapons'}
+                    link={'/Weapons'}
                     displayDashItem={this.props.displayDashItem}
                 />
             )
@@ -85,7 +85,7 @@ class Dashboard extends Component {
                     item={equip}
                     removeFromDash={this.props.remFromEquipDash}
                     dashType={'equipment'}
-                    link={'/equipment'}
+                    link={'/Equipment'}
                     displayDashItem={this.props.displayDashItem}
                 />
             )
@@ -98,7 +98,7 @@ class Dashboard extends Component {
                     item={mount}
                     removeFromDash={this.props.remFromMountDash}
                     dashType={'mount'}
-                    link={'/mounts'}
+                    link={'/Mounts'}
                     displayDashItem={this.props.displayDashItem}
                 />
             )
@@ -107,7 +107,7 @@ class Dashboard extends Component {
         return (
             <div className='Dashboard'>
                 <div className='displayButton'>
-                    <Link to='/favorites' onClick={() => { this.props.displayDashItem(''); }}><button>Display all</button></Link>
+                    <Link to='/Favorites' onClick={() => { this.props.displayDashItem(''); }}><button>Display all</button></Link>
                 </div>
                 <div className='SectionTitle'>
                     <Link to='/Monsters' onClick={() => { this.props.displayDashItem(''); }}>MONSTERS</Link>
