@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getUser, addToMonstDash, getMonsters, displayDashItem } from '../../ducks/reducer';
-import Monster from '../Monster/Monster';
-import Dashboard from '../Dashboard/Dashboard';
+import { getUser, addToMonstDash, getMonsters, displayDashItem } from '../ducks/reducer';
 import { Link } from 'react-router-dom';
+import Monster from './Monster';
+import Header from './Header';
+import Dashboard from './Dashboard';
 
 class Monsters extends Component {
 
@@ -11,17 +12,7 @@ class Monsters extends Component {
         this.props.getUser();
         this.props.getMonsters();
     }
-    
-    componentDidUpdate() {
-        if (this.props.displayItem) {
-            console.log(this.props.displayItem)
-            var elmnt = this.refs[this.props.displayItem];
-            console.log(elmnt)
-            elmnt.scrollIntoView();
-        }
 
-        console.log(this.props.user)
-    }
 
     render() {
         const monsters = this.props.monsters.map((monster, index) => {
@@ -43,26 +34,12 @@ class Monsters extends Component {
 
         return (
             <div className='Window'>
-                <div className='Header'>
-                    <div className='linkDiv'>
-                        <Link
-                            to='/Home'
-                            onClick={() => { this.props.displayDashItem(''); }}
-                        ><img src='/monsters.png' height='50' width='50' />monsters
-                    </Link>
-                    </div>
-                    <div className='logoDiv'>
-                        <img src='DND.png' height='100%' />
-                    </div>
-                    <div className='ProfileDiv'>
-                        <img src={this.props.user.picture} height='50' width='50'/>
-                        <button><a href={'/logout'}>LOGOUT</a></button>
-                    </div>
-                </div>
+                <Header />
                 <div className='Body'>
                     <div className='Monsters'>
                         {monsters}
                     </div>
+
                     <Dashboard />
                 </div>
             </div>

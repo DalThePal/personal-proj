@@ -1,0 +1,68 @@
+.Header {
+
+    @include width-height(100%, 15vh);
+    @include textDefault();
+    padding: 5px;
+    background-color: $default-gray;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+
+    .linkDiv {
+
+        @include width-height(100%, 100%);
+        display: flex;
+        align-items: center;
+
+        a {
+
+            @include textDefault();
+            font-size: 7vh;
+
+        }
+    }
+
+    .logoDiv {
+
+        @include width-height(100%, 100%);
+
+        display: flex;
+        justify-content: flex-start;
+    
+    }
+
+    .ProfileDiv {
+
+        @include width-height(100%, 100%);
+        @include textDefault();
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        img {
+
+            border: 2px solid black;
+            margin-right: 10px;
+            height: 50%;
+            width: 10%;
+            
+        }
+
+        button {
+
+            @include button($button-shadow-gray);
+            margin-right: 20px;
+
+            a {
+                @include textDefault();
+            }
+
+        }
+    }
+
+
+}

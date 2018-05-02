@@ -1,24 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToWeaponDash, getEquipment, displayDashItem } from '../../ducks/reducer';
-import Weapon from '../Weapon/Weapon';
+import { addToWeaponDash, getEquipment, displayDashItem } from '../ducks/reducer';
+import Weapon from './Weapon';
 import { Link } from 'react-router-dom';
-import Dashboard from '../Dashboard/Dashboard';
+import Dashboard from './Dashboard';
+import Header from './Header';
 
 class Weapons extends Component {
 
     componentDidMount() {
 
         this.props.getEquipment();
-    }
-
-    componentDidUpdate() {
-        if (this.props.displayItem) {
-            console.log(this.props.displayItem)
-            var elmnt = this.refs[this.props.displayItem];
-            console.log(elmnt)
-            elmnt.scrollIntoView();
-        }
     }
 
     render() {
@@ -41,22 +33,7 @@ class Weapons extends Component {
 
         return (
             <div className='Window'>
-                <div className='Header'>
-                <div className='linkDiv'>
-                        <Link
-                            to='/Home'
-                            onClick={() => { this.props.displayDashItem(''); }}
-                        ><img src='/weapons.png' height='50' width='50' />weapons
-                    </Link>
-                    </div>
-                    <div className='logoDiv'>
-                        <img src='DND.png' height='100%' />
-                    </div>
-                    <div className='ProfileDiv'>
-                        <img src={this.props.user.picture} height='50' width='50'/>
-                        <button><a href={'/logout'}>LOGOUT</a></button>
-                    </div>
-                </div>
+                <Header/>
                 <div className='Body'>
                     <div className='Weapons'>
                         {weapons}

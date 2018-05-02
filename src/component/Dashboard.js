@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DashItem from '../DashItem/DashItem';
+import DashItem from './DashItem';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
@@ -10,7 +10,7 @@ import {
     getWeaponDash, remFromWeaponDash,
     getArmorDash, remFromArmorDash,
     displayDashItem, getUser
-} from '../../ducks/reducer';
+} from '../ducks/reducer';
 
 class Dashboard extends Component {
 

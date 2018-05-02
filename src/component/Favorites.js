@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import Monster from '../Monster/Monster';
-import Spell from '../Spell/Spell';
-import Arm from '../Arm/Arm';
-import Weapon from '../Weapon/Weapon';
-import Equip from '../Equip/Equip';
-import Mount from '../Mount/Mount';
-import Dashboard from '../Dashboard/Dashboard';
+import Monster from './Monster';
+import Spell from './Spell';
+import Arm from './Arm';
+import Weapon from './Weapon';
+import Equip from './Equip';
+import Mount from './Mount';
+import Dashboard from './Dashboard';
+import Header from './Header';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { displayDashItem } from '../../ducks/reducer';
+import { displayDashItem } from '../ducks/reducer';
 
 
 class Favorites extends Component {
@@ -114,22 +115,7 @@ class Favorites extends Component {
 
         return (
             <div className='Window'>
-                <div className='Header'>
-                    <div className='linkDiv'>
-                        <Link
-                            to='/Home'
-                            onClick={() => { this.props.displayDashItem(''); }}
-                        >favorites
-                    </Link>
-                    </div>
-                    <div className='logoDiv'>
-                        <img src='DND.png' height='100%' />
-                    </div>
-                    <div className='ProfileDiv'>
-                        <img src={this.props.user.picture} height='50' width='50'/>
-                        <button><a href={'/logout'}>LOGOUT</a></button>
-                    </div>
-                </div>
+                <Header/>
                 <div className='Body'>
                     <div className='Content'>
                         {monsters}

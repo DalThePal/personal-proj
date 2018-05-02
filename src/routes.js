@@ -1,15 +1,15 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Monsters from './component/Monsters/Monsters';
-import Spells from './component/Spells/Spells';
-import Armor from './component/Armor/Armor';
-import Weapons from './component/Weapons/Weapons';
-import Equipment from './component/Equipment/Equipment';
-import Home from './component/Home/Home';
-import Login from './component/Login/Login';
-import Mounts from './component/Mounts/Mounts';
-import Favorites from './component/Favorites/Favorites';
+import Monsters from './component/Monsters';
+import Spells from './component/Spells';
+import Armor from './component/Armor';
+import Weapons from './component/Weapons';
+import Equipment from './component/Equipment';
+import Home from './component/Home';
+import Login from './component/Login';
+import Mounts from './component/Mounts';
+import Favorites from './component/Favorites';
 
 export default () => {
     return (

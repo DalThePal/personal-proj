@@ -21,8 +21,12 @@ class DashItem extends Component {
                         <Link
                             className='ItemBut'
                             to={this.props.link}
-                            onClick={() => this.props.displayDashItem(item.name)}
-                        ><button className='ItemBut'>{item.name}</button>
+                        >
+                            <button
+                                className='ItemBut'
+                                onClick={() => this.props.displayDashItem(item.name)}
+                            >{item.name}
+                            </button>
                         </Link>
                         <button
                             className='DelBut'

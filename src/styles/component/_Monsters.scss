@@ -1,14 +1,11 @@
 
 .Window {
+    
 
-    .Header {
-        
-        @include header();
-    }
     
     .Body {
 
-        @include width-height(100%, 85vh);
+        @include width-height(70%, 85vh);
     
         .Monsters {
             
