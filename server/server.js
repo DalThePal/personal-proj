@@ -40,7 +40,6 @@ passport.use(new Auth0strategy({
     scope: 'openid email profile'
 }, function( accessToken, refreshToken, extraParams, profile, done ) {
     const db = app.get('db')
-    console.log(profile)
     db.find_user(profile.id).then( user => {
         if( user[0] ) {
             console.log( 'old user!' )
@@ -48,12 +47,12 @@ passport.use(new Auth0strategy({
         }
         else {
             console.log( 'new user!' )
-            db.create_user([profile.id, profile.nickname, profile.picture])
+            db.create_user([profile.id, profile.nickname])
                 .then( user => {
                     return done( null, user )
-                })
+                }).catch((error) => {console.log('couldnt create user', error)})
         }
-    })
+    }).catch((error) => console.log('user error:', error))
 }));
 
 passport.serializeUser((profile, done) => {
@@ -83,35 +82,9 @@ app.get('/logout', (req, res) => {
 
 // DB ENDPOINTS
 
-// MONSTER DASH ENDPOINTS
-app.get(`/monstDashItems`, controller.getMonstDash);
-app.post('/monstDashItems', controller.addToMonstDash);
-app.put('/monstDashItems', controller.remFromMonstDash);
-
-// SPELL DASH ENDPOINTS
-app.get('/spellDashItems', controller.getSpellDash);
-app.post('/spellDashItems', controller.addToSpellDash);
-app.put('/spellDashItems', controller.remFromSpellDash);
-
-// ARMOR DASH ENDPOINTS
-app.get('/armorDashItems', controller.getArmorDash);
-app.post('/armorDashItems', controller.addToArmorDash);
-app.put('/armorDashItems', controller.remFromArmorDash);
-
-// WEAPON DASH ENDPOINTS
-app.get('/weaponDashItems', controller.getWeaponDash);
-app.post('/weaponDashItems', controller.addToWeaponDash);
-app.put('/weaponDashItems', controller.remFromWeaponDash);
-
-// EQUIP DASH ENDPOINTS
-app.get('/equipDashItems', controller.getEquipDash);
-app.post('/equipDashItems', controller.addToEquipDash);
-app.put('/equipDashItems', controller.remFromEquipDash);
-
-// MOUNT DASH ENDPOINTS
-app.get('/mountDashItems', controller.getMountDash);
-app.post('/mountDashItems', controller.addToMountDash);
-app.put('/mountDashItems', controller.remFromMountDash);
+app.post('/dashItems', controller.addToDash);
+app.get('/dashItems', controller.getDash)
+app.delete(`/dashItems/:name`, controller.remFromDash);
 
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

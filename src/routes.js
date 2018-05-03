@@ -6,7 +6,6 @@ import Spells from './component/Spells';
 import Armor from './component/Armor';
 import Weapons from './component/Weapons';
 import Equipment from './component/Equipment';
-import Home from './component/Home';
 import Login from './component/Login';
 import Mounts from './component/Mounts';
 import Favorites from './component/Favorites';
@@ -15,7 +14,6 @@ export default () => {
     return (
         <Switch>
             <Route exact path='/' component={Login} />
-            <Route path='/Home' component={Home} />
             <Route path='/Monsters' component={Monsters} />
             <Route path='/Spells' component={Spells} />
             <Route path='/Weapons' component={Weapons} />

@@ -12,18 +12,15 @@
     border-left: 2px solid black;
     border-right: 2px solid black;
 
-    .linkDiv {
+    .Title {
 
         @include width-height(100%, 100%);
+        @include textDefault();
         display: flex;
         align-items: center;
+        font-size: 7vh;
 
-        a {
-
-            @include textDefault();
-            font-size: 7vh;
-
-        }
+        
     }
 
     .logoDiv {

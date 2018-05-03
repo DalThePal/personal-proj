@@ -1,2 +1,2 @@
-insert into appUsers (profileid, name, picture)
-values ($1, $2, $3);
+insert into users (profileid, nickname)
+values ($1, $2);

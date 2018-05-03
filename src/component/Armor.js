@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToArmorDash, getEquipment, displayDashItem } from '../ducks/reducer';
+import { addToDash, getEquipment, displayDashItem } from '../ducks/reducer';
 import Arm from './Arm';
-import { Link } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import Header from './Header';
 
@@ -24,7 +23,7 @@ class Armor extends Component {
 
                         name={arm.name}
                         url={arm.url}
-                        addToDash={this.props.addToArmorDash}
+                        addToDash={this.props.addToDash}
 
                     />
                 </div>
@@ -53,4 +52,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { addToArmorDash, getEquipment, displayDashItem })(Armor);
+export default connect(mapStateToProps, { addToDash, getEquipment, displayDashItem })(Armor);

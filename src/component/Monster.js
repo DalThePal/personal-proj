@@ -10,8 +10,8 @@ export default class Monster extends Component {
     componentDidMount() {
         axios.get(this.props.url).then(res => {
             // let monster = Object.assign({}, res.data, {type:'monster'})
-            
-            
+
+
             let monster = {
                 dashType: 'monster'
             }
@@ -36,9 +36,9 @@ export default class Monster extends Component {
 
         if (this.state.monster.actions) {
 
-            actions = this.state.monster.actions.map((action) => {
+            actions = this.state.monster.actions.map((action, index) => {
                 return (
-                    <div className='ActAb'>
+                    <div className='ActAb' key={index}>
                         <h3>{action.name}.</h3>
                         <p>{action.desc}</p>
                     </div>
@@ -48,9 +48,9 @@ export default class Monster extends Component {
 
         if (this.state.monster.legendary_actions) {
 
-            legendaryActions = this.state.monster.legendary_actions.map((action) => {
+            legendaryActions = this.state.monster.legendary_actions.map((action, index) => {
                 return (
-                    <div className='ActAb'>
+                    <div className='ActAb' key={index}>
                         <h3>{action.name}.</h3>
                         <p>{action.desc}</p>
                     </div>
@@ -62,7 +62,7 @@ export default class Monster extends Component {
 
             specialAbilities = this.state.monster.special_abilities.map((ability, index) => {
                 return (
-                    <div className='ActAb'>
+                    <div className='ActAb' key={index}>
                         <h3>{ability.name}</h3>
                         <p>{ability.desc}</p>
                     </div>
@@ -102,7 +102,13 @@ export default class Monster extends Component {
                 <div>{legendaryActions}</div>
 
                 <div className='addButton'>
-                    <button onClick={() => this.props.addToDash(this.state.monster)}>ADD</button>
+                    <button onClick={() => this.props.addToDash({
+                        name: this.state.monster.name,
+                        url: this.state.monster.url,
+                        type: 'monster'
+                        })}
+                        >ADD
+                    </button>
                 </div>
             </div>
         )

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToSpellDash, getSpells, displayDashItem } from '../ducks/reducer';
+import { addToDash, getSpells, displayDashItem } from '../ducks/reducer';
 import Spell from './Spell';
-import { Link } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import Header from './Header';
 
@@ -23,7 +22,7 @@ class Spells extends Component {
 
                         name={spell.name}
                         url={spell.url}
-                        addToDash={this.props.addToSpellDash}
+                        addToDash={this.props.addToDash}
 
                     />
                 </div>
@@ -52,4 +51,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { addToSpellDash, getSpells, displayDashItem })(Spells);
+export default connect(mapStateToProps, { addToDash, getSpells, displayDashItem })(Spells);

@@ -16,11 +16,10 @@ export default class Mount extends Component {
             speed: res.data.speed,
         }));
     }
-    
-    
+
+
     render() {
         const { mount, cost, speed } = this.state;
-        console.log(mount)
         return (
             <div className='Mount'>
                 <h1>{this.props.name}</h1>
@@ -31,7 +30,13 @@ export default class Mount extends Component {
                 <p>{mount.weight ? `weight: ${mount.weight} lb.` : ''}</p>
                 <p>{mount.desc ? mount.desc : ''}</p>
                 <div className='addButton'>
-                    <button onClick={() => this.props.addToDash(this.state.mount)}>ADD</button>
+                    <button onClick={() => this.props.addToDash({
+                        name: this.state.mount.name,
+                        url: this.state.mount.url,
+                        type: 'mount'
+                    })}
+                    >ADD
+                    </button>
                 </div>
             </div>
         )

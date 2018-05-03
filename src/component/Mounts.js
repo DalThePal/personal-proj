@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToMountDash, getEquipment, displayDashItem } from '../ducks/reducer';
+import { addToDash, getEquipment, displayDashItem } from '../ducks/reducer';
 import Mount from './Mount';
-import { Link } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import Header from './Header';
 
@@ -25,7 +24,7 @@ class Mounts extends Component {
 
                         name={mount.name}
                         url={mount.url}
-                        addToDash={this.props.addToMountDash}
+                        addToDash={this.props.addToDash}
 
                     />
                 </div>
@@ -54,4 +53,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { addToMountDash, getEquipment, displayDashItem })(Mounts);
+export default connect(mapStateToProps, { addToDash, getEquipment, displayDashItem })(Mounts);

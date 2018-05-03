@@ -1,2 +1,2 @@
-select * from appUsers 
+select * from users 
 where profileid = $1

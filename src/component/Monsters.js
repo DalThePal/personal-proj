@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getUser, addToMonstDash, getMonsters, displayDashItem } from '../ducks/reducer';
-import { Link } from 'react-router-dom';
+import { getUser, addToDash, getMonsters, displayDashItem } from '../ducks/reducer';
 import Monster from './Monster';
 import Header from './Header';
 import Dashboard from './Dashboard';
@@ -16,24 +15,22 @@ class Monsters extends Component {
 
     render() {
         const monsters = this.props.monsters.map((monster, index) => {
-            console.log(monster.name)
+            
             return (
-                <div
-                    className='MonsterDiv'
-                    ref={monster.name}
-                    key={index}>
-                    <Monster
-                        name={monster.name}
-                        url={monster.url}
-                        addToDash={this.props.addToMonstDash}
-                    />
-                </div>
+
+                <Monster
+                    key={index}
+                    name={monster.name}
+                    url={monster.url}
+                    addToDash={this.props.addToDash}
+                />
+
             )
         })
 
 
         return (
-            <div className='Window'>
+            <div className='Window' >
                 <Header />
                 <div className='Body'>
                     <div className='Monsters'>
@@ -56,4 +53,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { getUser, addToMonstDash, getMonsters, displayDashItem })(Monsters);
+export default connect(mapStateToProps, { getUser, addToDash, getMonsters, displayDashItem })(Monsters);

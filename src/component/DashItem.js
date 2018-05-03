@@ -30,7 +30,7 @@ class DashItem extends Component {
                         </Link>
                         <button
                             className='DelBut'
-                            onClick={() => { this.props.removeFromDash(item) }}
+                            onClick={() => { this.props.removeFromDash(item.name) }}
                         >del
                         </button>
                     </div>

@@ -7,7 +7,6 @@ import Equip from './Equip';
 import Mount from './Mount';
 import Dashboard from './Dashboard';
 import Header from './Header';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { displayDashItem } from '../ducks/reducer';
 

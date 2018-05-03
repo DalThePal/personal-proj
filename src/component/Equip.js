@@ -26,7 +26,13 @@ export default class Equip extends Component {
                 <p>Weight: {equip.weight} lb.</p>
                 <p>{equip.desc}</p>
                 <div className='addButton'>
-                    <button onClick={() => this.props.addToDash(this.state.equip)}>ADD</button>
+                    <button onClick={() => this.props.addToDash({
+                        name: this.state.equip.name,
+                        url: this.state.equip.url,
+                        type: 'equip'
+                    })}
+                    >ADD
+                    </button>
                 </div>
             </div>
         )

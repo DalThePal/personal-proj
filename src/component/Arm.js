@@ -29,7 +29,13 @@ export default class Arm extends Component {
                 <p>STEALTH: {arm.stealth_disadvantage ? 'Disadvantage' : '---'}</p>
                 <p>WEIGHT: {arm.weight} lb.</p>
                 <div className='addButton'>
-                    <button onClick={() => this.props.addToDash(this.state.arm)}>ADD</button>
+                    <button onClick={() => this.props.addToDash({
+                        name: this.state.arm.name,
+                        url: this.state.arm.url,
+                        type: 'arm'
+                    })}
+                    >ADD
+                    </button>
                 </div>
             </div>
         )
