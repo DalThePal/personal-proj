@@ -16,24 +16,19 @@ class Mounts extends Component {
     render() {
         const mounts = this.props.mounts.map((mount, index) => {
             return (
-                <div
-                    className='MountDiv'
-                    ref={mount.name}
-                    key={index}>
-                    <Mount
+                <Mount
+                    key={index}
+                    name={mount.name}
+                    url={mount.url}
+                    addToDash={this.props.addToDash}
 
-                        name={mount.name}
-                        url={mount.url}
-                        addToDash={this.props.addToDash}
-
-                    />
-                </div>
+                />
             )
         })
 
         return (
             <div className='Window'>
-                <Header />
+                <Header title='mounts'/>
                 <div className='Body'>
                     <div className='Mounts'>
                         {mounts}

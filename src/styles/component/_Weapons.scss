@@ -12,12 +12,6 @@
             @include width-height(100%, 100%);
             @include content();
         
-            .WeaponDiv {
-                
-                @include width-height(48%, 30%);
-                margin-bottom: 20px;
-                margin-right: 20px;
-            }
         }
     }
 

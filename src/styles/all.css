@@ -256,11 +256,6 @@ html {
     padding-left: 20px;
     display: flex;
     flex-wrap: wrap; }
-    .Window .Body .Spells .SpellDiv {
-      width: 100%;
-      height: 80%;
-      margin-bottom: 20px;
-      margin-right: 20px; }
 
 ::-webkit-scrollbar {
   width: 20px; }
@@ -276,7 +271,9 @@ html {
 
 .Spell {
   width: 100%;
-  height: 100%;
+  height: 80%;
+  margin-bottom: 20px;
+  margin-right: 20px;
   padding: 10px;
   background-color: tan;
   box-shadow: 5px 10px 10px #ABB2B9;
@@ -350,11 +347,6 @@ html {
     padding-left: 20px;
     display: flex;
     flex-wrap: wrap; }
-    .Window .Body .Weapons .WeaponDiv {
-      width: 48%;
-      height: 30%;
-      margin-bottom: 20px;
-      margin-right: 20px; }
 
 ::-webkit-scrollbar {
   width: 20px; }
@@ -369,8 +361,10 @@ html {
   background: #555; }
 
 .Weapon {
-  width: 100%;
-  height: 100%;
+  width: 48%;
+  height: 30%;
+  margin-bottom: 20px;
+  margin-right: 20px;
   padding: 10px;
   background-color: tan;
   box-shadow: 5px 10px 10px #ABB2B9;
@@ -417,11 +411,6 @@ html {
     padding-left: 20px;
     display: flex;
     flex-wrap: wrap; }
-    .Window .Body .Armor .ArmDiv {
-      width: 48%;
-      height: 30%;
-      margin-bottom: 20px;
-      margin-right: 20px; }
 
 ::-webkit-scrollbar {
   width: 20px; }
@@ -436,8 +425,8 @@ html {
   background: #555; }
 
 .Arm {
-  width: 100%;
-  height: 100%;
+  width: 48%;
+  height: 30%;
   padding: 10px;
   background-color: tan;
   box-shadow: 5px 10px 10px #ABB2B9;
@@ -446,6 +435,8 @@ html {
   color: black;
   text-decoration: none;
   text-transform: uppercase;
+  margin-bottom: 20px;
+  margin-right: 20px;
   display: flex;
   flex-direction: column; }
   .Arm h1 {
@@ -487,11 +478,6 @@ html {
     padding-left: 20px;
     display: flex;
     flex-wrap: wrap; }
-    .Window .Body .Equipment .EquipDiv {
-      width: 48%;
-      height: 45%;
-      margin-bottom: 20px;
-      margin-right: 20px; }
 
 ::-webkit-scrollbar {
   width: 20px; }
@@ -506,8 +492,8 @@ html {
   background: #555; }
 
 .Equip {
-  width: 100%;
-  height: 100%;
+  width: 48%;
+  height: 45%;
   padding: 10px;
   background-color: tan;
   box-shadow: 5px 10px 10px #ABB2B9;
@@ -515,7 +501,9 @@ html {
   font-family: "Nodesto Caps Condensed";
   color: black;
   text-decoration: none;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  margin-right: 20px; }
   .Equip h1 {
     text-align: center;
     font-size: 4vh; }
@@ -572,11 +560,6 @@ html {
     padding-left: 20px;
     display: flex;
     flex-wrap: wrap; }
-    .Window .Body .Mounts .MountDiv {
-      width: 48%;
-      height: 35%;
-      margin-bottom: 20px;
-      margin-right: 20px; }
 
 ::-webkit-scrollbar {
   width: 20px; }
@@ -591,8 +574,10 @@ html {
   background: #555; }
 
 .Mount {
-  width: 100%;
-  height: 100%;
+  width: 48%;
+  height: 35%;
+  margin-bottom: 20px;
+  margin-right: 20px;
   padding: 10px;
   background-color: tan;
   box-shadow: 5px 10px 10px #ABB2B9;
@@ -637,36 +622,6 @@ html {
     padding-left: 20px;
     display: flex;
     flex-wrap: wrap; }
-    .Window .Body .Content .MonsterDiv {
-      width: 100%;
-      height: 135%;
-      margin-bottom: 20px;
-      margin-right: 20px; }
-    .Window .Body .Content .ArmDiv {
-      width: 48%;
-      height: 30%;
-      margin-bottom: 20px;
-      margin-right: 20px; }
-    .Window .Body .Content .SpellDiv {
-      width: 100%;
-      height: 80%;
-      margin-bottom: 20px;
-      margin-right: 20px; }
-    .Window .Body .Content .WeaponDiv {
-      width: 48%;
-      height: 30%;
-      margin-bottom: 20px;
-      margin-right: 20px; }
-    .Window .Body .Content .EquipDiv {
-      width: 48%;
-      height: 45%;
-      margin-bottom: 20px;
-      margin-right: 20px; }
-    .Window .Body .Content .MountDiv {
-      width: 48%;
-      height: 35%;
-      margin-bottom: 20px;
-      margin-right: 20px; }
 
 ::-webkit-scrollbar {
   width: 20px; }

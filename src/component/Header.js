@@ -7,7 +7,7 @@ class Header extends Component {
     render() {
         return (
             <div className='Header'>
-                <div className='Title'>Monsters</div>
+                <div className='Title'>{this.props.title}</div>
                 <div className='logoDiv'>
                     <img src='DND.png' alt='DND' height='100%' />
                 </div>

@@ -31,7 +31,7 @@ class Monsters extends Component {
 
         return (
             <div className='Window' >
-                <Header />
+                <Header title='monsters'/>
                 <div className='Body'>
                     <div className='Monsters'>
                         {monsters}

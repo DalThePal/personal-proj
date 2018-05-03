@@ -18,103 +18,99 @@ class Favorites extends Component {
     }
 
     render() {
-        console.log(this.props.monsters)
-        const monsters = this.props.monsters.map((monster, index) => {
-            console.log(monsters)
-            return (
-                <div
-                    className='MonsterDiv'
-                    ref={monster.name}
-                    key={index}>
+        const monsters = this.props.dash.map((monster, index) => {
+            if (monster.type === 'monster') {
+                return (
+    
                     <Monster
+                        key={index}
                         name={monster.name}
                         url={monster.url}
-                        addToDash={this.props.addToMonstDash}
+                        addToDash={this.props.addToDash}
                     />
-                </div>
-            )
+    
+                )
+            } else return
         })
 
-        const spells = this.props.spells.map((spell, index) => {
-            return (
-                <div
-                    className='SpellDiv'
-                    ref={spell.name}
-                    key={index}>
+        const spells = this.props.dash.map((spell, index) => {
+            if (spell.type === 'spell') {
+                return (
+    
                     <Spell
-
+                        key={index}
                         name={spell.name}
                         url={spell.url}
-                        addToDash={this.props.addToSpellDash}
-
+                        addToDash={this.props.addToDash}
                     />
-                </div>
-            )
+    
+                )
+            } else return
         })
 
-        const armor = this.props.armor.map((arm, index) => {
-            return (
-                <div
-                    className='ArmDiv'
-                    ref={arm.name}
-                    key={index}>
+        const armor = this.props.dash.map((arm, index) => {
+            if (arm.type === 'arm') {
+                return (
+    
                     <Arm
+                        key={index}
                         name={arm.name}
                         url={arm.url}
-                        addToDash={this.props.addToArmorDash}
+                        addToDash={this.props.addToDash}
                     />
-                </div>
-            )
+    
+                )
+            } else return
         })
 
-        const weapons = this.props.weapons.map((weapon, index) => {
-            return (
-                <div
-                    className='WeaponDiv'
-                    ref={weapon.name}
-                    key={index}>
+        const weapons = this.props.dash.map((weapon, index) => {
+            if (weapon.type === 'weapon') {
+                return (
+    
                     <Weapon
+                        key={index}
                         name={weapon.name}
                         url={weapon.url}
-                        addToDash={this.props.addToWeaponDash}
+                        addToDash={this.props.addToDash}
                     />
-                </div>
-            )
+    
+                )
+            } else return
         })
 
-        const equipment = this.props.equipment.map((equip, index) => {
-            return (
-                <div
-                    className='EquipDiv'
-                    ref={equip.name}
-                    key={index}>
+        const equipment = this.props.dash.map((equip, index) => {
+            if (equip.type === 'equip') {
+                return (
+    
                     <Equip
+                        key={index}
                         name={equip.name}
                         url={equip.url}
-                        addToDash={this.props.addToEquipDash}
+                        addToDash={this.props.addToDash}
                     />
-                </div>
-            )
+    
+                )
+            } else return
         })
 
-        const mounts = this.props.mounts.map((mount, index) => {
-            return (
-                <div
-                    className='MountDiv'
-                    ref={mount.name}
-                    key={index}>
+        const mounts = this.props.dash.map((mount, index) => {
+            if (mount.type === 'mount') {
+                return (
+    
                     <Mount
+                        key={index}
                         name={mount.name}
                         url={mount.url}
-                        addToDash={this.props.addToMountDash}
+                        addToDash={this.props.addToDash}
                     />
-                </div>
-            )
+    
+                )
+            } else return
         })
 
         return (
             <div className='Window'>
-                <Header/>
+                <Header title='favorites'/>
                 <div className='Body'>
                     <div className='Content'>
                         {monsters}
@@ -134,12 +130,7 @@ class Favorites extends Component {
 
 function mapStateToProps(state) {
     return {
-        monsters: state.monstDash,
-        spells: state.spellDash,
-        armor: state.armorDash,
-        weapons: state.weaponDash,
-        equipment: state.equipDash,
-        mounts: state.mountDash,
+        dash: state.dash,
         user: state.user
     }
 }

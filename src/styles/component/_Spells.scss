@@ -10,13 +10,7 @@
             
             @include width-height(100%, 100%);
             @include content();
-        
-            .SpellDiv {
-                
-                @include width-height(100%, 80%);
-                margin-bottom: 20px;
-                margin-right: 20px;
-            }
+     
         }
     }
 

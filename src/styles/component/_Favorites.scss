@@ -9,49 +9,7 @@
         .Content {
             
             @include width-height(100%, 100%);
-            @include content();
-        
-            .MonsterDiv {
-
-                @include width-height(100%, 135%);
-                margin-bottom: 20px;
-                margin-right: 20px;
-            }
-
-            .ArmDiv {
-
-                @include width-height(48%, 30%);
-                margin-bottom: 20px;
-                margin-right: 20px;
-            }
-
-            .SpellDiv {
-                
-                @include width-height(100%, 80%);
-                margin-bottom: 20px;
-                margin-right: 20px;
-            }
-
-            .WeaponDiv {
-                
-                @include width-height(48%, 30%);
-                margin-bottom: 20px;
-                margin-right: 20px;
-            }
-
-            .EquipDiv {
-                
-                @include width-height(48%, 45%);
-                margin-bottom: 20px;
-                margin-right: 20px;
-            }
-
-            .MountDiv {
-                
-                @include width-height(48%, 35%);
-                margin-bottom: 20px;
-                margin-right: 20px;
-            }
+            @include content();            
 
         }
 

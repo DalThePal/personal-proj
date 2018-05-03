@@ -15,24 +15,20 @@ class Armor extends Component {
     render() {
         const armor = this.props.armor.map((arm, index) => {
             return (
-                <div
-                    className='ArmDiv'
-                    ref={arm.name}
-                    key={index}>
-                    <Arm
 
-                        name={arm.name}
-                        url={arm.url}
-                        addToDash={this.props.addToDash}
+                <Arm
+                    key={index}
+                    name={arm.name}
+                    url={arm.url}
+                    addToDash={this.props.addToDash}
+                />
 
-                    />
-                </div>
             )
         })
 
         return (
             <div className='Window'>
-                <Header/>
+                <Header title='armor'/>
                 <div className='Body'>
                     <div className='Armor'>
                         {armor}

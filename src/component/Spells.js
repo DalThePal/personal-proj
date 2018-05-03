@@ -14,24 +14,18 @@ class Spells extends Component {
     render() {
         const spells = this.props.spells.map((spell, index) => {
             return (
-                <div
-                    className='SpellDiv'
-                    ref={spell.name}
-                    key={index}>
-                    <Spell
-
-                        name={spell.name}
-                        url={spell.url}
-                        addToDash={this.props.addToDash}
-
-                    />
-                </div>
+                <Spell
+                    key={index}
+                    name={spell.name}
+                    url={spell.url}
+                    addToDash={this.props.addToDash}
+                />
             )
         })
 
         return (
             <div className='Window'>
-                <Header/>
+                <Header title='spells'/>
                 <div className='Body'>
                     <div className='Spells'>
                         {spells}

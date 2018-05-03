@@ -15,24 +15,18 @@ class Weapons extends Component {
     render() {
         const weapons = this.props.weapons.map((weapon, index) => {
             return (
-                <div
-                    className='WeaponDiv'
-                    ref={weapon.name}
-                    key={index}>
-                    <Weapon
-
-                        name={weapon.name}
-                        url={weapon.url}
-                        addToDash={this.props.addToDash}
-
-                    />
-                </div>
+                <Weapon
+                    key={index}
+                    name={weapon.name}
+                    url={weapon.url}
+                    addToDash={this.props.addToDash}
+                />
             )
         })
 
         return (
             <div className='Window'>
-                <Header/>
+                <Header title='weapons'/>
                 <div className='Body'>
                     <div className='Weapons'>
                         {weapons}
