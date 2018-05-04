@@ -9,7 +9,7 @@ let initialState = {
     mounts: [],
     armor: [],
     weapons: [],
-    displayItem: '',
+    displayItem: {},
     user: {}
 
 };

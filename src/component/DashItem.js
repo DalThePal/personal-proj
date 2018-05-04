@@ -20,11 +20,11 @@ class DashItem extends Component {
                     }}>
                         <Link
                             className='ItemBut'
-                            to={this.props.link}
+                            to='/favorites'
                         >
                             <button
                                 className='ItemBut'
-                                onClick={() => this.props.displayDashItem(item.name)}
+                                onClick={() => this.props.displayDashItem(item)}
                             >{item.name}
                             </button>
                         </Link>
