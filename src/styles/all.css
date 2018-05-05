@@ -96,12 +96,17 @@ html {
     display: flex;
     align-items: center;
     justify-content: flex-end; }
-    .Header .ProfileDiv img {
-      border: 2px solid black;
-      margin-right: 10px;
-      height: 50%;
-      width: 10%; }
+    .Header .ProfileDiv p {
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      margin-right: 10px; }
     .Header .ProfileDiv button {
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
       background-color: beige;
       border-color: black;
       font-size: 16px;
@@ -137,6 +142,10 @@ html {
     width: 100%;
     margin-bottom: 20px; }
     .Dashboard .displayButton button {
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
       font-family: "Nodesto Caps Condensed";
       color: black;
       text-decoration: none;
@@ -237,6 +246,10 @@ html {
       color: black;
       text-decoration: none;
       text-transform: uppercase;
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
       background-color: beige;
       border-color: black;
       font-size: 16px;
@@ -299,6 +312,10 @@ html {
       color: black;
       text-decoration: none;
       text-transform: uppercase;
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
       background-color: beige;
       border-color: black;
       font-size: 16px;
@@ -317,12 +334,20 @@ html {
     text-transform: uppercase;
     width: 100%;
     height: 100%;
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
     background-color: beige;
     border-color: black;
     font-size: 16px;
     box-shadow: 4px 4px 4px #919182;
     margin-right: 10px; }
   .DashItem .DelBut {
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
     font-family: "Nodesto Caps Condensed";
     color: black;
     text-decoration: none;
@@ -388,6 +413,10 @@ html {
     display: flex;
     justify-content: center; }
     .Weapon .addButton button {
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
       font-family: "Nodesto Caps Condensed";
       color: black;
       text-decoration: none;
@@ -459,6 +488,10 @@ html {
       color: black;
       text-decoration: none;
       text-transform: uppercase;
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
       background-color: beige;
       border-color: black;
       font-size: 16px;
@@ -478,6 +511,46 @@ html {
     padding-left: 20px;
     display: flex;
     flex-wrap: wrap; }
+    .Window .Body .Equipment .createDiv {
+      width: 48%;
+      height: 45%;
+      padding: 10px;
+      background-color: tan;
+      box-shadow: 5px 10px 10px #ABB2B9;
+      border: 2px solid black;
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      margin-right: 20px;
+      display: flex;
+      flex-direction: column; }
+      .Window .Body .Equipment .createDiv button {
+        font-family: "Nodesto Caps Condensed";
+        color: black;
+        text-decoration: none;
+        text-transform: uppercase;
+        background-color: beige;
+        border-color: black;
+        font-size: 16px;
+        box-shadow: 4px 4px 4px #87735a; }
+      .Window .Body .Equipment .createDiv input {
+        font-family: "Nodesto Caps Condensed";
+        color: black;
+        text-decoration: none;
+        text-transform: uppercase;
+        border-color: black;
+        margin-bottom: 10px; }
+      .Window .Body .Equipment .createDiv textarea {
+        font-family: "Nodesto Caps Condensed";
+        color: black;
+        text-decoration: none;
+        text-transform: uppercase;
+        width: 100%;
+        height: 40%;
+        border-color: black;
+        margin-bottom: 10px; }
 
 ::-webkit-scrollbar {
   width: 20px; }
@@ -521,6 +594,10 @@ html {
       color: black;
       text-decoration: none;
       text-transform: uppercase;
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
       background-color: beige;
       border-color: black;
       font-size: 16px;
@@ -541,6 +618,10 @@ html {
     text-transform: uppercase;
     width: 150px;
     height: 50px;
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
     background-color: beige;
     border-color: black;
     font-size: 16px;
@@ -599,6 +680,10 @@ html {
     display: flex;
     justify-content: center; }
     .Mount .addButton button {
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
       font-family: "Nodesto Caps Condensed";
       color: black;
       text-decoration: none;

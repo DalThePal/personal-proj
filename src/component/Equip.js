@@ -22,7 +22,7 @@ export default class Equip extends Component {
             <div className='Equip'>
                 <h1>{this.props.name}</h1>
                 <h2>{equip.gear_category ? `(${equip.gear_category})` : ''}</h2>
-                <p>COST: {cost.quantity} {cost.unit}</p>
+                <p>COST: {cost.quantity || equip.cost} {cost.unit ? cost.unit : ''}</p>
                 <p>Weight: {equip.weight} lb.</p>
                 <p>{equip.desc}</p>
                 <div className='addButton'>

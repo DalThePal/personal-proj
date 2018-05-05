@@ -40,12 +40,9 @@
         align-items: center;
         justify-content: flex-end;
 
-        img {
-
-            border: 2px solid black;
+        p {
+            @include textDefault();
             margin-right: 10px;
-            height: 50%;
-            width: 10%;
             
         }
 

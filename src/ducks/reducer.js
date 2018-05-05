@@ -6,6 +6,7 @@ let initialState = {
     monsters: [],
     spells: [],
     equipment: [],
+    userEquipment: [],
     mounts: [],
     armor: [],
     weapons: [],
@@ -16,6 +17,7 @@ let initialState = {
 
 // DASHBOARD
 const ADD_TO_DASH = 'ADD_TO_DASH';
+const ADD_TO_USER_DASH = 'ADD_TO_USER_DASH';
 const GET_DASH = 'GET_DASH';
 const REM_FROM_DASH = 'REM_FROM_DASH';
 const DISPLAY_DASH_ITEM = 'DISPLAY_DASH_ITEM';
@@ -28,6 +30,9 @@ const GET_MONSTERS = 'GET_MONSTERS';
 const GET_SPELLS = 'GET_SPELLS';
 const GET_EQUIPMENT = 'GET_EQUIPMENT';
 
+// EQUIPMENT 
+const CREATE_EQUIP = 'CREATE_EQUIP';
+const GET_USER_EQUIP = 'GET_USER_EQUIP';
 
 // USERS
 
@@ -71,6 +76,14 @@ export function addToDash(item) {
 
 }
 
+export function addToUserDash(item) {
+    const promise = axios.post('/userDashItems', item)
+    return {
+        type: ADD_TO_USER_DASH,
+        payload: promise
+    }
+}
+
 export function remFromDash(item) {
     const promise = axios.delete(`/dashItems/${item}`)
     return {
@@ -104,6 +117,24 @@ export function getEquipment() {
     })
 }
 
+// EQUIPMENT
+
+export function createEquip(item) {
+    const promise = axios.post('/Equipment', item)
+    return ({
+        type: CREATE_EQUIP,
+        payload: promise
+    })
+}
+
+export function getUserEquip() {
+    const promise = axios.get('/Equipment')
+    return {
+        type: GET_USER_EQUIP,
+        payload: promise
+    }
+}
+
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
@@ -134,6 +165,14 @@ export default function reducer(state = initialState, action) {
             let equipment = action.payload.slice(50, 191);
             let mounts = action.payload.slice(191);
             return Object.assign({}, state, { armor: armor, weapons: weapons, equipment: equipment, mounts: mounts });
+
+        case CREATE_EQUIP + '_FULFILLED':
+            console.log(action.payload)
+            return Object.assign({}, state, { userEquipment: action.payload.data});
+
+        case GET_USER_EQUIP + '_FULFILLED':
+            console.log(action.payload.data)
+            return Object.assign({}, state, { userEquipment: action.payload.data});
 
         default:
             return state;

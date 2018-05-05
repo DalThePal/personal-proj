@@ -43,14 +43,28 @@
 
 @mixin button($color) {
 
+    @include textDefault();
     background-color: beige;
     border-color: black;
     font-size: 16px;
     box-shadow: 4px 4px 4px $color;
 }
 
+@mixin inputTag() {
+    @include textDefault();
 
+    border-color: black;
+    margin-bottom: 10px;
+}
 
+@mixin textareaTag() {
+    @include textDefault();
+    @include width-height(100%, 40%);
+
+    border-color: black;
+    margin-bottom: 10px;
+
+}
 
 @mixin content() {
     

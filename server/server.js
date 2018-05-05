@@ -86,5 +86,11 @@ app.post('/dashItems', controller.addToDash);
 app.get('/dashItems', controller.getDash)
 app.delete(`/dashItems/:name`, controller.remFromDash);
 
+app.post('/userDashItems', controller.addToUserDash);
+
+// EQUIPMENT ENDPOINTS
+
+app.post('/Equipment', controller.createEquip);
+app.get('/Equipment', controller.getUserEquip)
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

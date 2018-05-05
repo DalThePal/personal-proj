@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToDash, getEquipment, displayDashItem } from '../ducks/reducer';
+import { addToDash, createEquip, getEquipment, getUserEquip, displayDashItem } from '../ducks/reducer';
 import Equip from './Equip';
+import UserEquip from './UserEquip';
 import Dashboard from './Dashboard';
 import Header from './Header';
 
 class Equipment extends Component {
 
+    state = {
+        name: '',
+        cost: '',
+        weight: '',
+        desc: ''
+    }
+
     componentDidMount() {
         this.props.getEquipment();
+        this.props.getUserEquip();
     }
 
     render() {
@@ -22,13 +31,31 @@ class Equipment extends Component {
                 />
             )
         })
-
+        console.log(this.props.userEquipment);
+        const userEquipment = this.props.userEquipment.map((equip, index) => {
+            return (
+                <UserEquip
+                    key={index}
+                    item={equip}
+                    addToDash={this.props.addToUserDash}
+                />
+            )
+        })
+        console.log(this.state)
         return (
             <div className='Window'>
-                <Header />
+                <Header title='equipment'/>
                 <div className='Body'>
                     <div className='Equipment'>
                         {equipment}
+                        {userEquipment}
+                        <div className='createDiv'>
+                            <input placeholder='name' onChange={(e) => this.setState({name: e.target.value})}/>
+                            <input placeholder='cost' onChange={(e) => this.setState({cost: e.target.value})}/>
+                            <input placeholder='weight' onChange={(e) => this.setState({weight: e.target.value})}/>
+                            <textarea placeholder='description' onChange={(e) => this.setState({desc: e.target.value})}/>
+                            <button onClick={() => this.props.createEquip(this.state)}>create</button>
+                        </div>
                     </div>
                     <Dashboard />
                 </div>
@@ -41,9 +68,9 @@ class Equipment extends Component {
 function mapStateToProps(state) {
     return {
         equipment: state.equipment,
-        displayItem: state.displayItem,
+        userEquipment: state.userEquipment,
         user: state.user
     }
 }
 
-export default connect(mapStateToProps, { addToDash, getEquipment, displayDashItem })(Equipment);
+export default connect(mapStateToProps, { addToDash, createEquip, getEquipment, getUserEquip, displayDashItem })(Equipment);
