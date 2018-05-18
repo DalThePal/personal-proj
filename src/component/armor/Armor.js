@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToDash, getEquipment, displayDashItem } from '../ducks/reducer';
+import { addToDash, getEquipment, displayDashItem } from '../../ducks/reducer';
 import Arm from './Arm';
-import Dashboard from './Dashboard';
-import Header from './Header';
+import Dashboard from '../Dashboard';
+import Header from '../Header';
 
 class Armor extends Component {
 

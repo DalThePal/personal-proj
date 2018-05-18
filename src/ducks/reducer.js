@@ -33,18 +33,16 @@ const GET_EQUIPMENT = 'GET_EQUIPMENT';
 // EQUIPMENT 
 const CREATE_EQUIP = 'CREATE_EQUIP';
 const GET_USER_EQUIP = 'GET_USER_EQUIP';
+const EDIT_USER_EQUIP = 'EDIT_USER_EQUIP';
+const REM_USER_EQUIP = 'REM_USER_EQUIP';
 
 // USERS
 
 export function getUser() {
-
-    const userData = axios.get('/auth/me').then(res => {
-        return res.data;
-    })
-
+    const promise = axios.get('/auth/me')
     return {
         type: UPDATE_USER_INFO,
-        payload: userData
+        payload: promise
     }
 
 }
@@ -52,10 +50,10 @@ export function getUser() {
 // DASHBOARD
 
 export function displayDashItem(item) {
-    return ({
+    return {
         type: DISPLAY_DASH_ITEM,
         payload: item
-    })
+    }
 }
 
 export function getDash() {
@@ -96,41 +94,57 @@ export function remFromDash(item) {
 // DND API
 
 export function getMonsters() {
-    return ({
+    return {
         type: GET_MONSTERS,
         payload: controller.getMonsters()
-    })
+    }
 }
 
 
 export function getSpells() {
-    return ({
+    return {
         type: GET_SPELLS,
         payload: controller.getSpells()
-    })
+    }
 }
 
 export function getEquipment() {
-    return ({
+    return {
         type: GET_EQUIPMENT,
         payload: controller.getEquipment()
-    })
+    }
 }
 
 // EQUIPMENT
 
 export function createEquip(item) {
     const promise = axios.post('/Equipment', item)
-    return ({
+    return {
         type: CREATE_EQUIP,
         payload: promise
-    })
+    }
 }
 
 export function getUserEquip() {
     const promise = axios.get('/Equipment')
     return {
         type: GET_USER_EQUIP,
+        payload: promise
+    }
+}
+
+export function editUserEquip(obj) {
+    const promise = axios.put('/Equipment', obj)
+    return {
+        type: EDIT_USER_EQUIP,
+        payload: promise
+    }
+}
+
+export function remUserEquip(item) {
+    const promise = axios.delete(`/Equipment/${item}`)
+    return {
+        type: REM_USER_EQUIP,
         payload: promise
     }
 }
@@ -147,8 +161,8 @@ export default function reducer(state = initialState, action) {
         case ADD_TO_DASH + '_FULFILLED':
             return Object.assign({}, state, { dash: action.payload.data });
 
-        case REM_FROM_DASH:
-            return Object.assign({}, state, { dash: action.payload.data});
+        case REM_FROM_DASH + '_FULFILLED':
+            return Object.assign({}, state, { dash: action.payload.data });
 
         case GET_MONSTERS + '_FULFILLED':
             return Object.assign({}, state, { monsters: action.payload });
@@ -168,11 +182,17 @@ export default function reducer(state = initialState, action) {
 
         case CREATE_EQUIP + '_FULFILLED':
             console.log(action.payload)
-            return Object.assign({}, state, { userEquipment: action.payload.data});
+            return Object.assign({}, state, { userEquipment: action.payload.data });
 
         case GET_USER_EQUIP + '_FULFILLED':
             console.log(action.payload.data)
-            return Object.assign({}, state, { userEquipment: action.payload.data});
+            return Object.assign({}, state, { userEquipment: action.payload.data });
+
+        case REM_USER_EQUIP + '_FULFILLED':
+            return Object.assign({}, state, { userEquipment: action.payload.data });
+
+        case EDIT_USER_EQUIP + '_FULFILLED':
+            return Object.assign({}, state, { userEquipment: action.payload.data });
 
         default:
             return state;

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Monster from './Monster';
-import Spell from './Spell';
-import Arm from './Arm';
-import Weapon from './Weapon';
-import Equip from './Equip';
-import Mount from './Mount';
+import Monster from './monsters/Monster';
+import Spell from './spells/Spell';
+import Arm from './armor/Arm';
+import Weapon from './weapons/Weapon';
+import Equip from './equipment/Equip';
+import Mount from './mounts/Mount';
 import Dashboard from './Dashboard';
 import Header from './Header';
 import { connect } from 'react-redux';

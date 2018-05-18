@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToDash, getSpells, displayDashItem } from '../ducks/reducer';
+import { addToDash, getSpells, displayDashItem } from '../../ducks/reducer';
 import Spell from './Spell';
-import Dashboard from './Dashboard';
-import Header from './Header';
+import Dashboard from '../Dashboard';
+import Header from '../Header';
 
 class Spells extends Component {
 

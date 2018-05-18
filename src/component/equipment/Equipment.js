@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToDash, createEquip, getEquipment, getUserEquip, displayDashItem } from '../ducks/reducer';
+import { addToDash, createEquip, getEquipment, getUserEquip, editUserEquip, remUserEquip, displayDashItem } from '../../ducks/reducer';
 import Equip from './Equip';
 import UserEquip from './UserEquip';
-import Dashboard from './Dashboard';
-import Header from './Header';
+import Dashboard from '../Dashboard';
+import Header from '../Header';
 
 class Equipment extends Component {
 
@@ -38,6 +38,8 @@ class Equipment extends Component {
                     key={index}
                     item={equip}
                     addToDash={this.props.addToUserDash}
+                    remUserEquip={this.props.remUserEquip}
+                    editUserEquip={this.props.editUserEquip}
                 />
             )
         })
@@ -73,4 +75,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { addToDash, createEquip, getEquipment, getUserEquip, displayDashItem })(Equipment);
+export default connect(mapStateToProps, { addToDash, createEquip, getEquipment, getUserEquip, editUserEquip, remUserEquip, displayDashItem })(Equipment);

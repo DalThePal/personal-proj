@@ -69,6 +69,30 @@ module.exports = {
         dbInstance.get_user_equip(req.session.passport.user.id).then((userEquipment) => {
             res.status(200).send(userEquipment)
         }).catch(() => res.status(500).send('didnt get userEquipment'))
-    }
+    },
+
+    remUserEquip: (req, res) => {
+        console.log('got to remUserEquip')
+        const dbInstance = req.app.get('db')
+        dbInstance.rem_user_equip([
+            req.params.name,
+            req.session.passport.user.id
+        ]).then((userEquipment) => res.status(200).send(userEquipment))
+            .catch(() => res.status(500).send('didnt remove userEquip'))
+    },
+
+    editUserEquip: (req, res) => {
+        console.log('got to editUserEquip')
+        const dbInstance = req.app.get('db')
+        dbInstance.edit_user_equip([
+            req.body.name,
+            req.body.cost,
+            req.body.weight,
+            req.body.description,
+            req.session.passport.user.id,
+            req.body.id
+        ]).then((userEquipment) => res.status(200).send(userEquipment))
+            .catch(() => res.status(500).send('didnt edit userEquip'))
+    },
 
 }

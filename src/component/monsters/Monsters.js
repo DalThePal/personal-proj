@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getUser, addToDash, getMonsters, displayDashItem } from '../ducks/reducer';
+import { getUser, addToDash, getMonsters, displayDashItem } from '../../ducks/reducer';
 import Monster from './Monster';
-import Header from './Header';
-import Dashboard from './Dashboard';
+import Header from '../Header';
+import Dashboard from '../Dashboard';
 
 class Monsters extends Component {
 
