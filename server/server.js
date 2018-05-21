@@ -95,4 +95,11 @@ app.get('/Equipment', controller.getUserEquip);
 app.delete('/Equipment/:name', controller.remUserEquip);
 app.put('/Equipment', controller.editUserEquip);
 
+// MOUNTS ENDPOINTS
+
+app.get('/Mounts', controller.getUserMount);
+app.post('/Mounts', controller.createMount);
+app.delete('/Mounts/:name', controller.remUserMount);
+app.put('/Mounts', controller.editUserMount)
+
 app.listen(port, () => console.log(`Listening on port ${port}`));

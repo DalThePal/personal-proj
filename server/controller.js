@@ -95,4 +95,51 @@ module.exports = {
             .catch(() => res.status(500).send('didnt edit userEquip'))
     },
 
+    getUserMount: (req, res) => {
+        console.log('got to getUserMount')
+        const dbInstance = req.app.get('db')
+        dbInstance.get_user_mount([req.session.passport.user.id]).then(userMount => {
+            res.status(200).send(userMount)
+        }).catch(() => res.status(500).send('didnt get userMount'));
+    },
+
+    createMount: (req, res) => {
+        console.log('got to createMount')
+        const dbInstance = req.app.get('db')
+        dbInstance.create_mount([
+            req.body.name,
+            req.body.cost,
+            req.body.speed,
+            req.body.capacity,
+            req.body.description,
+            req.session.passport.user.id
+        ]).then(userMount => res.status(200).send(userMount))
+            .catch(() => res.status(500).send('didnt get userMount'));
+    },
+
+    remUserMount: (req, res) => {
+        console.log('got to remUserMount')
+        const dbInstance = req.app.get('db')
+        dbInstance.rem_user_mount([
+            req.params.name,
+            req.session.passport.user.id
+        ]).then(userMount => res.status(200).send(userMount))
+            .catch(() => res.status(500).send('didnt remove userMount'));
+    },
+
+    editUserMount: (req, res) => {
+        console.log('got to editUserMount')
+        const dbInstance = req.app.get('db')
+        dbInstance.edit_user_mount([
+            req.body.name,
+            req.body.cost,
+            req.body.speed,
+            req.body.capacity,
+            req.body.description,
+            req.session.passport.user.id,
+            req.body.id
+        ]).then(userMount => res.status(200).send(userMount))
+            .catch(() => res.status(500).send('didnt edit userMount'));
+    }
+
 }

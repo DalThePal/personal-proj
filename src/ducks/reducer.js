@@ -8,6 +8,7 @@ let initialState = {
     equipment: [],
     userEquipment: [],
     mounts: [],
+    userMounts: [],
     armor: [],
     weapons: [],
     displayItem: {},
@@ -35,6 +36,13 @@ const CREATE_EQUIP = 'CREATE_EQUIP';
 const GET_USER_EQUIP = 'GET_USER_EQUIP';
 const EDIT_USER_EQUIP = 'EDIT_USER_EQUIP';
 const REM_USER_EQUIP = 'REM_USER_EQUIP';
+
+// MOUNTS
+const CREATE_MOUNT = 'CREATE_MOUNT';
+const GET_USER_MOUNT = 'GET_USER_MOUNT';
+const EDIT_USER_MOUNT = 'EDIT_USER_MOUNT';
+const REM_USER_MOUNT = 'REM_USER_MOUNT';
+
 
 // USERS
 
@@ -149,6 +157,40 @@ export function remUserEquip(item) {
     }
 }
 
+// MOUNTS
+
+export function getUserMount() {
+    const promise = axios.get('/Mounts')
+    return {
+        type: GET_USER_MOUNT,
+        payload: promise
+    }
+}
+
+export function createMount(item) {
+    const promise = axios.post('/Mounts', item)
+    return {
+        type: CREATE_MOUNT,
+        payload: promise
+    }
+}
+
+export function remUserMount(item) {
+    const promise = axios.delete(`/Mounts/${item}`)
+    return {
+        type: REM_USER_MOUNT,
+        payload: promise
+    }
+}
+
+export function editUserMount(item) {
+    const promise = axios.put('/Mounts', item)
+    return {
+        type: EDIT_USER_MOUNT,
+        payload: promise
+    }
+}
+
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
@@ -194,6 +236,18 @@ export default function reducer(state = initialState, action) {
         case EDIT_USER_EQUIP + '_FULFILLED':
             return Object.assign({}, state, { userEquipment: action.payload.data });
 
+        case CREATE_MOUNT + '_FULFILLED':
+            return Object.assign({}, state, { userMounts: action.payload.data });
+
+        case GET_USER_MOUNT + '_FULFILLED':
+            return Object.assign({}, state, { userMounts: action.payload.data });
+
+        case REM_USER_MOUNT + '_FULFILLED':
+            return Object.assign({}, state, { userMounts: action.payload.data });
+
+        case EDIT_USER_MOUNT + '_FULFILLED':
+            return Object.assign({}, state, { userMounts: action.payload.data });
+        
         default:
             return state;
     }
