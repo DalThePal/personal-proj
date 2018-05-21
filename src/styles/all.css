@@ -603,6 +603,77 @@ html {
       font-size: 16px;
       box-shadow: 4px 4px 4px #87735a; }
 
+.Equip {
+  width: 48%;
+  height: 45%;
+  padding: 10px;
+  background-color: tan;
+  box-shadow: 5px 10px 10px #ABB2B9;
+  border: 2px solid black;
+  font-family: "Nodesto Caps Condensed";
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column; }
+  .Equip .h1 {
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 4vh;
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-color: black;
+    margin-bottom: 10px; }
+  .Equip .h2 {
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase; }
+  .Equip .p {
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-color: black;
+    margin-bottom: 10px; }
+  .Equip h1 {
+    text-align: center;
+    font-size: 4vh; }
+  .Equip h2 {
+    text-align: center;
+    font-size: 2vh; }
+  .Equip p {
+    font-size: 2vh;
+    margin-bottom: 5px; }
+  .Equip .addButton {
+    display: flex;
+    justify-content: space-around; }
+    .Equip .addButton button {
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      background-color: beige;
+      border-color: black;
+      font-size: 16px;
+      box-shadow: 4px 4px 4px #87735a; }
+
 .LoginScreen {
   width: 100vw;
   height: 100vh;

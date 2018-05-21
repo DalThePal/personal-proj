@@ -1,0 +1,53 @@
+.Equip {
+
+    @include width-height(48%, 45%); 
+    @include contentDiv();
+    @include textDefault();
+
+    margin-bottom: 20px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
+    .h1 {
+        @include textDefault();
+        @include h1Tag();
+        @include inputTag();
+    }
+
+    .h2 {
+        @include textDefault();
+        
+    }
+
+    .p {
+        @include textDefault();
+        @include inputTag();
+    }
+
+    h1 {
+        @include h1Tag();
+    }
+
+    h2 {
+        @include h2Tag();
+    }
+
+    p {
+        @include pTag();
+
+    }
+    
+    .addButton {
+
+        display: flex;
+        justify-content: space-around;
+        
+        button {
+            @include textDefault();
+            @include button($button-shadow-tan);
+            
+        }
+    }
+}

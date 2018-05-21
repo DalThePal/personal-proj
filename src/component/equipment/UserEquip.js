@@ -7,10 +7,10 @@ export default class UserEquip extends Component {
 
         this.state = {
             edit: false,
-            name: '',
-            cost: '',
-            weight: '',
-            description: ''
+            name: null,
+            cost: null,
+            weight: null,
+            description: null
         }
     }
 
@@ -21,10 +21,10 @@ export default class UserEquip extends Component {
     handleSave() {
         this.setState({edit: false});
         this.props.editUserEquip({
-            name: this.state.name,
-            cost: this.state.cost,
-            weight: this.state.weight,
-            description: this.state.description,
+            name: this.state.name || this.props.item.name,
+            cost: this.state.cost || this.props.item.cost,
+            weight: this.state.weight || this.props.item.weight,
+            description: this.state.description || this.props.item.description,
             id: this.props.item.id
         })
     }
@@ -38,7 +38,7 @@ export default class UserEquip extends Component {
                 <div className='Equip'>
                     <h1>{item.name}</h1>
                     <p>COST: {item.cost}</p>
-                    <p>Weight: {item.weight} lb.</p>
+                    <p>Weight: {item.weight}</p>
                     <p>{item.description}</p>
                     <div className='addButton'>
                         <button onClick={() => this.props.addToUserDash(item)}>ADD</button>
