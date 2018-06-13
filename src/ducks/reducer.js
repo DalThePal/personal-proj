@@ -10,6 +10,7 @@ let initialState = {
     mounts: [],
     userMounts: [],
     armor: [],
+    userArmor: [],
     weapons: [],
     displayItem: {},
     user: {}
@@ -42,6 +43,12 @@ const CREATE_MOUNT = 'CREATE_MOUNT';
 const GET_USER_MOUNT = 'GET_USER_MOUNT';
 const EDIT_USER_MOUNT = 'EDIT_USER_MOUNT';
 const REM_USER_MOUNT = 'REM_USER_MOUNT';
+
+// ARMOR
+const CREATE_ARM = 'CREATE_ARM';
+const GET_USER_ARM = 'GET_USER_ARM';
+const EDIT_USER_ARM = 'EDIT_USER_ARM';
+const REM_USER_ARM = 'REM_USER_ARM';
 
 
 // USERS
@@ -191,6 +198,40 @@ export function editUserMount(item) {
     }
 }
 
+// ARMOR
+
+export function getUserArm() {
+    const promise = axios.get('/Armor')
+    return {
+        type: GET_USER_ARM,
+        payload: promise
+    }
+}
+
+export function createArm(item) {
+    const promise = axios.post('/Armor', item)
+    return {
+        type: CREATE_ARM,
+        payload: promise
+    }
+}
+
+export function remUserArm(item) {
+    const promise = axios.delete(`/Armor/${item}`)
+    return {
+        type: REM_USER_ARM,
+        payload: promise
+    }
+}
+
+export function editUserArm(item) {
+    const promise = axios.put('/Armor', item)
+    return {
+        type: EDIT_USER_ARM,
+        payload: promise
+    }
+}
+
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
@@ -247,7 +288,19 @@ export default function reducer(state = initialState, action) {
 
         case EDIT_USER_MOUNT + '_FULFILLED':
             return Object.assign({}, state, { userMounts: action.payload.data });
-        
+
+        case GET_USER_ARM + '_FULFILLED':
+            return Object.assign({}, state, { userArmor: action.payload.data });
+
+        case CREATE_ARM + '_FULFILLED':
+            return Object.assign({}, state, { userArmor: action.payload.data });
+
+        case REM_USER_ARM + '_FULFILLED':
+            return Object.assign({}, state, { userArmor: action.payload.data });
+
+        case EDIT_USER_ARM + '_FULFILLED':
+            return Object.assign({}, state, { userArmor: action.payload.data });
+
         default:
             return state;
     }
