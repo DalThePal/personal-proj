@@ -7,12 +7,15 @@ import Dashboard from '../Dashboard';
 import Header from '../Header';
 
 class Equipment extends Component {
+    constructor() {
+        super();
 
-    state = {
-        name: '',
-        cost: '',
-        weight: '',
-        desc: ''
+        this.state = {
+            name: '',
+            cost: '',
+            weight: '',
+            desc: ''
+        }
     }
 
     componentDidMount() {

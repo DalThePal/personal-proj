@@ -58,10 +58,11 @@ export default class UserArm extends Component {
                     <input className='h1' placeholder={item.name} onChange={e => this.handleChange({name: e.target.value})}/>
                     <input className='p' placeholder={item.cost} onChange={e => this.handleChange({cost: e.target.value})}/>
                     <input className='p' placeholder={item.armorClass} onChange={e => this.handleChange({armorClass: e.target.value})}/>
-                    <input className='p' placeholder={item.str} onChange={e => this.handleChange({armorClass: e.target.value})}/>
+                    <input className='p' placeholder={item.strength} onChange={e => this.handleChange({strength: e.target.value})}/>
+                    <input className='p' placeholder={item.stealth} onChange={e => this.handleChange({stealth: e.target.value})}/>
                     <input className='p' placeholder={item.weight} onChange={e => this.handleChange({weight: e.target.value})}/>
                     <div className='addButton'>
-                        <button onClick={() => this.props.remUserEquip(item.name)}>DEL</button>
+                        <button onClick={() => this.props.remUserArm(item.name)}>DEL</button>
                         <button onClick={() => this.handleSave()}>SAVE</button>
                     </div>
                 </div>

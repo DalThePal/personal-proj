@@ -95,6 +95,8 @@ module.exports = {
             .catch(() => res.status(500).send('didnt edit userEquip'))
     },
 
+    // MOUNTS
+
     getUserMount: (req, res) => {
         console.log('got to getUserMount')
         const dbInstance = req.app.get('db')
@@ -140,6 +142,59 @@ module.exports = {
             req.body.id
         ]).then(userMount => res.status(200).send(userMount))
             .catch(() => res.status(500).send('didnt edit userMount'));
+    },
+
+    // ARMOR
+
+    getUserArmor: (req, res) => {
+        console.log('got to getUserArmor')
+        const dbInstance = req.app.get('db')
+        dbInstance.get_user_armor([req.session.passport.user.id]).then(userArmor => {
+            res.status(200).send(userArmor)
+        }).catch(() => res.status(500).send('didnt get userArmor'))
+    },
+
+    createArm: (req, res) => {
+        console.log('got to createArm')
+        const dbInstance = req.app.get('db')
+        dbInstance.create_arm([
+            req.body.name,
+            req.body.category,
+            req.body.cost,
+            req.body.armorClass,
+            req.body.strength,
+            req.body.stealth,
+            req.body.weight,
+            req.session.passport.user.id
+        ]).then(userArmor => res.status(200).send(userArmor))
+            .catch(() => res.status(500).send('didnt create arm'))
+    },
+
+    remUserArm: (req, res) => {
+        console.log('got to remUserArm')
+        const dbInstance = req.app.get('db')
+        dbInstance.rem_user_arm([
+            req.params.name,
+            req.session.passport.user.id
+        ]).then(userArmor => res.status(200).send(userArmor))
+            .catch(() => res.status(500).send('didnt remove userArm'))
+    },
+
+    editUserArm: (req, res) => {
+        console.log('got to editUserArm')
+        const dbInstance = req.app.get('db')
+        dbInstance.edit_user_arm([
+            req.body.name,
+            req.body.category,
+            req.body.cost,
+            req.body.armorClass,
+            req.body.strength,
+            req.body.stealth,
+            req.body.weight,
+            req.session.passport.user.id,
+            req.body.id
+        ]).then(userArmor => res.status(200).send(userArmor))
+            .catch(() => res.status(500).send('didnt edit userArm'))
     }
 
 }

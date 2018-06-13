@@ -85,7 +85,6 @@ app.get('/logout', (req, res) => {
 app.post('/dashItems', controller.addToDash);
 app.get('/dashItems', controller.getDash)
 app.delete(`/dashItems/:name`, controller.remFromDash);
-
 app.post('/userDashItems', controller.addToUserDash);
 
 // EQUIPMENT ENDPOINTS
@@ -100,6 +99,13 @@ app.put('/Equipment', controller.editUserEquip);
 app.get('/Mounts', controller.getUserMount);
 app.post('/Mounts', controller.createMount);
 app.delete('/Mounts/:name', controller.remUserMount);
-app.put('/Mounts', controller.editUserMount)
+app.put('/Mounts', controller.editUserMount);
+
+// ARMOR ENDPOINTS
+
+app.get('/Armor', controller.getUserArmor);
+app.post('/Armor', controller.createArm);
+app.delete('/Armor/:name', controller.remUserArm);
+app.put('/Armor', controller.editUserArm);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
