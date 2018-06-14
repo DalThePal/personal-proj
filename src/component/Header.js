@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { displayDashItem } from '../ducks/reducer';
+import { displayDashItem } from '../ducks/reducers';
 
 class Header extends Component {
 

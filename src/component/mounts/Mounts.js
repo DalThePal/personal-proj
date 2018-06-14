@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToDash, getEquipment, getUserMount, createMount, editUserMount, remUserMount, displayDashItem } from '../../ducks/reducer';
+import actions from '../../ducks/reducers';
 import Mount from './Mount';
 import UserMount from './UserMount';
 import Dashboard from '../Dashboard';
@@ -83,4 +83,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { addToDash, getEquipment, getUserMount, createMount, editUserMount, remUserMount, displayDashItem })(Mounts);
+export default connect(mapStateToProps, actions)(Mounts);

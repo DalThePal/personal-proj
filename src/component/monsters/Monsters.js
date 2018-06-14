@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getUser, addToDash, getMonsters, displayDashItem } from '../../ducks/reducer';
+import {getUser, getMonsters, addToDash} from '../../duck/actions/';
 import Monster from './Monster';
 import Header from '../Header';
 import Dashboard from '../Dashboard';
@@ -8,8 +8,8 @@ import Dashboard from '../Dashboard';
 class Monsters extends Component {
 
     componentDidMount() {
-        this.props.getUser();
-        this.props.getMonsters();
+        this.props.actions.getUser();
+        this.props.actions.getMonsters();
     }
 
 
@@ -53,4 +53,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { getUser, addToDash, getMonsters, displayDashItem })(Monsters);
+export default connect(mapStateToProps, {getUser, getMonsters, addToDash})(Monsters);

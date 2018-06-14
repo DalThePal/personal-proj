@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToDash, createEquip, getEquipment, getUserEquip, editUserEquip, remUserEquip, displayDashItem } from '../../ducks/reducer';
+import actions from '../../ducks/index';
 import Equip from './Equip';
 import UserEquip from './UserEquip';
 import Dashboard from '../Dashboard';
@@ -78,4 +78,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { addToDash, createEquip, getEquipment, getUserEquip, editUserEquip, remUserEquip, displayDashItem })(Equipment);
+export default connect(mapStateToProps, actions)(Equipment);

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DashItem from './DashItem';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getDash, remFromDash, displayDashItem, getUser } from '../ducks/reducer';
+import actions from '../ducks/index';
 
 class Dashboard extends Component {
 
@@ -166,4 +166,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { getDash, remFromDash, displayDashItem, getUser })(Dashboard);
+export default connect(mapStateToProps, actions)(Dashboard);
