@@ -1,10 +1,10 @@
-import types from './types/';
+import types from './types';
 import axios from 'axios';
 import controller from './controller.js';
 
 // USERS
 
-export const getUser = () => {
+const getUser = () => {
     const promise = axios.get('/auth/me')
     return {
         type: types.UPDATE_USER_INFO,
@@ -31,7 +31,7 @@ const getDash = () => {
 
 }
 
-export const addToDash = (item) => {
+const addToDash = (item) => {
     const promise = axios.post('/dashItems', item)
     return {
         type: types.ADD_TO_DASH,
@@ -40,7 +40,7 @@ export const addToDash = (item) => {
 
 }
 
-export const addToUserDash = (item) => {
+const addToUserDash = (item) => {
     const promise = axios.post('/userDashItems', item)
     return {
         type: types.ADD_TO_USER_DASH,
@@ -59,7 +59,7 @@ const remFromDash = (item) => {
 
 // DND API
 
-export const getMonsters = () => {
+const getMonsters = () => {
     return {
         type: types.GET_MONSTERS,
         payload: controller.getMonsters()
@@ -183,45 +183,45 @@ const editUserArm = (item) => {
     }
 }
 
-// export default {
+export default {
 
-// // USERS
+// USERS
 
-//     getUser,
+    getUser,
 
-// // DASHBOARD
+// DASHBOARD
 
-//     displayDashItem,
-//     getDash,
-//     addToDash,
-//     addToUserDash,
-//     remFromDash,
+    displayDashItem,
+    getDash,
+    addToDash,
+    addToUserDash,
+    remFromDash,
 
-// // DND API
+// DND API
 
-//     getMonsters,
-//     getSpells,
-//     getEquipment,
+    getMonsters,
+    getSpells,
+    getEquipment,
 
-// // EQUIPMENT
+// EQUIPMENT
 
-//     createEquip,
-//     getUserEquip,
-//     editUserEquip,
-//     remUserEquip,
+    createEquip,
+    getUserEquip,
+    editUserEquip,
+    remUserEquip,
 
-// // MOUNTS
+// MOUNTS
 
-//     getUserMount,
-//     createMount,
-//     remUserMount,
-//     editUserMount,
+    getUserMount,
+    createMount,
+    remUserMount,
+    editUserMount,
 
-// // ARMOR
+// ARMOR
 
-//     getUserArm,
-//     createArm,
-//     remUserArm,
-//     editUserArm 
+    getUserArm,
+    createArm,
+    remUserArm,
+    editUserArm 
 
-// }
+}

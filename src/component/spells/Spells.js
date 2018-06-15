@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import actions from '../../ducks/index';
+import actions from '../../duck/index';
 import Spell from './Spell';
 import Dashboard from '../Dashboard';
 import Header from '../Header';

@@ -1,4 +1,10 @@
-import reducer from './reducers/';
-export { default as actions } from './actions/';
-export { default as types } from './types/';
+import reducer from './reducer';
+import actions from './actions';
+import types from './types';
+
+export {
+    actions,
+    types
+}
+
 export default reducer;

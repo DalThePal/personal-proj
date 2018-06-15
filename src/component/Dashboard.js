@@ -2,21 +2,17 @@ import React, { Component } from 'react';
 import DashItem from './DashItem';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import actions from '../ducks/index';
+import { actions } from '../duck';
 
 class Dashboard extends Component {
 
 
     componentDidMount() {
-        this.props.getDash();
-
-    }
-
-    componentDidUpdate() {
-        this.props.getDash();
+        actions.getDash();
     }
 
     render() {
+        console.log(this.props.dash)
         const monstItems = this.props.dash.map((monster, index) => {
             if (monster.type === 'monster') {
                 return (

@@ -1,5 +1,4 @@
-import * as controller from './controller';
-import types from './types/';
+import types from './types';
 import { combineReducers } from 'redux';
 
 
@@ -34,18 +33,34 @@ const dashboardReducer = (state = initialState, action) => {
             return Object.assign({}, state, { dash: action.payload.data });
 
         default:
-            return state;
+            return state.dash;
     }
 }
 
-const dndAPIReducer = (state = initialState, action) => {
+const monstersAPIReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case types.GET_MONSTERS + '_FULFILLED':
             return Object.assign({}, state, { monsters: action.payload });
+            
+        default: 
+            return state.monsters;
+    }
+}
+
+const spellsAPIReducer = (state = initialState, action) => {
+    switch (action.type) {
 
         case types.GET_SPELLS + '_FULFILLED':
             return Object.assign({}, state, { spells: action.payload });
+        
+        default: 
+            return state.spells
+    }
+}
+
+const equipmentAPIReducer = (state = initialState, action) => {
+    switch (action.type) {
 
         case types.GET_EQUIPMENT + '_FULFILLED':
             var weapons = action.payload.slice(0, 37);
@@ -54,8 +69,8 @@ const dndAPIReducer = (state = initialState, action) => {
             let mounts = action.payload.slice(191);
             return Object.assign({}, state, { armor: armor, weapons: weapons, equipment: equipment, mounts: mounts });
 
-        default: 
-            return state;
+        default:
+            return state.armor, state.weapons, state.equipment, state.mounts
     }
 }
 
@@ -74,7 +89,7 @@ const armorReducer = (state = initialState, action) => {
         case types.EDIT_USER_ARM + '_FULFILLED':
             return Object.assign({}, state, { userArmor: action.payload.data });
         default: 
-            return state;
+            return state.userArmor;
     }
 }
 
@@ -85,7 +100,7 @@ const userReducer = (state = initialState, action) => {
             return Object.assign({}, state, { user: action.payload });
 
         default:
-            return state;
+            return state.user;
     }
 }
 
@@ -107,7 +122,7 @@ const equipmentReducer = (state = initialState, action) => {
             return Object.assign({}, state, { userEquipment: action.payload.data });
 
         default:
-            return state;
+            return state.userEquipment;
     }
 }
 
@@ -127,18 +142,20 @@ const mountsReducer = (state = initialState, action) => {
             return Object.assign({}, state, { userMounts: action.payload.data });
 
         default:
-            return state;
+            return state.userMounts;
     }
 }
 
 const reducer = combineReducers( {
 
     user: userReducer,
-    api: dndAPIReducer,
-    dashboard: dashboardReducer,
-    armor: armorReducer,
-    equipment: equipmentReducer,
-    mounts: mountsReducer
+    monsters: monstersAPIReducer,
+    spells: spellsAPIReducer,
+    equipment: equipmentAPIReducer,
+    dash: dashboardReducer,
+    userArmor: armorReducer,
+    userEquipment: equipmentReducer,
+    userMounts: mountsReducer
 
 } );
 

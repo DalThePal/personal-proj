@@ -8,7 +8,7 @@ import Mount from './mounts/Mount';
 import Dashboard from './Dashboard';
 import Header from './Header';
 import { connect } from 'react-redux';
-import actions from '../ducks/index';
+import actions from '../duck/index';
 
 
 class Favorites extends Component {

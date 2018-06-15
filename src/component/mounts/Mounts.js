@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import actions from '../../ducks/reducers';
+import actions from '../../duck/actions';
 import Mount from './Mount';
 import UserMount from './UserMount';
 import Dashboard from '../Dashboard';

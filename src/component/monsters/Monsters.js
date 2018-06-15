@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {getUser, getMonsters, addToDash} from '../../duck/actions/';
+import { bindActionCreators } from 'redux';
+import { actions } from '../../duck';
 import Monster from './Monster';
 import Header from '../Header';
 import Dashboard from '../Dashboard';
@@ -8,14 +9,15 @@ import Dashboard from '../Dashboard';
 class Monsters extends Component {
 
     componentDidMount() {
-        this.props.actions.getUser();
-        this.props.actions.getMonsters();
+        actions.getUser();
+        actions.getMonsters();
     }
 
 
     render() {
+        console.log(this.props.monsters)
         const monsters = this.props.monsters.map((monster, index) => {
-            
+
             return (
 
                 <Monster
@@ -31,7 +33,7 @@ class Monsters extends Component {
 
         return (
             <div className='Window' >
-                <Header title='monsters'/>
+                <Header title='monsters' />
                 <div className='Body'>
                     <div className='Monsters'>
                         {monsters}
@@ -53,4 +55,7 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, {getUser, getMonsters, addToDash})(Monsters);
+
+
+
+export default connect(mapStateToProps)(Monsters);
