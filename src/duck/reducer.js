@@ -12,9 +12,7 @@ const dash = (state = [], action) => {
             return state.concat(action.payload.data);
 
         case types.REM_FROM_DASH + '_FULFILLED':
-            console.log(action.payload)
-            let index = state.findIndex(item => item.name === action.payload.data[0].name);
-            console.log(index)
+            let index = state.findIndex(item => item.id === action.payload.data[0].id);
             return [...state.slice(0, index), ...state.slice(index + 1)];
 
         case types.GET_DASH + '_FULFILLED':
@@ -105,10 +103,12 @@ const userArmor = (state = [], action) => {
             return state.concat(action.payload.data);
 
         case types.REM_USER_ARM + '_FULFILLED':
-            return state.concat(action.payload.data);
+            let index = state.findIndex(item => item.name === action.payload.data[0].name);
+            return [...state.slice(0, index), ...state.slice(index + 1)];
 
         case types.EDIT_USER_ARM + '_FULFILLED':
-            return state.concat(action.payload.data);
+            let editIndex = state.findIndex(item => item.name === action.payload.data[0].name);
+            return [...state.slice(0, editIndex), action.payload.data[0], ...state.slice(editIndex + 1)];
 
         default: 
             return state;
