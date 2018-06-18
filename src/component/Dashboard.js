@@ -8,7 +8,11 @@ class Dashboard extends Component {
 
 
     componentDidMount() {
-        actions.getDash();
+        this.props.dispatch(actions.getDash());
+    }
+
+    remFromDash(payload) {
+        this.props.dispatch(actions.remFromDash(payload));
     }
 
     render() {
@@ -19,10 +23,9 @@ class Dashboard extends Component {
                     <DashItem
                         key={index}
                         item={monster}
-                        removeFromDash={this.props.remFromDash}
+                        removeFromDash={this.remFromDash.bind(this)}
                         dashType={'monster'}
                         link={'/Monsters'}
-                        displayDashItem={this.props.displayDashItem}
 
                     />
                 )
@@ -36,10 +39,9 @@ class Dashboard extends Component {
                     <DashItem
                         key={index}
                         item={spell}
-                        removeFromDash={this.props.remFromDash}
+                        removeFromDash={this.remFromDash.bind(this)}
                         dashType={'spell'}
                         link={'/Spells'}
-                        displayDashItem={this.props.displayDashItem}
                     />
                 )
             } else return
@@ -52,10 +54,9 @@ class Dashboard extends Component {
                     <DashItem
                         key={index}
                         item={arm}
-                        removeFromDash={this.props.remFromDash}
+                        removeFromDash={this.remFromDash.bind(this)}
                         dashType={'armor'}
                         link={'/Armor'}
-                        displayDashItem={this.props.displayDashItem}
                     />
                 )
             } else return
@@ -67,10 +68,9 @@ class Dashboard extends Component {
                     <DashItem
                         key={index}
                         item={weapon}
-                        removeFromDash={this.props.remFromDash}
+                        removeFromDash={this.remFromDash.bind(this)}
                         dashType={'weapon'}
                         link={'/Weapons'}
-                        displayDashItem={this.props.displayDashItem}
                     />
                 )
 
@@ -85,10 +85,9 @@ class Dashboard extends Component {
                     <DashItem
                         key={index}
                         item={equip}
-                        removeFromDash={this.props.remFromDash}
+                        removeFromDash={this.remFromDash.bind(this)}
                         dashType={'equipment'}
                         link={'/Equipment'}
-                        displayDashItem={this.props.displayDashItem}
                     />
                 )
             } else return
@@ -100,10 +99,9 @@ class Dashboard extends Component {
                     <DashItem
                         key={index}
                         item={mount}
-                        removeFromDash={this.props.remFromDash}
+                        removeFromDash={this.remFromDash.bind(this)}
                         dashType={'mount'}
                         link={'/Mounts'}
-                        displayDashItem={this.props.displayDashItem}
                     />
                 )
 
@@ -113,40 +111,40 @@ class Dashboard extends Component {
         return (
             <div className='Dashboard'>
                 <div className='displayButton'>
-                    <Link to='/Favorites' onClick={() => { this.props.displayDashItem(''); }}><button>Display all</button></Link>
+                    <Link to='/Favorites'><button>Display all</button></Link>
                 </div>
                 <div className='SectionTitle'>
-                    <Link to='/Monsters' onClick={() => { this.props.displayDashItem(''); }}>MONSTERS</Link>
+                    <Link to='/Monsters'>MONSTERS</Link>
                 </div>
                 <div className='Items'>
                     {monstItems}
                 </div>
                 <div className='SectionTitle'>
-                    <Link to='/Spells' onClick={() => { this.props.displayDashItem(''); }}>SPELLS</Link>
+                    <Link to='/Spells'>SPELLS</Link>
                 </div>
                 <div className='Items'>
                     {spellItems}
                 </div>
                 <div className='SectionTitle'>
-                    <Link to='/Armor' onClick={() => { this.props.displayDashItem(''); }}>ARMOR</Link>
+                    <Link to='/Armor'>ARMOR</Link>
                 </div>
                 <div className='Items'>
                     {armorItems}
                 </div>
                 <div className='SectionTitle'>
-                    <Link to='/Weapons' onClick={() => { this.props.displayDashItem(''); }}>WEAPONS</Link>
+                    <Link to='/Weapons'>WEAPONS</Link>
                 </div>
                 <div className='Items'>
                     {weaponItems}
                 </div>
                 <div className='SectionTitle'>
-                    <Link to='/Equipment' onClick={() => { this.props.displayDashItem(''); }}>EQUIPMENT</Link>
+                    <Link to='/Equipment'>EQUIPMENT</Link>
                 </div>
                 <div className='Items'>
                     {equipItems}
                 </div>
                 <div className='SectionTitle'>
-                    <Link to='/Mounts' onClick={() => { this.props.displayDashItem(''); }}>MOUNTS & VEHICLES</Link>
+                    <Link to='/Mounts'>MOUNTS & VEHICLES</Link>
                 </div>
                 <div className='Items'>
                     {mountItems}
@@ -162,4 +160,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, actions)(Dashboard);
+export default connect(mapStateToProps)(Dashboard);

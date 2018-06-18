@@ -9,10 +9,13 @@ import Dashboard from '../Dashboard';
 class Monsters extends Component {
 
     componentDidMount() {
-        actions.getUser();
-        actions.getMonsters();
+        this.props.dispatch(actions.getUser());
+        this.props.dispatch(actions.getMonsters());
     }
 
+    addToDash(obj) {
+        this.props.dispatch(actions.addToDash(obj));
+    }
 
     render() {
         console.log(this.props.monsters)
@@ -24,7 +27,7 @@ class Monsters extends Component {
                     key={index}
                     name={monster.name}
                     url={monster.url}
-                    addToDash={this.props.addToDash}
+                    addToDash={this.addToDash.bind(this)}
                 />
 
             )
@@ -50,7 +53,6 @@ class Monsters extends Component {
 function mapStateToProps(state) {
     return {
         monsters: state.monsters,
-        displayItem: state.displayItem,
         user: state.user
     }
 }

@@ -28,6 +28,7 @@ module.exports = {
     },
 
     getDash: (req, res) => {
+        console.log('got to getDash');
         const userId = req.session.passport.user.id;
         const dbInstance = req.app.get('db');
         dbInstance.get_dash(userId).then((favorites) => {
