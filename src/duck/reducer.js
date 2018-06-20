@@ -16,7 +16,7 @@ const dash = (state = [], action) => {
             return [...state.slice(0, index), ...state.slice(index + 1)];
 
         case types.GET_DASH + '_FULFILLED':
-            return state.concat(action.payload.data);
+            if(state.length === 0) return [...state, ...action.payload.data];
 
         default:
             return state;
@@ -27,7 +27,14 @@ const monsters = (state = [], action) => {
     switch (action.type) {
 
         case types.GET_MONSTERS + '_FULFILLED':
-            return state.concat(action.payload);
+            let copy = state.concat(action.payload).sort();
+            let monsters = [];
+            copy.map((item, i) => {
+                if(item !== copy[i+1]){
+                    monsters.push(item);
+                }
+            })
+            return monsters;
             
         default: 
             return state;
@@ -50,7 +57,7 @@ const equipment = (state = [], action) => {
 
         case types.GET_EQUIPMENT + '_FULFILLED':
             let equipment = action.payload.slice(50, 191);
-            return state.concat(equipment);
+            if(state.length === 0) return [...state, ...equipment];
 
         default:
             return state;
@@ -62,7 +69,7 @@ const mounts = (state = [], action) => {
 
         case types.GET_EQUIPMENT + '_FULFILLED':
             let mounts = action.payload.slice(191);
-            return state.concat(mounts);
+            if(state.length === 0) return [...state, ...mounts];
 
         default:
             return state;
@@ -74,7 +81,7 @@ const weapons = (state = [], action) => {
 
         case types.GET_EQUIPMENT + '_FULFILLED':
             let weapons = action.payload.slice(0, 37);
-            return state.concat(weapons);
+            if(state.length === 0) return [...state, ...weapons];
 
         default:
             return state;
@@ -86,7 +93,7 @@ const armor = (state = [], action) => {
 
         case types.GET_EQUIPMENT + '_FULFILLED':
             let armor = action.payload.slice(37, 50);
-            return state.concat(armor);
+            if(state.length === 0) return [...state, ...armor];
         
         default:
             return state;
@@ -129,19 +136,20 @@ const user = (state = {}, action) => {
 const userEquipment = (state = [], action) => {
     switch (action.type) {
 
-        case types.CREATE_EQUIP + '_FULFILLED':
-            console.log(action.payload)
-            return state.concat(action.payload.data);
-
         case types.GET_USER_EQUIP + '_FULFILLED':
             console.log(action.payload.data)
             return state.concat(action.payload.data);
 
-        case types.REM_USER_EQUIP + '_FULFILLED':
+        case types.CREATE_EQUIP + '_FULFILLED':
             return state.concat(action.payload.data);
 
+        case types.REM_USER_EQUIP + '_FULFILLED':
+            let index = state.findIndex(item => item.name === action.payload.data[0].name);
+            return [...state.slice(0, index), ...state.slice(index + 1)];
+
         case types.EDIT_USER_EQUIP + '_FULFILLED':
-            return state.concat(action.payload.data);
+            let editIndex = state.findIndex(item => item.name === action.payload.data[0].name);
+            return [...state.slice(0, editIndex), action.payload.data[0], ...state.slice(editIndex + 1)];
 
         default:
             return state;
@@ -151,17 +159,19 @@ const userEquipment = (state = [], action) => {
 const userMounts = (state = [], action) => {
     switch (action.type) {
 
-        case types.CREATE_MOUNT + '_FULFILLED':
-            return state.concat(action.payload.data);
-
         case types.GET_USER_MOUNT + '_FULFILLED':
             return state.concat(action.payload.data);
 
-        case types.REM_USER_MOUNT + '_FULFILLED':
+        case types.CREATE_MOUNT + '_FULFILLED':
             return state.concat(action.payload.data);
 
+        case types.REM_USER_MOUNT + '_FULFILLED':
+            let index = state.findIndex(item => item.name === action.payload.data[0].name);
+            return [...state.slice(0, index), ...state.slice(index + 1)];
+
         case types.EDIT_USER_MOUNT + '_FULFILLED':
-            return state.concat(action.payload.data);
+            let editIndex = state.findIndex(item => item.name === action.payload.data[0].name);
+            return [...state.slice(0, editIndex), action.payload.data[0], ...state.slice(editIndex + 1)];
 
         default:
             return state;

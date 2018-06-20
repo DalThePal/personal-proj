@@ -6,7 +6,6 @@ import { actions } from '../duck';
 
 class Dashboard extends Component {
 
-
     componentDidMount() {
         this.props.dispatch(actions.getDash());
     }

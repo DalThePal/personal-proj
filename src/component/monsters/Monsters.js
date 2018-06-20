@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { actions } from '../../duck';
 import Monster from './Monster';
 import Header from '../Header';

@@ -1,3 +1,3 @@
 delete from favorites
-where name=$1
+where id=$1
 returning id;
