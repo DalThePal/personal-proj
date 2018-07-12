@@ -26,8 +26,8 @@ const dash = (state = [], action) => {
 const displayDashItem = (state = {}, action) => {
     switch (action.type) {
 
-        case types.DISPLAY_DASH_ITEM:
-            return action.payload;
+        case types.DISPLAY_DASH_ITEM + 'FULFILLED':
+            return Object.assign({}, state, action.payload);
 
         default:
             return state;

@@ -14,7 +14,7 @@ import actions from '../duck/index';
 class Favorites extends Component {
 
     componentDidMount() {
-
+        console.log(this.props.displayDashItem)
     }
 
     render() {
@@ -107,8 +107,10 @@ class Favorites extends Component {
                 )
             } else return
         })
-        if (this.props.displayItem) {
-            switch (this.props.displayItem.type) {
+
+        if (this.props.displayDashItem.type) {
+            console.log(this.props.displayDashItem)
+            switch (this.props.displayDashItem.type) {
                 case 'monster':
                     return (
                         <div className='Window'>
@@ -116,8 +118,8 @@ class Favorites extends Component {
                             <div className='Body'>
                                 <div className='Content'>
                                     <Monster
-                                        name={this.props.displayItem.name}
-                                        url={this.props.displayItem.url}
+                                        name={this.props.displayDashItem.name}
+                                        url={this.props.displayDashItem.url}
                                         addToDash={this.props.addToDash}
                                     />
                                 </div>
@@ -132,8 +134,8 @@ class Favorites extends Component {
                             <div className='Body'>
                                 <div className='Content'>
                                     <Spell
-                                        name={this.props.displayItem.name}
-                                        url={this.props.displayItem.url}
+                                        name={this.props.displayDashItem.name}
+                                        url={this.props.displayDashItem.url}
                                         addToDash={this.props.addToDash}
                                     />
                                 </div>
@@ -148,8 +150,8 @@ class Favorites extends Component {
                             <div className='Body'>
                                 <div className='Content'>
                                     <Arm
-                                        name={this.props.displayItem.name}
-                                        url={this.props.displayItem.url}
+                                        name={this.props.displayDashItem.name}
+                                        url={this.props.displayDashItem.url}
                                         addToDash={this.props.addToDash}
                                     />
                                 </div>
@@ -164,8 +166,8 @@ class Favorites extends Component {
                             <div className='Body'>
                                 <div className='Content'>
                                     <Weapon
-                                        name={this.props.displayItem.name}
-                                        url={this.props.displayItem.url}
+                                        name={this.props.displayDashItem.name}
+                                        url={this.props.displayDashItem.url}
                                         addToDash={this.props.addToDash}
                                     />
                                 </div>
@@ -180,8 +182,8 @@ class Favorites extends Component {
                             <div className='Body'>
                                 <div className='Content'>
                                     <Equip
-                                        name={this.props.displayItem.name}
-                                        url={this.props.displayItem.url}
+                                        name={this.props.displayDashItem.name}
+                                        url={this.props.displayDashItem.url}
                                         addToDash={this.props.addToDash}
                                     />
                                 </div>
@@ -197,8 +199,8 @@ class Favorites extends Component {
                                 <div className='Content'>
 
                                     <Mount
-                                        name={this.props.displayItem.name}
-                                        url={this.props.displayItem.url}
+                                        name={this.props.displayDashItem.name}
+                                        url={this.props.displayDashItem.url}
                                         addToDash={this.props.addToDash}
                                     />
                                 </div>
@@ -233,7 +235,7 @@ function mapStateToProps(state) {
     return {
         dash: state.dash,
         user: state.user,
-        displayItem: state.displayItem
+        displayDashItem: state.displayDashItem
     }
 }
 
