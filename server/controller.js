@@ -28,6 +28,7 @@ module.exports = {
     },
 
     getDash: (req, res) => {
+        console.log('got to getDash');
         const userId = req.session.passport.user.id;
         const dbInstance = req.app.get('db');
         dbInstance.get_dash(userId).then((favorites) => {
@@ -41,7 +42,7 @@ module.exports = {
         console.log('got to remFromDash')
         const dbInstance = req.app.get('db');
         dbInstance.rem_from_dash([
-            req.params.name,
+            req.params.id,
             req.session.passport.user.id
         ]).then((favorites) => res.status(200).send(favorites))
             .catch(() => res.status(500).send('didnt delete favorite'))

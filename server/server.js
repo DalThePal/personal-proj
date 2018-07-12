@@ -80,11 +80,11 @@ app.get('/logout', (req, res) => {
     res.redirect(process.env.FAILURE_REDIRECT);
 })
 
-// DB ENDPOINTS
+// DASHBOARD ENDPOINTS
 
 app.post('/dashItems', controller.addToDash);
 app.get('/dashItems', controller.getDash)
-app.delete(`/dashItems/:name`, controller.remFromDash);
+app.delete(`/dashItems/:id`, controller.remFromDash);
 app.post('/userDashItems', controller.addToUserDash);
 
 // EQUIPMENT ENDPOINTS

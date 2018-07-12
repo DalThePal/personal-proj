@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToDash, createEquip, getEquipment, getUserEquip, editUserEquip, remUserEquip, displayDashItem } from '../../ducks/reducer';
+import { actions } from '../../duck';
 import Equip from './Equip';
 import UserEquip from './UserEquip';
 import Dashboard from '../Dashboard';
@@ -19,8 +19,24 @@ class Equipment extends Component {
     }
 
     componentDidMount() {
-        this.props.getEquipment();
-        this.props.getUserEquip();
+        this.props.dispatch(actions.getEquipment());
+        this.props.dispatch(actions.getUserEquip());
+    }
+
+    addToDash(payload) {
+        this.props.dispatch(actions.addToDash(payload));
+    }
+
+    remUserEquip(payload) {
+        this.props.dispatch(actions.remUserEquip(payload));
+    }
+
+    editUserEquip(payload) {
+        this.props.dispatch(actions.editUserEquip(payload));
+    }
+
+    createEquip(payload) {
+        this.props.dispatch(actions.createEquip(payload));
     }
 
     render() {
@@ -30,7 +46,7 @@ class Equipment extends Component {
                     key={index}
                     name={equip.name}
                     url={equip.url}
-                    addToDash={this.props.addToDash}
+                    addToDash={this.addToDash.bind(this)}
                 />
             )
         })
@@ -41,8 +57,8 @@ class Equipment extends Component {
                     key={index}
                     item={equip}
                     addToDash={this.props.addToUserDash}
-                    remUserEquip={this.props.remUserEquip}
-                    editUserEquip={this.props.editUserEquip}
+                    remUserEquip={this.remUserEquip.bind(this)}
+                    editUserEquip={this.editUserEquip.bind(this)}
                 />
             )
         })
@@ -59,7 +75,7 @@ class Equipment extends Component {
                             <input placeholder='cost' onChange={(e) => this.setState({cost: e.target.value})}/>
                             <input placeholder='weight' onChange={(e) => this.setState({weight: e.target.value})}/>
                             <textarea placeholder='description' onChange={(e) => this.setState({desc: e.target.value})}/>
-                            <button onClick={() => this.props.createEquip(this.state)}>create</button>
+                            <button onClick={() => this.createEquip(this.state)}>create</button>
                         </div>
                     </div>
                     <Dashboard />
@@ -78,4 +94,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { addToDash, createEquip, getEquipment, getUserEquip, editUserEquip, remUserEquip, displayDashItem })(Equipment);
+export default connect(mapStateToProps)(Equipment);

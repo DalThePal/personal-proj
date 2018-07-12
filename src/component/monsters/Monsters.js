@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getUser, addToDash, getMonsters, displayDashItem } from '../../ducks/reducer';
+import { actions } from '../../duck';
 import Monster from './Monster';
 import Header from '../Header';
 import Dashboard from '../Dashboard';
@@ -8,21 +8,25 @@ import Dashboard from '../Dashboard';
 class Monsters extends Component {
 
     componentDidMount() {
-        this.props.getUser();
-        this.props.getMonsters();
+        this.props.dispatch(actions.getUser());
+        this.props.dispatch(actions.getMonsters());
     }
 
+    addToDash(obj) {
+        this.props.dispatch(actions.addToDash(obj));
+    }
 
     render() {
+        console.log(this.props.monsters)
         const monsters = this.props.monsters.map((monster, index) => {
-            
+
             return (
 
                 <Monster
                     key={index}
                     name={monster.name}
                     url={monster.url}
-                    addToDash={this.props.addToDash}
+                    addToDash={this.addToDash.bind(this)}
                 />
 
             )
@@ -31,7 +35,7 @@ class Monsters extends Component {
 
         return (
             <div className='Window' >
-                <Header title='monsters'/>
+                <Header title='monsters' />
                 <div className='Body'>
                     <div className='Monsters'>
                         {monsters}
@@ -48,9 +52,11 @@ class Monsters extends Component {
 function mapStateToProps(state) {
     return {
         monsters: state.monsters,
-        displayItem: state.displayItem,
         user: state.user
     }
 }
 
-export default connect(mapStateToProps, { getUser, addToDash, getMonsters, displayDashItem })(Monsters);
+
+
+
+export default connect(mapStateToProps)(Monsters);

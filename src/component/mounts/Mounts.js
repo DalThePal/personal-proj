@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToDash, getEquipment, getUserMount, createMount, editUserMount, remUserMount, displayDashItem } from '../../ducks/reducer';
+import { actions } from '../../duck';
 import Mount from './Mount';
 import UserMount from './UserMount';
 import Dashboard from '../Dashboard';
@@ -20,11 +20,25 @@ class Mounts extends Component {
     }
 
     componentDidMount() {
-
-        this.props.getEquipment();
-        this.props.getUserMount();
+        this.props.dispatch(actions.getEquipment());
+        this.props.dispatch(actions.getUserMount());
     }
 
+    addToDash(payload) {
+        this.props.dispatch(actions.addToDash(payload));
+    }
+
+    remUserMount(payload) {
+        this.props.dispatch(actions.remUserMount(payload));
+    }
+
+    editUserMount(payload) {
+        this.props.dispatch(actions.editUserMount(payload));
+    }
+
+    createMount(payload) {
+        this.props.dispatch(actions.createMount(payload));
+    }
 
     render() {
         const mounts = this.props.mounts.map((mount, index) => {
@@ -33,7 +47,7 @@ class Mounts extends Component {
                     key={index}
                     name={mount.name}
                     url={mount.url}
-                    addToDash={this.props.addToDash}
+                    addToDash={this.addToDash.bind(this)}
 
                 />
             )
@@ -44,9 +58,9 @@ class Mounts extends Component {
                 <UserMount
                     key={index}
                     item={mount}
-                    addToDash={this.props.addToDash}
-                    remUserMount={this.props.remUserMount}
-                    editUserMount={this.props.editUserMount}
+                    addToDash={this.props.addToUserDash}
+                    remUserMount={this.remUserMount.bind(this)}
+                    editUserMount={this.editUserMount.bind(this)}
                 />
             )
         })
@@ -64,7 +78,7 @@ class Mounts extends Component {
                             <input placeholder='speed' onChange={(e) => this.setState({speed: e.target.value})}/>
                             <input placeholder='capacity' onChange={(e) => this.setState({capacity: e.target.value})}/>
                             <textarea placeholder='description' onChange={(e) => this.setState({description: e.target.value})}/>
-                            <button onClick={() => this.props.createMount(this.state)}>create</button>
+                            <button onClick={() => this.createMount(this.state)}>create</button>
                         </div>
                     </div>
                     <Dashboard />
@@ -78,9 +92,8 @@ function mapStateToProps(state) {
     return {
         mounts: state.mounts,
         userMounts: state.userMounts,
-        displayItem: state.displayItem,
         user: state.user
     }
 }
 
-export default connect(mapStateToProps, { addToDash, getEquipment, getUserMount, createMount, editUserMount, remUserMount, displayDashItem })(Mounts);
+export default connect(mapStateToProps)(Mounts);

@@ -8,7 +8,7 @@ import Mount from './mounts/Mount';
 import Dashboard from './Dashboard';
 import Header from './Header';
 import { connect } from 'react-redux';
-import { displayDashItem } from '../ducks/reducer';
+import actions from '../duck/index';
 
 
 class Favorites extends Component {
@@ -237,4 +237,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { displayDashItem })(Favorites);
+export default connect(mapStateToProps, actions)(Favorites);

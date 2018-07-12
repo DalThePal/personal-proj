@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToDash, getSpells, displayDashItem } from '../../ducks/reducer';
+import { actions } from '../../duck/index';
 import Spell from './Spell';
 import Dashboard from '../Dashboard';
 import Header from '../Header';
@@ -8,7 +8,11 @@ import Header from '../Header';
 class Spells extends Component {
 
     componentDidMount() {
-        this.props.getSpells();
+        this.props.dispatch(actions.getSpells());
+    }
+
+    addToDash(payload) {
+        this.props.dispatch(actions.addToDash(payload));
     }
 
     render() {
@@ -18,7 +22,7 @@ class Spells extends Component {
                     key={index}
                     name={spell.name}
                     url={spell.url}
-                    addToDash={this.props.addToDash}
+                    addToDash={this.addToDash.bind(this)}
                 />
             )
         })
@@ -40,9 +44,8 @@ class Spells extends Component {
 function mapStateToProps(state) {
     return {
         spells: state.spells,
-        displayItem: state.displayItem,
         user: state.user
     }
 }
 
-export default connect(mapStateToProps, { addToDash, getSpells, displayDashItem })(Spells);
+export default connect(mapStateToProps)(Spells);

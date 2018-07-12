@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToDash, getEquipment, displayDashItem } from '../../ducks/reducer';
+import { actions } from '../../duck/index';
 import Weapon from './Weapon';
 import Dashboard from '../Dashboard';
 import Header from '../Header';
@@ -8,8 +8,11 @@ import Header from '../Header';
 class Weapons extends Component {
 
     componentDidMount() {
+        this.props.dispatch(actions.getEquipment());
+    }
 
-        this.props.getEquipment();
+    addToDash(payload) {
+        this.props.dispatch(actions.addToDash(payload));
     }
 
     render() {
@@ -19,7 +22,7 @@ class Weapons extends Component {
                     key={index}
                     name={weapon.name}
                     url={weapon.url}
-                    addToDash={this.props.addToDash}
+                    addToDash={this.addToDash.bind(this)}
                 />
             )
         })
@@ -41,9 +44,8 @@ class Weapons extends Component {
 function mapStateToProps(state) {
     return {
         weapons: state.weapons,
-        displayItem: state.displayItem,
         user: state.user
     }
 }
 
-export default connect(mapStateToProps, { addToDash, getEquipment, displayDashItem })(Weapons);
+export default connect(mapStateToProps)(Weapons);
