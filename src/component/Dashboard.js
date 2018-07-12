@@ -14,6 +14,10 @@ class Dashboard extends Component {
         this.props.dispatch(actions.remFromDash(payload));
     }
 
+    displayDashItem(payload) {
+        this.props.dispatch(actions.displayDashItem(payload));
+    }
+
     render() {
         console.log(this.props.dash)
         const monstItems = this.props.dash.map((monster, index) => {
@@ -24,6 +28,7 @@ class Dashboard extends Component {
                         item={monster}
                         removeFromDash={this.remFromDash.bind(this)}
                         dashType={'monster'}
+                        displayDashItem={this.displayDashItem.bind(this)}
                         link={'/Monsters'}
 
                     />
@@ -40,6 +45,7 @@ class Dashboard extends Component {
                         item={spell}
                         removeFromDash={this.remFromDash.bind(this)}
                         dashType={'spell'}
+                        displayDashItem={this.displayDashItem.bind(this)}
                         link={'/Spells'}
                     />
                 )
@@ -55,6 +61,7 @@ class Dashboard extends Component {
                         item={arm}
                         removeFromDash={this.remFromDash.bind(this)}
                         dashType={'armor'}
+                        displayDashItem={this.displayDashItem.bind(this)}
                         link={'/Armor'}
                     />
                 )
@@ -69,6 +76,7 @@ class Dashboard extends Component {
                         item={weapon}
                         removeFromDash={this.remFromDash.bind(this)}
                         dashType={'weapon'}
+                        displayDashItem={this.displayDashItem.bind(this)}
                         link={'/Weapons'}
                     />
                 )
@@ -86,6 +94,7 @@ class Dashboard extends Component {
                         item={equip}
                         removeFromDash={this.remFromDash.bind(this)}
                         dashType={'equipment'}
+                        displayDashItem={this.displayDashItem.bind(this)}
                         link={'/Equipment'}
                     />
                 )
@@ -100,6 +109,7 @@ class Dashboard extends Component {
                         item={mount}
                         removeFromDash={this.remFromDash.bind(this)}
                         dashType={'mount'}
+                        displayDashItem={this.displayDashItem.bind(this)}
                         link={'/Mounts'}
                     />
                 )
