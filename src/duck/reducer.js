@@ -27,13 +27,7 @@ const monsters = (state = [], action) => {
     switch (action.type) {
 
         case types.GET_MONSTERS + '_FULFILLED':
-            let copy = state.concat(action.payload).sort();
-            let monsters = [];
-            copy.map((item, i) => {
-                if(item !== copy[i+1]){
-                    monsters.push(item);
-                }
-            })
+            let monsters = action.payload;
             return monsters;
             
         default: 
@@ -45,7 +39,8 @@ const spells = (state = [], action) => {
     switch (action.type) {
 
         case types.GET_SPELLS + '_FULFILLED':
-            return state.concat(action.payload);
+            let spells = action.payload;
+            return spells;
         
         default: 
             return state;
@@ -57,7 +52,7 @@ const equipment = (state = [], action) => {
 
         case types.GET_EQUIPMENT + '_FULFILLED':
             let equipment = action.payload.slice(50, 191);
-            if(state.length === 0) return [...state, ...equipment];
+            return equipment;
 
         default:
             return state;
@@ -69,7 +64,7 @@ const mounts = (state = [], action) => {
 
         case types.GET_EQUIPMENT + '_FULFILLED':
             let mounts = action.payload.slice(191);
-            if(state.length === 0) return [...state, ...mounts];
+            return mounts;
 
         default:
             return state;
@@ -81,7 +76,7 @@ const weapons = (state = [], action) => {
 
         case types.GET_EQUIPMENT + '_FULFILLED':
             let weapons = action.payload.slice(0, 37);
-            if(state.length === 0) return [...state, ...weapons];
+            return weapons;
 
         default:
             return state;
@@ -93,7 +88,7 @@ const armor = (state = [], action) => {
 
         case types.GET_EQUIPMENT + '_FULFILLED':
             let armor = action.payload.slice(37, 50);
-            if(state.length === 0) return [...state, ...armor];
+            return armor;
         
         default:
             return state;
