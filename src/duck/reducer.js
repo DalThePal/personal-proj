@@ -23,6 +23,17 @@ const dash = (state = [], action) => {
     }
 }
 
+const displayDashItem = (state = {}, action) => {
+    switch (action.type) {
+
+        case types.DISPLAY_DASH_ITEM:
+            return action.payload;
+
+        default:
+            return state;
+    }
+}
+
 const monsters = (state = [], action) => {
     switch (action.type) {
 
@@ -183,6 +194,7 @@ const reducer = combineReducers( {
     weapons,
     mounts,
     dash,
+    displayDashItem,
     userArmor,
     userEquipment,
     userMounts
