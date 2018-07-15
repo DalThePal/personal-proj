@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { actions } from '../../duck';
 
-export default class Equip extends Component {
-
-    state = {
-        equip: {},
-        cost: {}
+class Equip extends Component {
+    constructor() {
+        super();
+        this.state = {
+            equip: {},
+            cost: {}
+        }
     }
 
     componentDidMount() {
@@ -14,7 +18,6 @@ export default class Equip extends Component {
             cost: res.data.cost
         }))
     }
-
 
     render() {
         const { equip, cost } = this.state;
@@ -29,7 +32,8 @@ export default class Equip extends Component {
                     <button onClick={() => this.props.addToDash({
                         name: this.state.equip.name,
                         url: this.state.equip.url,
-                        type: 'equip'
+                        type: 'equip',
+                        index: null
                     })}
                     >ADD
                     </button>
@@ -38,3 +42,11 @@ export default class Equip extends Component {
         )
     }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToDash: (payload) => dispatch(actions.addToDash(payload)),
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Equip);

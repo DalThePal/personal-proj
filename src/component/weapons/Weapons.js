@@ -2,17 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { actions } from '../../duck/index';
 import Weapon from './Weapon';
-import Dashboard from '../Dashboard';
+import Dashboard from '../dashboard/Dashboard';
 import Header from '../Header';
 
 class Weapons extends Component {
 
     componentDidMount() {
-        this.props.dispatch(actions.getEquipment());
-    }
-
-    addToDash(payload) {
-        this.props.dispatch(actions.addToDash(payload));
+        this.props.getEquipment();
     }
 
     render() {
@@ -22,7 +18,6 @@ class Weapons extends Component {
                     key={index}
                     name={weapon.name}
                     url={weapon.url}
-                    addToDash={this.addToDash.bind(this)}
                 />
             )
         })
@@ -41,11 +36,17 @@ class Weapons extends Component {
     }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
     return {
         weapons: state.weapons,
         user: state.user
     }
 }
 
-export default connect(mapStateToProps)(Weapons);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getEquipment: () => dispatch(actions.getEquipment())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Weapons);

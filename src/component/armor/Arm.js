@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { actions } from '../../duck';
 
-export default class Arm extends Component {
-
-    state = {
-        arm: {},
-        cost: {},
-        armorClass: {}
+class Arm extends Component {
+    constructor() {
+        super();
+        this.state = {
+            arm: {},
+            cost: {},
+            armorClass: {}
+        }
     }
 
     componentDidMount() {
@@ -32,7 +36,8 @@ export default class Arm extends Component {
                     <button onClick={() => this.props.addToDash({
                         name: this.state.arm.name,
                         url: this.state.arm.url,
-                        type: 'arm'
+                        type: 'arm',
+                        index: null
                     })}
                     >ADD
                     </button>
@@ -41,3 +46,11 @@ export default class Arm extends Component {
         )
     }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToDash: (payload) => dispatch(actions.addToDash(payload)),
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Arm);

@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { actions } from '../../duck';
 
-export default class Monster extends Component {
-
-    state = {
-        monster: {},
+class Monster extends Component {
+    constructor() {
+        super();
+        this.state = {
+            monster: {},
+        }
     }
 
     componentDidMount() {
         axios.get(this.props.url).then(res => {
-            // let monster = Object.assign({}, res.data, {type:'monster'})
-
 
             let monster = {
                 dashType: 'monster'
@@ -115,3 +117,10 @@ export default class Monster extends Component {
     }
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToDash: (payload) => dispatch(actions.addToDash(payload))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Monster)

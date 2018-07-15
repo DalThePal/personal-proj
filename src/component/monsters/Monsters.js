@@ -3,21 +3,16 @@ import { connect } from 'react-redux';
 import { actions } from '../../duck';
 import Monster from './Monster';
 import Header from '../Header';
-import Dashboard from '../Dashboard';
+import Dashboard from '../dashboard/Dashboard';
 
 class Monsters extends Component {
 
     componentDidMount() {
-        this.props.dispatch(actions.getUser());
-        this.props.dispatch(actions.getMonsters());
-    }
-
-    addToDash(obj) {
-        this.props.dispatch(actions.addToDash(obj));
+        this.props.getMonsters();
+        this.props.getUser();
     }
 
     render() {
-        console.log(this.props.monsters)
         const monsters = this.props.monsters.map((monster, index) => {
 
             return (
@@ -26,7 +21,6 @@ class Monsters extends Component {
                     key={index}
                     name={monster.name}
                     url={monster.url}
-                    addToDash={this.addToDash.bind(this)}
                 />
 
             )
@@ -49,14 +43,19 @@ class Monsters extends Component {
     }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
     return {
         monsters: state.monsters,
         user: state.user
     }
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getMonsters: () => dispatch(actions.getMonsters()),
+        getUser: () => dispatch(actions.getUser()),
+    }
+}
 
 
-
-export default connect(mapStateToProps)(Monsters);
+export default connect(mapStateToProps, mapDispatchToProps)(Monsters);

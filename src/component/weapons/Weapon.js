@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { actions } from '../../duck';
 
-export default class Weapon extends Component {
-
-    state = {
-        weapon: {},
-        cost: {},
-        damage: {},
-        damageType: {},
-        properties: []
+class Weapon extends Component {
+    constructor() {
+        super();
+        this.state = {
+            weapon: {},
+            cost: {},
+            damage: {},
+            damageType: {},
+            properties: []
+        }
     }
 
     componentDidMount() {
@@ -20,7 +24,6 @@ export default class Weapon extends Component {
             properties: res.data.properties
         }));
     }
-
 
     render() {
         const { weapon, cost, damage, damageType } = this.state;
@@ -50,3 +53,11 @@ export default class Weapon extends Component {
         )
     }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToDash: (payload) => dispatch(actions.addToDash(payload))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Weapon);

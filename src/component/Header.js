@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import actions from '../duck/reducer';
 
 class Header extends Component {
 
     render() {
-        console.log(this.props.user)
         return (
             <div className='Header'>
                 <div className='logoDiv'>
@@ -22,10 +20,10 @@ class Header extends Component {
 
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
     return {
         user: state.user
     }
 }
 
-export default connect(mapStateToProps, actions)(Header);
+export default connect(mapStateToProps)(Header);

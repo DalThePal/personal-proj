@@ -1,6 +1,5 @@
 .Equip {
 
-    @include width-height(48%, 45%); 
     @include contentDiv();
     @include textDefault();
 
@@ -9,6 +8,7 @@
     display: flex;
     justify-content: space-around;
     flex-direction: column;
+    width: 48%;
 
     .h1 {
         @include textDefault();

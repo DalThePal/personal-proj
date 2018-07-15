@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Motion, spring } from 'react-motion';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import {actions} from '../../duck';
 
-class DashItem extends Component {
+const DashItem = (props) => {
 
-
-    render() {
-
-        const { item } = this.props;
+        const { item } = props;
         return (
             <Motion
                 defaultStyle={{ width: 0 }}
@@ -24,23 +23,27 @@ class DashItem extends Component {
                         >
                             <button
                                 className='ItemBut'
-                                onClick={() => this.props.displayDashItem(item)}
+                                onClick={() => props.displayDashItem(item)}
                             >{item.name}
                             </button>
                         </Link>
                         <button
                             className='DelBut'
-                            onClick={() => { this.props.removeFromDash(item.id) }}
+                            onClick={() => { props.removeFromDash(item.id) }}
                         >del
                         </button>
                     </div>
                 }
             </Motion>
         )
+}
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        displayDashItem: (payload) => dispatch(actions.displayDashItem(payload)),
+        removeFromDash: (payload) => dispatch(actions.remFromDash(payload))
     }
 }
 
 
-
-export default DashItem;
+export default connect(null, mapDispatchToProps)(DashItem);

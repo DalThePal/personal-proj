@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { actions } from '../../duck';
 import Arm from './Arm';
 import UserArm from './UserArm';
-import Dashboard from '../Dashboard';
+import Dashboard from '../dashboard/Dashboard';
 import Header from '../Header';
 
 class Armor extends Component {
@@ -22,24 +22,8 @@ class Armor extends Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(actions.getEquipment());
-        this.props.dispatch(actions.getUserArm());
-    }
-
-    addToDash(payload) {
-        this.props.dispatch(actions.addToDash(payload));
-    }
-
-    remUserArm(payload) {
-        this.props.dispatch(actions.remUserArm(payload));
-    }
-
-    editUserArm(payload) {
-        this.props.dispatch(actions.editUserArm(payload));
-    }
-
-    createArm(payload) {
-        this.props.dispatch(actions.createArm(payload));
+        this.props.getEquipment();
+        this.props.getUserArm();
     }
 
     render() {
@@ -50,7 +34,6 @@ class Armor extends Component {
                     key={index}
                     name={arm.name}
                     url={arm.url}
-                    addToDash={this.addToDash.bind(this)}
                 />
 
             )
@@ -62,9 +45,6 @@ class Armor extends Component {
                 <UserArm
                     key={index}
                     item={arm}
-                    addToDash={this.props.addToUserDash}
-                    remUserArm={this.remUserArm.bind(this)}
-                    editUserArm={this.editUserArm.bind(this)}
                 />
 
             )
@@ -85,7 +65,7 @@ class Armor extends Component {
                             <input placeholder='strength' onChange={(e) => this.setState({ strength: e.target.value })} />
                             <input placeholder='stealth' onChange={(e) => this.setState({ stealth: e.target.value })} />
                             <input placeholder='weight' onChange={(e) => this.setState({ weight: e.target.value })} />
-                            <button onClick={() => this.createArm(this.state)}>create</button>
+                            <button onClick={() => this.props.createArm(this.state)}>create</button>
                         </div>
                     </div>
                     <Dashboard />
@@ -95,7 +75,7 @@ class Armor extends Component {
     }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
     return {
         armor: state.armor,
         userArmor: state.userArmor,
@@ -103,4 +83,12 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(Armor);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getEquipment: () => dispatch(actions.getEquipment()),
+        getUserArm: () => dispatch(actions.getUserArm()),
+        createArm: (payload) => dispatch(actions.createArm(payload))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Armor);

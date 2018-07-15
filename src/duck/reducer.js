@@ -2,13 +2,25 @@ import types from './types';
 import { combineReducers } from 'redux';
 
 
-export const initialState = {};
+export const initialState = {
+    user: {},
+    monsters: [],
+    spells: [],
+    equipment: [],
+    armor: [],
+    weapons: [],
+    mounts: [],
+    dash: [],
+    displayDashItem: {},
+    userArmor: [],
+    userEquipment: [],
+    userMounts: []
+};
 
 const dash = (state = [], action) => {
     switch (action.type) {
             
         case types.ADD_TO_DASH + '_FULFILLED':
-            console.log(action.payload)
             return state.concat(action.payload.data);
 
         case types.REM_FROM_DASH + '_FULFILLED':
@@ -16,17 +28,19 @@ const dash = (state = [], action) => {
             return [...state.slice(0, index), ...state.slice(index + 1)];
 
         case types.GET_DASH + '_FULFILLED':
-            if(state.length === 0) return [...state, ...action.payload.data];
+            if(state.length === 0) {
+                return [...state, ...action.payload.data];
+            } else return state;
 
         default:
             return state;
     }
 }
 
-const displayDashItem = (state = {}, action) => {
+const displayDashItem = (state = initialState.displayDashItem, action) => {
     switch (action.type) {
 
-        case types.DISPLAY_DASH_ITEM + 'FULFILLED':
+        case types.DISPLAY_DASH_ITEM:
             return Object.assign({}, state, action.payload);
 
         default:
@@ -143,7 +157,6 @@ const userEquipment = (state = [], action) => {
     switch (action.type) {
 
         case types.GET_USER_EQUIP + '_FULFILLED':
-            console.log(action.payload.data)
             return state.concat(action.payload.data);
 
         case types.CREATE_EQUIP + '_FULFILLED':

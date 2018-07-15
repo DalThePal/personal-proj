@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { actions } from '../../duck';
 
-export default class UserMount extends Component {
-
+class UserMount extends Component {
     constructor() {
         super();
-
         this.state = {
             edit: false,
             name: null,
@@ -32,9 +32,7 @@ export default class UserMount extends Component {
     }
 
     render() {
-
-        const {item} = this.props;
-        console.log(item)
+        const {item, key} = this.props;
         if (this.state.edit === false) {
             return (
                 <div className='Equip'>
@@ -44,7 +42,12 @@ export default class UserMount extends Component {
                     <p>CAPACITY: {item.capacity}</p>
                     <p>{item.description}</p>
                     <div className='addButton'>
-                        <button onClick={() => this.props.addToUserDash(item)}>ADD</button>
+                        <button onClick={() => this.props.addToDash({
+                            name: item.name,
+                            url: null,
+                            type: 'userMount',
+                            index: key
+                        })}>ADD</button>
                         <button onClick={() => this.setState({edit: true})}>EDIT</button>
                     </div>
                 </div>
@@ -66,3 +69,13 @@ export default class UserMount extends Component {
         }
     }
 }
+
+const mapDipatchToProps = (dispatch) => {
+    return {
+        addToDash: (payload) => dispatch(actions.addToDash(payload)),
+        editUserMount: (payload) => dispatch(actions.editUserMount(payload)),
+        remUserMount: (payload) => dispatch(actions.remUserMount(payload))
+    }
+}
+
+export default connect(null, mapDipatchToProps)(UserMount);

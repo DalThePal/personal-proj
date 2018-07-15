@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 import { actions } from '../../duck';
 import Equip from './Equip';
 import UserEquip from './UserEquip';
-import Dashboard from '../Dashboard';
+import Dashboard from '../dashboard/Dashboard';
 import Header from '../Header';
 
 class Equipment extends Component {
     constructor() {
         super();
-
         this.state = {
             name: '',
             cost: '',
@@ -19,24 +18,8 @@ class Equipment extends Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(actions.getEquipment());
-        this.props.dispatch(actions.getUserEquip());
-    }
-
-    addToDash(payload) {
-        this.props.dispatch(actions.addToDash(payload));
-    }
-
-    remUserEquip(payload) {
-        this.props.dispatch(actions.remUserEquip(payload));
-    }
-
-    editUserEquip(payload) {
-        this.props.dispatch(actions.editUserEquip(payload));
-    }
-
-    createEquip(payload) {
-        this.props.dispatch(actions.createEquip(payload));
+        this.props.getEquipment();
+        this.props.getUserEquip();
     }
 
     render() {
@@ -46,23 +29,19 @@ class Equipment extends Component {
                     key={index}
                     name={equip.name}
                     url={equip.url}
-                    addToDash={this.addToDash.bind(this)}
                 />
             )
         })
-        console.log(this.props.userEquipment);
+
         const userEquipment = this.props.userEquipment.map((equip, index) => {
             return (
                 <UserEquip
                     key={index}
                     item={equip}
-                    addToDash={this.props.addToUserDash}
-                    remUserEquip={this.remUserEquip.bind(this)}
-                    editUserEquip={this.editUserEquip.bind(this)}
                 />
             )
         })
-        console.log(this.state)
+
         return (
             <div className='Window'>
                 <Header title='equipment'/>
@@ -75,7 +54,7 @@ class Equipment extends Component {
                             <input placeholder='cost' onChange={(e) => this.setState({cost: e.target.value})}/>
                             <input placeholder='weight' onChange={(e) => this.setState({weight: e.target.value})}/>
                             <textarea placeholder='description' onChange={(e) => this.setState({desc: e.target.value})}/>
-                            <button onClick={() => this.createEquip(this.state)}>create</button>
+                            <button onClick={() => this.props.createEquip(this.state)}>create</button>
                         </div>
                     </div>
                     <Dashboard />
@@ -86,7 +65,7 @@ class Equipment extends Component {
 
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
     return {
         equipment: state.equipment,
         userEquipment: state.userEquipment,
@@ -94,4 +73,12 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(Equipment);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createEquip: (payload) => dispatch(actions.createEquip(payload)),
+        getEquipment: () => dispatch(actions.getEquipment()),
+        getUserEquip: () => dispatch(actions.getUserEquip())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Equipment);

@@ -2,114 +2,91 @@ import React, { Component } from 'react';
 import Monster from './monsters/Monster';
 import Spell from './spells/Spell';
 import Arm from './armor/Arm';
+import UserArm from './armor/UserArm';
 import Weapon from './weapons/Weapon';
 import Equip from './equipment/Equip';
 import Mount from './mounts/Mount';
-import Dashboard from './Dashboard';
+import Dashboard from './dashboard/Dashboard';
 import Header from './Header';
 import { connect } from 'react-redux';
-import actions from '../duck/index';
 
 
 class Favorites extends Component {
-
-    componentDidMount() {
-        console.log(this.props.displayDashItem)
-    }
 
     render() {
         const monsters = this.props.dash.map((monster, index) => {
             if (monster.type === 'monster') {
                 return (
-
                     <Monster
                         key={index}
                         name={monster.name}
                         url={monster.url}
-                        addToDash={this.props.addToDash}
                     />
-
                 )
-            } else return
+            } else return null
         })
 
         const spells = this.props.dash.map((spell, index) => {
             if (spell.type === 'spell') {
                 return (
-
                     <Spell
                         key={index}
                         name={spell.name}
                         url={spell.url}
-                        addToDash={this.props.addToDash}
                     />
-
                 )
-            } else return
+            } else return null
         })
 
         const armor = this.props.dash.map((arm, index) => {
             if (arm.type === 'arm') {
                 return (
-
                     <Arm
                         key={index}
                         name={arm.name}
                         url={arm.url}
-                        addToDash={this.props.addToDash}
                     />
-
                 )
-            } else return
+            } else return null
         })
 
         const weapons = this.props.dash.map((weapon, index) => {
             if (weapon.type === 'weapon') {
                 return (
-
                     <Weapon
                         key={index}
                         name={weapon.name}
                         url={weapon.url}
-                        addToDash={this.props.addToDash}
                     />
-
                 )
-            } else return
+            } else return null
         })
 
         const equipment = this.props.dash.map((equip, index) => {
             if (equip.type === 'equip') {
                 return (
-
                     <Equip
                         key={index}
                         name={equip.name}
                         url={equip.url}
-                        addToDash={this.props.addToDash}
                     />
-
                 )
-            } else return
+            } else return null
         })
 
         const mounts = this.props.dash.map((mount, index) => {
             if (mount.type === 'mount') {
                 return (
-
                     <Mount
                         key={index}
                         name={mount.name}
                         url={mount.url}
-                        addToDash={this.props.addToDash}
                     />
-
                 )
-            } else return
+            } else return null
         })
 
         if (this.props.displayDashItem.type) {
-            console.log(this.props.displayDashItem)
             switch (this.props.displayDashItem.type) {
                 case 'monster':
                     return (
@@ -120,7 +97,6 @@ class Favorites extends Component {
                                     <Monster
                                         name={this.props.displayDashItem.name}
                                         url={this.props.displayDashItem.url}
-                                        addToDash={this.props.addToDash}
                                     />
                                 </div>
                                 <Dashboard />
@@ -136,7 +112,6 @@ class Favorites extends Component {
                                     <Spell
                                         name={this.props.displayDashItem.name}
                                         url={this.props.displayDashItem.url}
-                                        addToDash={this.props.addToDash}
                                     />
                                 </div>
                                 <Dashboard />
@@ -152,7 +127,21 @@ class Favorites extends Component {
                                     <Arm
                                         name={this.props.displayDashItem.name}
                                         url={this.props.displayDashItem.url}
-                                        addToDash={this.props.addToDash}
+                                    />
+                                </div>
+                                <Dashboard />
+                            </div>
+                        </div>
+                    )
+                case 'userArm':
+                    return (
+                        <div className='Window'>
+                            <Header title='favorites' />
+                            <div className='Body'>
+                                <div className='Content'>
+                                    <UserArm
+                                        name={this.props.displayDashItem.name}
+                                        index={this.props.displayDashItem.index}
                                     />
                                 </div>
                                 <Dashboard />
@@ -168,7 +157,6 @@ class Favorites extends Component {
                                     <Weapon
                                         name={this.props.displayDashItem.name}
                                         url={this.props.displayDashItem.url}
-                                        addToDash={this.props.addToDash}
                                     />
                                 </div>
                                 <Dashboard />
@@ -184,7 +172,6 @@ class Favorites extends Component {
                                     <Equip
                                         name={this.props.displayDashItem.name}
                                         url={this.props.displayDashItem.url}
-                                        addToDash={this.props.addToDash}
                                     />
                                 </div>
                                 <Dashboard />
@@ -197,17 +184,17 @@ class Favorites extends Component {
                             <Header title='favorites' />
                             <div className='Body'>
                                 <div className='Content'>
-
                                     <Mount
                                         name={this.props.displayDashItem.name}
                                         url={this.props.displayDashItem.url}
-                                        addToDash={this.props.addToDash}
                                     />
                                 </div>
                                 <Dashboard />
                             </div>
                         </div>
                     )
+                default:
+                    return null
             }
         } else {
             return (
@@ -239,4 +226,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, actions)(Favorites);
+export default connect(mapStateToProps)(Favorites);

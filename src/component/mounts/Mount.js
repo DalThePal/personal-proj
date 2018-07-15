@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { actions } from '../../duck';
+import { connect } from 'react-redux';
 
-export default class Mount extends Component {
-
-    state = {
-        mount: {},
-        cost: {},
-        speed: {},
+class Mount extends Component {
+    constructor() {
+        super();
+        this.state = {
+            mount: {},
+            cost: {},
+            speed: {},
+        }
     }
 
     componentDidMount() {
@@ -16,7 +20,6 @@ export default class Mount extends Component {
             speed: res.data.speed,
         }));
     }
-
 
     render() {
         const { mount, cost, speed } = this.state;
@@ -33,7 +36,8 @@ export default class Mount extends Component {
                     <button onClick={() => this.props.addToDash({
                         name: this.state.mount.name,
                         url: this.state.mount.url,
-                        type: 'mount'
+                        type: 'mount',
+                        index: null
                     })}
                     >ADD
                     </button>
@@ -42,3 +46,11 @@ export default class Mount extends Component {
         )
     }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToDash: (payload) => dispatch(actions.addToDash(payload))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Mount);

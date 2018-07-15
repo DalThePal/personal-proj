@@ -2,125 +2,138 @@ import React, { Component } from 'react';
 import DashItem from './DashItem';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { actions } from '../duck';
+import { actions } from '../../duck';
 
 class Dashboard extends Component {
 
     componentDidMount() {
-        this.props.dispatch(actions.getDash());
-    }
-
-    remFromDash(payload) {
-        this.props.dispatch(actions.remFromDash(payload));
-    }
-
-    displayDashItem(payload) {
-        this.props.dispatch(actions.displayDashItem(payload));
+        this.props.getDash();
     }
 
     render() {
-        console.log(this.props.dash)
-        const monstItems = this.props.dash.map((monster, index) => {
+        const { dash } = this.props;
+        const monstItems = dash.map((monster, index) => {
             if (monster.type === 'monster') {
                 return (
                     <DashItem
                         key={index}
                         item={monster}
-                        removeFromDash={this.remFromDash.bind(this)}
                         dashType={'monster'}
-                        displayDashItem={this.displayDashItem.bind(this)}
                         link={'/Monsters'}
-
                     />
                 )
-            } else return
+            } else return null
 
         })
 
-        const spellItems = this.props.dash.map((spell, index) => {
+        const spellItems = dash.map((spell, index) => {
             if (spell.type === 'spell') {
                 return (
                     <DashItem
                         key={index}
                         item={spell}
-                        removeFromDash={this.remFromDash.bind(this)}
                         dashType={'spell'}
-                        displayDashItem={this.displayDashItem.bind(this)}
                         link={'/Spells'}
                     />
                 )
-            } else return
+            } else return null
         })
 
-        const armorItems = this.props.dash.map((arm, index) => {
+        const armorItems = dash.map((arm, index) => {
             if (arm.type === 'arm') {
-
                 return (
                     <DashItem
                         key={index}
                         item={arm}
-                        removeFromDash={this.remFromDash.bind(this)}
                         dashType={'armor'}
-                        displayDashItem={this.displayDashItem.bind(this)}
                         link={'/Armor'}
                     />
                 )
-            } else return
+            } else return null
         })
 
-        const weaponItems = this.props.dash.map((weapon, index) => {
+        const userArmorItems = dash.map((userArm, index) => {
+            if (userArm.type === 'userArm') {
+                return (
+                    <DashItem
+                        key={index}
+                        item={userArm}
+                        dashType={'userArm'}
+                        link={'/Armor'}
+                    />
+                )
+            } else return null
+        })
+
+        const weaponItems = dash.map((weapon, index) => {
             if (weapon.type === 'weapon') {
                 return (
                     <DashItem
                         key={index}
                         item={weapon}
-                        removeFromDash={this.remFromDash.bind(this)}
                         dashType={'weapon'}
-                        displayDashItem={this.displayDashItem.bind(this)}
                         link={'/Weapons'}
                     />
                 )
-
-            } else return
+            } else return null
         })
 
-        const equipItems = this.props.dash.map((equip, index) => {
-
+        const equipItems = dash.map((equip, index) => {
             if (equip.type === 'equip') {
-
                 return (
                     <DashItem
                         key={index}
                         item={equip}
-                        removeFromDash={this.remFromDash.bind(this)}
                         dashType={'equipment'}
-                        displayDashItem={this.displayDashItem.bind(this)}
                         link={'/Equipment'}
                     />
                 )
-            } else return
+            } else return null
         })
 
-        const mountItems = this.props.dash.map((mount, index) => {
+        const userEquipItems = dash.map((userEquip, index) => {
+            if (userEquip.type === 'userEquip') {
+                return (
+                    <DashItem
+                        key={index}
+                        item={userEquip}
+                        dashType={'userEquip'}
+                        link={'/Equipment'}
+                    />
+                )
+            } else return null
+        })
+
+        const mountItems = dash.map((mount, index) => {
             if (mount.type === 'mount') {
                 return (
                     <DashItem
                         key={index}
                         item={mount}
-                        removeFromDash={this.remFromDash.bind(this)}
                         dashType={'mount'}
-                        displayDashItem={this.displayDashItem.bind(this)}
                         link={'/Mounts'}
                     />
                 )
+            } else return null
+        })
 
-            } else return
+        const userMountItems = dash.map((userMount, index) => {
+            if (userMount.type === 'userMount') {
+                return (
+                    <DashItem 
+                        key={index}
+                        item={userMount}
+                        dashType={'userMount'}
+                        link={'/Mounts'}
+                    />
+                )
+            } else return null
         })
 
         return (
             <div className='Dashboard'>
                 <div className='displayButton'>
-                    <Link to='/Favorites'><button>Display all</button></Link>
+                    <Link to='/Favorites'><button onClick={() => this.props.displayDashItem(null)}>Display all</button></Link>
                 </div>
                 <div className='SectionTitle'>
                     <Link to='/Monsters'>MONSTERS</Link>
@@ -139,6 +152,7 @@ class Dashboard extends Component {
                 </div>
                 <div className='Items'>
                     {armorItems}
+                    {userArmorItems}
                 </div>
                 <div className='SectionTitle'>
                     <Link to='/Weapons'>WEAPONS</Link>
@@ -151,22 +165,31 @@ class Dashboard extends Component {
                 </div>
                 <div className='Items'>
                     {equipItems}
+                    {userEquipItems}
                 </div>
                 <div className='SectionTitle'>
                     <Link to='/Mounts'>MOUNTS & VEHICLES</Link>
                 </div>
                 <div className='Items'>
                     {mountItems}
+                    {userMountItems}
                 </div>
             </div>
         )
     }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
     return {
-        dash: state.dash
+        dash: state.dash,
     }
 }
 
-export default connect(mapStateToProps)(Dashboard);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getDash: () => dispatch(actions.getDash()),
+        displayDashItem: (payload) => dispatch(actions.displayDashItem(payload))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

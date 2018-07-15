@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { actions } from '../../duck';
 
 class Spell extends Component {
-
-    state = {
-        spell: {}
+    constructor() {
+        super();
+        this.state = {
+            spell: {}
+        }
     }
 
     componentDidMount() {
@@ -38,6 +42,10 @@ class Spell extends Component {
     }
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToDash: (payload) => dispatch(actions.addToDash(payload))
+    }
+}
 
-
-export default Spell;
+export default connect(null, mapDispatchToProps)(Spell);

@@ -10,7 +10,8 @@ module.exports = {
             req.session.passport.user.id,
             req.body.name,
             req.body.url,
-            req.body.type
+            req.body.type,
+            req.body.index
         ]).then((favorites) => res.status(200).send(favorites))
             .catch(() => res.status(500).send('didnt add favorite'))
 

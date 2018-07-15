@@ -1,12 +1,12 @@
 
 .Equip {
 
-    @include width-height(48%, 45%); 
     @include contentDiv();
     @include textDefault();
 
     margin-bottom: 20px;
     margin-right: 20px;
+    width: 48%;
 
     h1 {
         @include h1Tag();

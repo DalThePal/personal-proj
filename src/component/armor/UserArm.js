@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { actions } from '../../duck';
 
-export default class UserArm extends Component {
-
+class UserArm extends Component {
     constructor() {
         super();
-
         this.state = {
             edit: false,
             name: null,
@@ -36,9 +36,7 @@ export default class UserArm extends Component {
     }
 
     render() {
-
-        const {item} = this.props;
-        console.log(item)
+        const {item, key} = this.props;
         if (this.state.edit === false) {
             return (
                 <div className='Arm'>
@@ -50,7 +48,12 @@ export default class UserArm extends Component {
                     <p>STEALTH: {item.stealth}</p>
                     <p>Weight: {item.weight}</p>
                     <div className='addButton'>
-                        <button onClick={() => this.props.addToUserDash(item)}>ADD</button>
+                        <button onClick={() => this.props.addToDash({
+                            name: item.name,
+                            url: null,
+                            type: 'userArm',
+                            index: key
+                        })}>ADD</button>
                         <button onClick={() => this.setState({edit: true})}>EDIT</button>
                     </div>
                 </div>
@@ -74,3 +77,13 @@ export default class UserArm extends Component {
         }
     }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToDash: (payload) => dispatch(actions.addToDash(payload)),
+        editUserArm: (payload) => dispatch(actions.editUserArm(payload)),
+        remUserArm: (payload) => dispatch(actions.remUserArm(payload))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(UserArm);
