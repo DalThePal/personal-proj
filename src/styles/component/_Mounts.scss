@@ -29,6 +29,7 @@
 
                 input {
                     @include inputTag();
+                    margin-bottom: 10px;
                 }
 
                 textarea {

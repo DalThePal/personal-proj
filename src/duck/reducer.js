@@ -1,5 +1,6 @@
 import types from './types';
 import { combineReducers } from 'redux';
+import { ActionNoteAdd } from 'material-ui/svg-icons';
 
 
 export const initialState = {
@@ -14,12 +15,13 @@ export const initialState = {
     displayDashItem: {},
     userArmor: [],
     userEquipment: [],
-    userMounts: []
+    userMounts: [],
+    search: ''
 };
 
 const dash = (state = [], action) => {
     switch (action.type) {
-            
+
         case types.ADD_TO_DASH + '_FULFILLED':
             return state.concat(action.payload.data);
 
@@ -28,7 +30,7 @@ const dash = (state = [], action) => {
             return [...state.slice(0, index), ...state.slice(index + 1)];
 
         case types.GET_DASH + '_FULFILLED':
-            if(state.length === 0) {
+            if (state.length === 0) {
                 return [...state, ...action.payload.data];
             } else return state;
 
@@ -54,8 +56,8 @@ const monsters = (state = [], action) => {
         case types.GET_MONSTERS + '_FULFILLED':
             let monsters = action.payload;
             return monsters;
-            
-        default: 
+
+        default:
             return state;
     }
 }
@@ -66,8 +68,8 @@ const spells = (state = [], action) => {
         case types.GET_SPELLS + '_FULFILLED':
             let spells = action.payload;
             return spells;
-        
-        default: 
+
+        default:
             return state;
     }
 }
@@ -114,7 +116,7 @@ const armor = (state = [], action) => {
         case types.GET_EQUIPMENT + '_FULFILLED':
             let armor = action.payload.slice(37, 50);
             return armor;
-        
+
         default:
             return state;
     }
@@ -137,16 +139,21 @@ const userArmor = (state = [], action) => {
             let editIndex = state.findIndex(item => item.name === action.payload.data[0].name);
             return [...state.slice(0, editIndex), action.payload.data[0], ...state.slice(editIndex + 1)];
 
-        default: 
+        case types.USER_ARM_DASH + '_FULFILLED':
+            console.log(action.payload)
+            let dashIndex = state.findIndex(item => item.id === action.payload.data[0].id);
+            return [...state.slice(0, dashIndex), action.payload.data[0], ...state.slice(dashIndex + 1)];
+
+        default:
             return state;
     }
 }
 
 const user = (state = {}, action) => {
     switch (action.type) {
-        
+
         case types.UPDATE_USER_INFO + '_FULFILLED':
-            return Object.assign({}, state, action.payload );
+            return Object.assign({}, state, action.payload);
 
         default:
             return state;
@@ -197,7 +204,18 @@ const userMounts = (state = [], action) => {
     }
 }
 
-const reducer = combineReducers( {
+const search = (state = '', action) => {
+    switch (action.type) {
+
+        case types.SEARCH:
+            return action.payload;
+        
+        default:
+            return state;
+    }
+}
+
+const reducer = combineReducers({
 
     user,
     monsters,
@@ -210,8 +228,9 @@ const reducer = combineReducers( {
     displayDashItem,
     userArmor,
     userEquipment,
-    userMounts
+    userMounts,
+    search
 
-} );
+});
 
 export default reducer;

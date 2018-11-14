@@ -23,7 +23,7 @@ const DashItem = (props) => {
                         >
                             <button
                                 className='ItemBut'
-                                onClick={() => props.displayDashItem(item)}
+                                onClick={() => props.displayDashItem({...item, type: props.dashType})}
                             >{item.name}
                             </button>
                         </Link>

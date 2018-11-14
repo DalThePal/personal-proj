@@ -30,6 +30,11 @@ const CREATE_ARM = 'CREATE_ARM';
 const GET_USER_ARM = 'GET_USER_ARM';
 const EDIT_USER_ARM = 'EDIT_USER_ARM';
 const REM_USER_ARM = 'REM_USER_ARM';
+const USER_ARM_DASH = 'USER_ARM_DASH'
+
+// SEARCH
+
+const SEARCH = 'SEARCH';
 
 export default {
 
@@ -70,5 +75,10 @@ export default {
     CREATE_ARM,
     GET_USER_ARM,
     EDIT_USER_ARM,
-    REM_USER_ARM
+    REM_USER_ARM,
+    USER_ARM_DASH,
+
+    // SEARCH
+
+    SEARCH
 }

@@ -140,7 +140,7 @@ class Favorites extends Component {
                             <div className='Body'>
                                 <div className='Content'>
                                     <UserArm
-                                        name={this.props.displayDashItem.name}
+                                        item={this.props.displayDashItem}
                                         index={this.props.displayDashItem.index}
                                     />
                                 </div>

@@ -10,7 +10,6 @@ const getUser = () => {
         type: types.UPDATE_USER_INFO,
         payload: promise
     }
-
 }
 
 // DASHBOARD
@@ -84,7 +83,7 @@ const getEquipment = () => {
 // EQUIPMENT
 
 const createEquip = (item) => {
-    const promise = axios.post('/Equipment', item)
+    const promise = axios.post('/Equipment', item);
     return {
         type: types.CREATE_EQUIP,
         payload: promise
@@ -92,7 +91,7 @@ const createEquip = (item) => {
 }
 
 const getUserEquip = () => {
-    const promise = axios.get('/Equipment')
+    const promise = axios.get('/Equipment');
     return {
         type: types.GET_USER_EQUIP,
         payload: promise
@@ -100,7 +99,7 @@ const getUserEquip = () => {
 }
 
 const editUserEquip = (obj) => {
-    const promise = axios.put('/Equipment', obj)
+    const promise = axios.put('/Equipment', obj);
     return {
         type: types.EDIT_USER_EQUIP,
         payload: promise
@@ -108,7 +107,7 @@ const editUserEquip = (obj) => {
 }
 
 const remUserEquip = (item) => {
-    const promise = axios.delete(`/Equipment/${item}`)
+    const promise = axios.delete(`/Equipment/${item}`);
     return {
         type: types.REM_USER_EQUIP,
         payload: promise
@@ -118,7 +117,7 @@ const remUserEquip = (item) => {
 // MOUNTS
 
 const getUserMount = () => {
-    const promise = axios.get('/Mounts')
+    const promise = axios.get('/Mounts');
     return {
         type: types.GET_USER_MOUNT,
         payload: promise
@@ -126,7 +125,7 @@ const getUserMount = () => {
 }
 
 const createMount = (item) => {
-    const promise = axios.post('/Mounts', item)
+    const promise = axios.post('/Mounts', item);
     return {
         type: types.CREATE_MOUNT,
         payload: promise
@@ -134,7 +133,7 @@ const createMount = (item) => {
 }
 
 const remUserMount = (item) => {
-    const promise = axios.delete(`/Mounts/${item}`)
+    const promise = axios.delete(`/Mounts/${item}`);
     return {
         type: types.REM_USER_MOUNT,
         payload: promise
@@ -142,7 +141,7 @@ const remUserMount = (item) => {
 }
 
 const editUserMount = (item) => {
-    const promise = axios.put('/Mounts', item)
+    const promise = axios.put('/Mounts', item);
     return {
         type: types.EDIT_USER_MOUNT,
         payload: promise
@@ -152,7 +151,7 @@ const editUserMount = (item) => {
 // ARMOR
 
 const getUserArm = () => {
-    const promise = axios.get('/Armor')
+    const promise = axios.get('/Armor');
     return {
         type: types.GET_USER_ARM,
         payload: promise
@@ -160,7 +159,7 @@ const getUserArm = () => {
 }
 
 const createArm = (item) => {
-    const promise = axios.post('/Armor', item)
+    const promise = axios.post('/Armor', item);
     return {
         type: types.CREATE_ARM,
         payload: promise
@@ -168,7 +167,7 @@ const createArm = (item) => {
 }
 
 const remUserArm = (item) => {
-    const promise = axios.delete(`/Armor/${item}`)
+    const promise = axios.delete(`/Armor/${item}`);
     return {
         type: types.REM_USER_ARM,
         payload: promise
@@ -176,10 +175,25 @@ const remUserArm = (item) => {
 }
 
 const editUserArm = (item) => {
-    const promise = axios.put('/Armor', item)
+    const promise = axios.put('/Armor', item);
     return {
         type: types.EDIT_USER_ARM,
         payload: promise
+    }
+}
+
+const userArmDash = (item) => {
+    const promise = axios.put(`/ArmorDash`, item);
+    return {
+        type: types.USER_ARM_DASH,
+        payload: promise
+    }
+}
+
+const search = (string) => {
+    return {
+        type: types.SEARCH,
+        payload: string
     }
 }
 
@@ -222,6 +236,11 @@ export default {
     getUserArm,
     createArm,
     remUserArm,
-    editUserArm 
+    editUserArm,
+    userArmDash,
+    
+    // SEARCH
+
+    search
 
 }

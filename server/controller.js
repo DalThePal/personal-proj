@@ -197,6 +197,16 @@ module.exports = {
             req.body.id
         ]).then(userArmor => res.status(200).send(userArmor))
             .catch(() => res.status(500).send('didnt edit userArm'))
+    },
+
+    userArmDash: (req, res) => {
+        const dbInstance = req.app.get('db')
+        dbInstance.user_arm_dash([
+            req.body.dashItem,
+            req.session.passport.user.id,
+            req.body.id
+        ]).then(userArmor => res.status(200).send(userArmor))
+            .catch(() => res.status(500).send('didnt edit userArm'))
     }
 
 }

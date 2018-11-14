@@ -13,19 +13,20 @@ class Monsters extends Component {
     }
 
     render() {
-        const monsters = this.props.monsters.map((monster, index) => {
 
+        const filteredMonsters = this.props.monsters.filter(monster => {
+            return monster.name.toUpperCase().includes(this.props.search.toUpperCase())
+        });
+
+        const monsters = filteredMonsters.map((monster, index) => {
             return (
-
                 <Monster
                     key={index}
                     name={monster.name}
                     url={monster.url}
                 />
-
-            )
+            );
         })
-
 
         return (
             <div className='Window' >
@@ -46,7 +47,8 @@ class Monsters extends Component {
 const mapStateToProps = (state) => {
     return {
         monsters: state.monsters,
-        user: state.user
+        user: state.user,
+        search: state.search
     }
 }
 

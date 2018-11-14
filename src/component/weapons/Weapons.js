@@ -12,15 +12,20 @@ class Weapons extends Component {
     }
 
     render() {
-        const weapons = this.props.weapons.map((weapon, index) => {
+
+        const filteredWeapons = this.props.weapons.filter(weapon => {
+            return weapon.name.toUpperCase().includes(this.props.search.toUpperCase());
+        });
+
+        const weapons = filteredWeapons.map((weapon, index) => {
             return (
                 <Weapon
                     key={index}
                     name={weapon.name}
                     url={weapon.url}
                 />
-            )
-        })
+            );
+        });
 
         return (
             <div className='Window'>
@@ -39,7 +44,8 @@ class Weapons extends Component {
 const mapStateToProps = (state) => {
     return {
         weapons: state.weapons,
-        user: state.user
+        user: state.user,
+        search: state.search
     }
 }
 

@@ -24,24 +24,33 @@ class Mounts extends Component {
     }
 
     render() {
-        const mounts = this.props.mounts.map((mount, index) => {
+
+        const filteredMounts = this.props.mounts.filter(mount => {
+            return mount.name.toUpperCase().includes(this.props.search.toUpperCase());
+        });
+
+        const mounts = filteredMounts.map((mount, index) => {
             return (
                 <Mount
                     key={index}
                     name={mount.name}
                     url={mount.url}
                 />
-            )
-        })
+            );
+        });
 
-        const userMounts = this.props.userMounts.map((mount, index) => {
+        const filteredUserMounts = this.props.userMounts.filter(mount => {
+            return mount.name.toUpperCase().includes(this.props.search.toUpperCase());
+        });
+
+        const userMounts = filteredUserMounts.map((mount, index) => {
             return (
                 <UserMount
                     key={index}
                     item={mount}
                 />
-            )
-        })
+            );
+        });
 
         return (
             <div className='Window'>
@@ -70,7 +79,8 @@ const mapStateToProps = (state) => {
     return {
         mounts: state.mounts,
         userMounts: state.userMounts,
-        user: state.user
+        user: state.user,
+        search: state.search
     }
 }
 

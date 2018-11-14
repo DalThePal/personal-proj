@@ -36,7 +36,7 @@ class UserArm extends Component {
     }
 
     render() {
-        const {item, key} = this.props;
+        const {item} = this.props;
         if (this.state.edit === false) {
             return (
                 <div className='Arm'>
@@ -48,12 +48,7 @@ class UserArm extends Component {
                     <p>STEALTH: {item.stealth}</p>
                     <p>Weight: {item.weight}</p>
                     <div className='addButton'>
-                        <button onClick={() => this.props.addToDash({
-                            name: item.name,
-                            url: null,
-                            type: 'userArm',
-                            index: key
-                        })}>ADD</button>
+                        <button onClick={() => this.props.userArmDash({dashItem: true, id: item.id})}>ADD</button>
                         <button onClick={() => this.setState({edit: true})}>EDIT</button>
                     </div>
                 </div>
@@ -80,7 +75,7 @@ class UserArm extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addToDash: (payload) => dispatch(actions.addToDash(payload)),
+        userArmDash: (payload) => dispatch(actions.userArmDash(payload)),
         editUserArm: (payload) => dispatch(actions.editUserArm(payload)),
         remUserArm: (payload) => dispatch(actions.remUserArm(payload))
     }

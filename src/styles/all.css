@@ -62,15 +62,15 @@ html {
   color: black;
   text-decoration: none;
   text-transform: uppercase;
-  padding: 5px;
-  background-color: #404646;
-  display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
+  background-color: #404646;
   border-top: 2px solid black;
   border-left: 2px solid black;
-  border-right: 2px solid black; }
+  border-right: 2px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 5px; }
   .Header .Title {
     width: 100%;
     height: 100%;
@@ -86,6 +86,13 @@ html {
     height: 100%;
     display: flex;
     justify-content: flex-start; }
+  .Header input {
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-color: black;
+    text-align: center; }
   .Header .ProfileDiv {
     width: 100%;
     height: 100%;
@@ -95,7 +102,7 @@ html {
     text-transform: uppercase;
     display: flex;
     align-items: center;
-    justify-content: flex-end; }
+    justify-content: space-between; }
     .Header .ProfileDiv p {
       font-family: "Nodesto Caps Condensed";
       color: black;
@@ -189,11 +196,12 @@ html {
     border-top: 2px solid black;
     border-left: 2px solid black;
     border-bottom: 2px solid black;
-    overflow-y: scroll;
-    padding-top: 20px;
-    padding-left: 20px;
+    box-sizing: border-box;
     display: flex;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: scroll;
+    padding: 20px; }
 
 ::-webkit-scrollbar {
   width: 20px; }
@@ -208,16 +216,16 @@ html {
   background: #555; }
 
 .Monster {
-  padding: 10px;
   background-color: tan;
-  box-shadow: 5px 10px 10px #ABB2B9;
   border: 2px solid black;
+  box-shadow: 5px 10px 10px #ABB2B9;
+  box-sizing: border-box;
+  padding: 10px;
   font-family: "Nodesto Caps Condensed";
   color: black;
   text-decoration: none;
   text-transform: uppercase;
   margin-bottom: 20px;
-  margin-right: 20px;
   width: 100%; }
   .Monster h1 {
     text-align: center;
@@ -263,11 +271,12 @@ html {
     border-top: 2px solid black;
     border-left: 2px solid black;
     border-bottom: 2px solid black;
-    overflow-y: scroll;
-    padding-top: 20px;
-    padding-left: 20px;
+    box-sizing: border-box;
     display: flex;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: scroll;
+    padding: 20px; }
 
 ::-webkit-scrollbar {
   width: 20px; }
@@ -283,11 +292,11 @@ html {
 
 .Spell {
   margin-bottom: 20px;
-  margin-right: 20px;
-  padding: 10px;
   background-color: tan;
-  box-shadow: 5px 10px 10px #ABB2B9;
   border: 2px solid black;
+  box-shadow: 5px 10px 10px #ABB2B9;
+  box-sizing: border-box;
+  padding: 10px;
   font-family: "Nodesto Caps Condensed";
   color: black;
   text-decoration: none;
@@ -365,11 +374,12 @@ html {
     border-top: 2px solid black;
     border-left: 2px solid black;
     border-bottom: 2px solid black;
-    overflow-y: scroll;
-    padding-top: 20px;
-    padding-left: 20px;
+    box-sizing: border-box;
     display: flex;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: scroll;
+    padding: 20px; }
 
 ::-webkit-scrollbar {
   width: 20px; }
@@ -384,10 +394,11 @@ html {
   background: #555; }
 
 .Weapon {
-  padding: 10px;
   background-color: tan;
-  box-shadow: 5px 10px 10px #ABB2B9;
   border: 2px solid black;
+  box-shadow: 5px 10px 10px #ABB2B9;
+  box-sizing: border-box;
+  padding: 10px;
   font-family: "Nodesto Caps Condensed";
   color: black;
   text-decoration: none;
@@ -423,6 +434,10 @@ html {
       font-size: 16px;
       box-shadow: 4px 4px 4px #87735a; }
 
+.Weapon:nth-child(even) {
+  margin-bottom: 20px;
+  margin-right: 0px; }
+
 .Window .Body {
   width: 100%;
   height: 85vh; }
@@ -432,16 +447,18 @@ html {
     border-top: 2px solid black;
     border-left: 2px solid black;
     border-bottom: 2px solid black;
-    overflow-y: scroll;
-    padding-top: 20px;
-    padding-left: 20px;
+    box-sizing: border-box;
     display: flex;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: scroll;
+    padding: 20px; }
     .Window .Body .Armor .createDiv {
-      padding: 10px;
       background-color: tan;
-      box-shadow: 5px 10px 10px #ABB2B9;
       border: 2px solid black;
+      box-shadow: 5px 10px 10px #ABB2B9;
+      box-sizing: border-box;
+      padding: 10px;
       font-family: "Nodesto Caps Condensed";
       color: black;
       text-decoration: none;
@@ -466,6 +483,7 @@ html {
         text-decoration: none;
         text-transform: uppercase;
         border-color: black;
+        text-align: center;
         margin-bottom: 10px; }
       .Window .Body .Armor .createDiv textarea {
         font-family: "Nodesto Caps Condensed";
@@ -490,10 +508,11 @@ html {
   background: #555; }
 
 .Arm {
-  padding: 10px;
   background-color: tan;
-  box-shadow: 5px 10px 10px #ABB2B9;
   border: 2px solid black;
+  box-shadow: 5px 10px 10px #ABB2B9;
+  box-sizing: border-box;
+  padding: 10px;
   font-family: "Nodesto Caps Condensed";
   color: black;
   text-decoration: none;
@@ -527,12 +546,17 @@ html {
       font-size: 16px;
       box-shadow: 4px 4px 4px #87735a; }
 
+.Arm:nth-child(even) {
+  margin-bottom: 20px;
+  margin-right: 0px; }
+
 .Arm {
   width: 48%;
-  padding: 10px;
   background-color: tan;
-  box-shadow: 5px 10px 10px #ABB2B9;
   border: 2px solid black;
+  box-shadow: 5px 10px 10px #ABB2B9;
+  box-sizing: border-box;
+  padding: 10px;
   font-family: "Nodesto Caps Condensed";
   color: black;
   text-decoration: none;
@@ -553,7 +577,7 @@ html {
     text-decoration: none;
     text-transform: uppercase;
     border-color: black;
-    margin-bottom: 10px; }
+    text-align: center; }
   .Arm .h2 {
     font-family: "Nodesto Caps Condensed";
     color: black;
@@ -564,7 +588,7 @@ html {
     text-decoration: none;
     text-transform: uppercase;
     border-color: black;
-    margin-bottom: 10px; }
+    text-align: center; }
   .Arm .p {
     font-family: "Nodesto Caps Condensed";
     color: black;
@@ -575,7 +599,7 @@ html {
     text-decoration: none;
     text-transform: uppercase;
     border-color: black;
-    margin-bottom: 10px; }
+    text-align: center; }
   .Arm h1 {
     text-align: center;
     font-size: 4vh; }
@@ -611,18 +635,20 @@ html {
     border-top: 2px solid black;
     border-left: 2px solid black;
     border-bottom: 2px solid black;
-    overflow-y: scroll;
-    padding-top: 20px;
-    padding-left: 20px;
+    box-sizing: border-box;
     display: flex;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: scroll;
+    padding: 20px; }
     .Window .Body .Equipment .createDiv {
       width: 48%;
       height: 45%;
-      padding: 10px;
       background-color: tan;
-      box-shadow: 5px 10px 10px #ABB2B9;
       border: 2px solid black;
+      box-shadow: 5px 10px 10px #ABB2B9;
+      box-sizing: border-box;
+      padding: 10px;
       font-family: "Nodesto Caps Condensed";
       color: black;
       text-decoration: none;
@@ -646,6 +672,7 @@ html {
         text-decoration: none;
         text-transform: uppercase;
         border-color: black;
+        text-align: center;
         margin-bottom: 10px; }
       .Window .Body .Equipment .createDiv textarea {
         font-family: "Nodesto Caps Condensed";
@@ -670,10 +697,11 @@ html {
   background: #555; }
 
 .Equip {
-  padding: 10px;
   background-color: tan;
-  box-shadow: 5px 10px 10px #ABB2B9;
   border: 2px solid black;
+  box-shadow: 5px 10px 10px #ABB2B9;
+  box-sizing: border-box;
+  padding: 10px;
   font-family: "Nodesto Caps Condensed";
   color: black;
   text-decoration: none;
@@ -707,11 +735,16 @@ html {
       font-size: 16px;
       box-shadow: 4px 4px 4px #87735a; }
 
+.Equip:nth-child(even) {
+  margin-bottom: 20px;
+  margin-right: 0px; }
+
 .Equip {
-  padding: 10px;
   background-color: tan;
-  box-shadow: 5px 10px 10px #ABB2B9;
   border: 2px solid black;
+  box-shadow: 5px 10px 10px #ABB2B9;
+  box-sizing: border-box;
+  padding: 10px;
   font-family: "Nodesto Caps Condensed";
   color: black;
   text-decoration: none;
@@ -734,7 +767,7 @@ html {
     text-decoration: none;
     text-transform: uppercase;
     border-color: black;
-    margin-bottom: 10px; }
+    text-align: center; }
   .Equip .h2 {
     font-family: "Nodesto Caps Condensed";
     color: black;
@@ -750,7 +783,7 @@ html {
     text-decoration: none;
     text-transform: uppercase;
     border-color: black;
-    margin-bottom: 10px; }
+    text-align: center; }
   .Equip h1 {
     text-align: center;
     font-size: 4vh; }
@@ -810,18 +843,20 @@ html {
     border-top: 2px solid black;
     border-left: 2px solid black;
     border-bottom: 2px solid black;
-    overflow-y: scroll;
-    padding-top: 20px;
-    padding-left: 20px;
+    box-sizing: border-box;
     display: flex;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: scroll;
+    padding: 20px; }
     .Window .Body .Mounts .createDiv {
       width: 48%;
       height: 45%;
-      padding: 10px;
       background-color: tan;
-      box-shadow: 5px 10px 10px #ABB2B9;
       border: 2px solid black;
+      box-shadow: 5px 10px 10px #ABB2B9;
+      box-sizing: border-box;
+      padding: 10px;
       font-family: "Nodesto Caps Condensed";
       color: black;
       text-decoration: none;
@@ -845,6 +880,7 @@ html {
         text-decoration: none;
         text-transform: uppercase;
         border-color: black;
+        text-align: center;
         margin-bottom: 10px; }
       .Window .Body .Mounts .createDiv textarea {
         font-family: "Nodesto Caps Condensed";
@@ -872,10 +908,11 @@ html {
   margin-bottom: 20px;
   margin-right: 20px;
   width: 48%;
-  padding: 10px;
   background-color: tan;
-  box-shadow: 5px 10px 10px #ABB2B9;
   border: 2px solid black;
+  box-shadow: 5px 10px 10px #ABB2B9;
+  box-sizing: border-box;
+  padding: 10px;
   font-family: "Nodesto Caps Condensed";
   color: black;
   text-decoration: none;
@@ -906,6 +943,10 @@ html {
       font-size: 16px;
       box-shadow: 4px 4px 4px #87735a; }
 
+.Mount:nth-child(even) {
+  margin-bottom: 20px;
+  margin-right: 0px; }
+
 .Window .Body {
   width: 100%;
   height: 85vh; }
@@ -915,11 +956,12 @@ html {
     border-top: 2px solid black;
     border-left: 2px solid black;
     border-bottom: 2px solid black;
-    overflow-y: scroll;
-    padding-top: 20px;
-    padding-left: 20px;
+    box-sizing: border-box;
     display: flex;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: scroll;
+    padding: 20px; }
 
 ::-webkit-scrollbar {
   width: 20px; }

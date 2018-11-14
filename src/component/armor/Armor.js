@@ -27,28 +27,33 @@ class Armor extends Component {
     }
 
     render() {
-        const armor = this.props.armor.map((arm, index) => {
-            return (
 
+        const filteredArmor = this.props.armor.filter(arm => {
+            return arm.name.toUpperCase().includes(this.props.search.toUpperCase());
+        });
+
+        const armor = filteredArmor.map((arm, index) => {
+            return (
                 <Arm
                     key={index}
                     name={arm.name}
                     url={arm.url}
                 />
+            );
+        });
 
-            )
-        })
+        const filteredUserArmor = this.props.userArmor.filter(arm => {
+            return arm.name.toUpperCase().includes(this.props.search.toUpperCase());
+        });
 
-        const userArmor = this.props.userArmor.map((arm, index) => {
+        const userArmor = filteredUserArmor.map((arm, index) => {
             return (
-
                 <UserArm
                     key={index}
                     item={arm}
                 />
-
-            )
-        })
+            );
+        });
 
         return (
             <div className='Window'>
@@ -79,7 +84,8 @@ const mapStateToProps = (state) => {
     return {
         armor: state.armor,
         userArmor: state.userArmor,
-        user: state.user
+        user: state.user,
+        search: state.search
     }
 }
 

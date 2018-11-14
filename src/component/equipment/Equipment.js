@@ -23,17 +23,26 @@ class Equipment extends Component {
     }
 
     render() {
-        const equipment = this.props.equipment.map((equip, index) => {
+
+        const filteredEquipment = this.props.equipment.filter(equip => {
+            return equip.name.toUpperCase().includes(this.props.search.toUpperCase());
+        });
+
+        const equipment = filteredEquipment.map((equip, index) => {
             return (
                 <Equip
                     key={index}
                     name={equip.name}
                     url={equip.url}
                 />
-            )
-        })
+            );
+        });
 
-        const userEquipment = this.props.userEquipment.map((equip, index) => {
+        const filteredUserEquipment = this.props.userEquipment.filter(equip => {
+            return equip.name.toUpperCase().includes(this.props.search.toUpperCase());
+        });
+
+        const userEquipment = filteredUserEquipment.map((equip, index) => {
             return (
                 <UserEquip
                     key={index}
@@ -69,7 +78,8 @@ const mapStateToProps = (state) => {
     return {
         equipment: state.equipment,
         userEquipment: state.userEquipment,
-        user: state.user
+        user: state.user,
+        search: state.search
     }
 }
 

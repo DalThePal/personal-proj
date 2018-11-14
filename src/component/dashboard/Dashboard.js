@@ -52,8 +52,8 @@ class Dashboard extends Component {
             } else return null
         })
 
-        const userArmorItems = dash.map((userArm, index) => {
-            if (userArm.type === 'userArm') {
+        const userArmorItems = this.props.userArmor.map((userArm, index) => {
+            if (userArm.dashitem === true) {
                 return (
                     <DashItem
                         key={index}
@@ -182,6 +182,7 @@ class Dashboard extends Component {
 const mapStateToProps = (state) => {
     return {
         dash: state.dash,
+        userArmor: state.userArmor
     }
 }
 

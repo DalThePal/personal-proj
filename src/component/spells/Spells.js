@@ -12,15 +12,20 @@ class Spells extends Component {
     }
 
     render() {
-        const spells = this.props.spells.map((spell, index) => {
+
+        const filteredSpells = this.props.spells.filter(spell => {
+            return spell.name.toUpperCase().includes(this.props.search.toUpperCase());
+        });
+
+        const spells = filteredSpells.map((spell, index) => {
             return (
                 <Spell
                     key={index}
                     name={spell.name}
                     url={spell.url}
                 />
-            )
-        })
+            );
+        });
 
         return (
             <div className='Window'>
@@ -39,7 +44,8 @@ class Spells extends Component {
 const mapStateToProps = (state) => {
     return {
         spells: state.spells,
-        user: state.user
+        user: state.user,
+        search: state.search
     }
 }
 
