@@ -226,6 +226,7 @@ html {
   text-decoration: none;
   text-transform: uppercase;
   margin-bottom: 20px;
+  min-height: 300px;
   width: 100%; }
   .Monster h1 {
     text-align: center;
