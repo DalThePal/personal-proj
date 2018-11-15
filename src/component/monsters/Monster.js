@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 import { actions } from '../../duck';
 
 class Monster extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             monster: {},
             loading: true
@@ -14,23 +14,24 @@ class Monster extends Component {
     }
 
     componentDidMount() {
-        // setTimeout(this.getData, 500, this.props.url);
-        this.getData();
+        this.getData(this.props.url);
     }
 
     componentDidUpdate(prevProps) {
         if (this.props !== prevProps) {
-            // this.setState({loading: true});
-            // setTimeout(this.getData, 500);
-            this.getData();
+            this.setState({loading: true});
+            this.getData(this.props.url);
         }
     }
 
     getData(url) {
-        axios.get(url).then(res => this.setState({
-            monster: res.data,
-            loading: false
-        }));
+        axios.get(url).then(res => {
+            setTimeout(() => {
+                this.setState({
+                    monster: res.data
+                }, this.setState({loading: false}))}, 2000
+            )
+        });
     }
 
     render() {
@@ -78,7 +79,7 @@ class Monster extends Component {
 
         if (this.state.loading) {
             return (
-                <div className='Monster'>
+                <div className='Monster' style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                     <ReactLoading type={'bars'} color={'black'} />
                 </div>
             );

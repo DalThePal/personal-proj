@@ -293,6 +293,7 @@ html {
 
 .Spell {
   margin-bottom: 20px;
+  min-height: 300px;
   background-color: tan;
   border: 2px solid black;
   box-shadow: 5px 10px 10px #ABB2B9;
@@ -406,6 +407,7 @@ html {
   text-transform: uppercase;
   margin-bottom: 20px;
   margin-right: 20px;
+  min-height: 200px;
   width: 48%; }
   .Weapon h1 {
     text-align: center;
@@ -520,6 +522,7 @@ html {
   text-transform: uppercase;
   margin-bottom: 20px;
   margin-right: 20px;
+  min-height: 200px;
   width: 48%; }
   .Arm h1 {
     text-align: center;
@@ -709,6 +712,7 @@ html {
   text-transform: uppercase;
   margin-bottom: 20px;
   margin-right: 20px;
+  min-height: 200px;
   width: 48%; }
   .Equip h1 {
     text-align: center;
@@ -908,6 +912,7 @@ html {
 .Mount {
   margin-bottom: 20px;
   margin-right: 20px;
+  min-height: 150px;
   width: 48%;
   background-color: tan;
   border: 2px solid black;

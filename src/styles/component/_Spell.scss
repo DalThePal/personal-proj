@@ -1,6 +1,7 @@
 
 .Spell {
     margin-bottom: 20px;
+    min-height: 300px;
     @include contentDiv();
     @include textDefault();
     width: 100%;
