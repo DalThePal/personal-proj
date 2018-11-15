@@ -14,11 +14,21 @@ class Arm extends Component {
     }
 
     componentDidMount() {
+        this.getData();
+    }
+
+    componentDidUpdate(prevProps) {
+        if(this.props !== prevProps) {
+            this.getData();
+        }
+    }
+
+    getData() {
         axios.get(this.props.url).then(res => this.setState({
             arm: res.data,
             cost: res.data.cost,
             armorClass: res.data.armor_class
-        }))
+        }));
     }
 
     render() {

@@ -12,22 +12,18 @@ class Monster extends Component {
     }
 
     componentDidMount() {
-        axios.get(this.props.url).then(res => {
-
-            let monster = {
-                dashType: 'monster'
-            }
-
-            Object.assign(monster, res.data);
-
-            this.setState({
-                monster: monster,
-
-            })
-        });
+        this.getData();
     }
 
+    componentDidUpdate(prevProps) {
+        if(this.props !== prevProps) {
+            this.getData();
+        }
+    }
 
+    getData() {
+        axios.get(this.props.url).then(res => this.setState({monster: res.data,}));
+    }
 
     render() {
         const { monster } = this.state;
@@ -108,8 +104,8 @@ class Monster extends Component {
                         name: this.state.monster.name,
                         url: this.state.monster.url,
                         type: 'monster'
-                        })}
-                        >ADD
+                    })}
+                    >ADD
                     </button>
                 </div>
             </div>

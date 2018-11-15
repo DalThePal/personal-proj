@@ -1,7 +1,5 @@
 import types from './types';
 import { combineReducers } from 'redux';
-import { ActionNoteAdd } from 'material-ui/svg-icons';
-
 
 export const initialState = {
     user: {},
