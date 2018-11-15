@@ -1,6 +1,7 @@
 .Mount {
     margin-bottom: 20px;
     margin-right: 20px;
+    min-height: 150px;
     width: 48%;
     @include contentDiv();
     @include textDefault();

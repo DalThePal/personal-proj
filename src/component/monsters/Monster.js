@@ -1,28 +1,37 @@
 import React, { Component } from 'react';
+import ReactLoading from 'react-loading';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { actions } from '../../duck';
 
 class Monster extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             monster: {},
+            loading: true
         }
     }
 
     componentDidMount() {
-        this.getData();
+        this.getData(this.props.url);
     }
 
     componentDidUpdate(prevProps) {
-        if(this.props !== prevProps) {
-            this.getData();
+        if (this.props !== prevProps) {
+            this.setState({loading: true});
+            this.getData(this.props.url);
         }
     }
 
-    getData() {
-        axios.get(this.props.url).then(res => this.setState({monster: res.data,}));
+    getData(url) {
+        axios.get(url).then(res => {
+            setTimeout(() => {
+                this.setState({
+                    monster: res.data
+                }, this.setState({loading: false}))}, 2000
+            )
+        });
     }
 
     render() {
@@ -68,48 +77,56 @@ class Monster extends Component {
             })
         }
 
-        return (
-            <div className='Monster'>
-
-                <h1>{this.props.name}</h1>
-                <h2>{monster.size} {monster.type}, {monster.alignment}</h2>
-                <p>Armor class: {monster.armor_class}</p>
-                <p>Hit Points: {monster.hit_points} ({monster.hit_dice})</p>
-                <p>Speed: {monster.speed} </p>
-                <div className='Stats'>
-                    <p>STR {monster.strength}</p>
-                    <p>DEX {monster.dexterity}</p>
-                    <p>CON {monster.constitution}</p>
-                    <p>INT {monster.intelligence}</p>
-                    <p>WIS {monster.wisdom}</p>
-                    <p>CHA {monster.charisma}</p>
+        if (this.state.loading) {
+            return (
+                <div className='Monster' style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                    <ReactLoading type={'bars'} color={'black'} />
                 </div>
-                <p>Saving Throws:
+            );
+        } else {
+            return (
+                <div className='Monster'>
+
+                    <h1>{this.props.name}</h1>
+                    <h2>{monster.size} {monster.type}, {monster.alignment}</h2>
+                    <p>Armor class: {monster.armor_class}</p>
+                    <p>Hit Points: {monster.hit_points} ({monster.hit_dice})</p>
+                    <p>Speed: {monster.speed} </p>
+                    <div className='Stats'>
+                        <p>STR {monster.strength}</p>
+                        <p>DEX {monster.dexterity}</p>
+                        <p>CON {monster.constitution}</p>
+                        <p>INT {monster.intelligence}</p>
+                        <p>WIS {monster.wisdom}</p>
+                        <p>CHA {monster.charisma}</p>
+                    </div>
+                    <p>Saving Throws:
                     {monster.strength_save ? `str +${monster.strength_save}` : ''}
-                    {monster.dexterity_save ? `dex +${monster.dexterity_save}` : ''}
-                    {monster.constitution_save ? `con +${monster.constitution_save}` : ''}
-                    {monster.intelligence_save ? `int +${monster.intelligence_save}` : ''}
-                    {monster.widsom_save ? `wis +${monster.widsom_save}` : ''}
-                    {monster.charisma_save ? `cha +${monster.charisma_save}` : ''}
-                </p>
-                <p>senses: {monster.senses}</p>
-                <p>languages: {monster.languages}</p>
-                <p>challenge: {monster.challenge_rating}</p>
-                <div>{specialAbilities}</div>
-                <div>{actions}</div>
-                <div>{legendaryActions}</div>
+                        {monster.dexterity_save ? `dex +${monster.dexterity_save}` : ''}
+                        {monster.constitution_save ? `con +${monster.constitution_save}` : ''}
+                        {monster.intelligence_save ? `int +${monster.intelligence_save}` : ''}
+                        {monster.widsom_save ? `wis +${monster.widsom_save}` : ''}
+                        {monster.charisma_save ? `cha +${monster.charisma_save}` : ''}
+                    </p>
+                    <p>senses: {monster.senses}</p>
+                    <p>languages: {monster.languages}</p>
+                    <p>challenge: {monster.challenge_rating}</p>
+                    <div>{specialAbilities}</div>
+                    <div>{actions}</div>
+                    <div>{legendaryActions}</div>
 
-                <div className='addButton'>
-                    <button onClick={() => this.props.addToDash({
-                        name: this.state.monster.name,
-                        url: this.state.monster.url,
-                        type: 'monster'
-                    })}
-                    >ADD
+                    <div className='addButton'>
+                        <button onClick={() => this.props.addToDash({
+                            name: this.state.monster.name,
+                            url: this.state.monster.url,
+                            type: 'monster'
+                        })}
+                        >ADD
                     </button>
+                    </div>
                 </div>
-            </div>
-        )
+            );
+        }
     }
 }
 

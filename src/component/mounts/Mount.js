@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactLoading from 'react-loading';
 import axios from 'axios';
 import { actions } from '../../duck';
 import { connect } from 'react-redux';
@@ -10,50 +11,66 @@ class Mount extends Component {
             mount: {},
             cost: {},
             speed: {},
+            loading: true
         }
     }
 
     componentDidMount() {
-        this.getData();
+        this.getData(this.props.url);
     }
 
     componentDidUpdate(prevProps) {
-        if(this.props !== prevProps) {
-            this.getData();
+        if (this.props !== prevProps) {
+            this.setState({ loading: true });
+            this.getData(this.props.url);
         }
     }
 
-    getData() {
-        axios.get(this.props.url).then(res => this.setState({
-            mount: res.data,
-            cost: res.data.cost,
-            speed: res.data.speed,
-        }));
+    getData(url) {
+        axios.get(url).then(res => {
+            setTimeout(() => {
+                this.setState({
+                    mount: res.data,
+                    cost: res.data.cost,
+                    speed: res.data.speed
+                }, this.setState({ loading: false }))
+            }, 2000
+            )
+        });
     }
 
     render() {
         const { mount, cost, speed } = this.state;
-        return (
-            <div className='Mount'>
-                <h1>{this.props.name}</h1>
-                <h2>({mount.vehicle_category})</h2>
-                <p>cost: {cost.quantity} {cost.unit}</p>
-                <p>{speed ? `speed: ${speed.quantity} ${speed.unit}` : ''}</p>
-                <p>{mount.capacity ? `capacity: ${mount.capacity}` : ''}</p>
-                <p>{mount.weight ? `weight: ${mount.weight} lb.` : ''}</p>
-                <p>{mount.desc ? mount.desc : ''}</p>
-                <div className='addButton'>
-                    <button onClick={() => this.props.addToDash({
-                        name: this.state.mount.name,
-                        url: this.state.mount.url,
-                        type: 'mount',
-                        index: null
-                    })}
-                    >ADD
-                    </button>
+
+        if (this.state.loading) {
+            return (
+                <div className='Mount' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <ReactLoading type={'bars'} color={'black'} />
                 </div>
-            </div>
-        )
+            );
+        } else {
+            return (
+                <div className='Mount'>
+                    <h1>{this.props.name}</h1>
+                    <h2>({mount.vehicle_category})</h2>
+                    <p>cost: {cost.quantity} {cost.unit}</p>
+                    <p>{speed ? `speed: ${speed.quantity} ${speed.unit}` : ''}</p>
+                    <p>{mount.capacity ? `capacity: ${mount.capacity}` : ''}</p>
+                    <p>{mount.weight ? `weight: ${mount.weight} lb.` : ''}</p>
+                    <p>{mount.desc ? mount.desc : ''}</p>
+                    <div className='addButton'>
+                        <button onClick={() => this.props.addToDash({
+                            name: this.state.mount.name,
+                            url: this.state.mount.url,
+                            type: 'mount',
+                            index: null
+                        })}
+                        >ADD
+                    </button>
+                    </div>
+                </div>
+            );
+        }
     }
 }
 
