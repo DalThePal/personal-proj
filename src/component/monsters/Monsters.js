@@ -6,10 +6,26 @@ import Header from '../Header';
 import Dashboard from '../dashboard/Dashboard';
 
 class Monsters extends Component {
+    constructor() {
+        super();
+        this.state = {
+
+        }
+    }
 
     componentDidMount() {
         this.props.getMonsters();
         this.props.getUser();
+        console.log(this)
+        if (this.props.displayDashItem) {
+            this.setState({
+                displayDashItem: React.createRef()
+            })
+            window.scrollTo({
+                top: this.state.displayDashItem,
+                behavior: 'smooth'
+            })
+        }
     }
 
     render() {
@@ -24,12 +40,13 @@ class Monsters extends Component {
                     key={index}
                     name={monster.name}
                     url={monster.url}
+                    ref={this.monsterRef}
                 />
             );
         })
 
         return (
-            <div className='Window' >
+            <div className='Window'>
                 <Header title='monsters' />
                 <div className='Body'>
                     <div className='Monsters'>
@@ -48,7 +65,8 @@ const mapStateToProps = (state) => {
     return {
         monsters: state.monsters,
         user: state.user,
-        search: state.search
+        search: state.search,
+        displayDashItem: state.displayDashItem
     }
 }
 

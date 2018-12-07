@@ -14,6 +14,7 @@ class Monster extends Component {
     }
 
     componentDidMount() {
+        console.log(this.ref)
         this.getData(this.props.url);
     }
 
@@ -85,7 +86,7 @@ class Monster extends Component {
             );
         } else {
             return (
-                <div className='Monster'>
+                <div className='Monster' ref={this.props.name}>
 
                     <h1>{this.props.name}</h1>
                     <h2>{monster.size} {monster.type}, {monster.alignment}</h2>

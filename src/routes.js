@@ -8,7 +8,6 @@ import Weapons from './component/weapons/Weapons';
 import Equipment from './component/equipment/Equipment';
 import Login from './component/Login';
 import Mounts from './component/mounts/Mounts';
-import Favorites from './component/Favorites';
 
 export default () => {
     return (
@@ -20,7 +19,6 @@ export default () => {
             <Route path='/Armor' component={Armor} />
             <Route path='/Equipment' component={Equipment} />
             <Route path='/Mounts' component={Mounts} />
-            <Route path='/Favorites' component={Favorites} />
         </Switch>
     )
 }
