@@ -37,7 +37,7 @@ const dash = (state = [], action) => {
     }
 }
 
-const displayDashItem = (state = initialState.displayDashItem, action) => {
+const displayDashItem = (state = {}, action) => {
     switch (action.type) {
 
         case types.DISPLAY_DASH_ITEM:
@@ -124,7 +124,7 @@ const userArmor = (state = [], action) => {
     switch (action.type) {
 
         case types.GET_USER_ARM + '_FULFILLED':
-            return state.concat(action.payload.data);
+            return action.payload.data;
 
         case types.CREATE_ARM + '_FULFILLED':
             return state.concat(action.payload.data);

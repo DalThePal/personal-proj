@@ -6,6 +6,7 @@ import UserArm from './armor/UserArm';
 import Weapon from './weapons/Weapon';
 import Equip from './equipment/Equip';
 import Mount from './mounts/Mount';
+import UserMount from './mounts/UserMount';
 import Dashboard from './dashboard/Dashboard';
 import Header from './Header';
 import { connect } from 'react-redux';
@@ -81,6 +82,18 @@ class Favorites extends Component {
                         key={index}
                         name={mount.name}
                         url={mount.url}
+                    />
+                )
+            } else return null
+        });
+
+        const userMounts = this.props.dash.map((userMount, index) => {
+            if (userMount.type === 'userMount') {
+                return (
+                    <UserMount
+                        key={index}
+                        name={userMount.name}
+                        item={userMount}
                     />
                 )
             } else return null
@@ -192,7 +205,22 @@ class Favorites extends Component {
                                 <Dashboard />
                             </div>
                         </div>
-                    )
+                    );
+                case 'userMount':
+                    return (
+                        <div className='Window'>
+                            <Header title='favorites' />
+                            <div className='Body'>
+                                <div className='Content'>
+                                    <UserMount
+                                        item={this.props.displayDashItem}
+                                        index={this.props.displayDashItem.index}
+                                    />
+                                </div>
+                                <Dashboard />
+                            </div>
+                        </div>
+                    );
                 default:
                     return null
             }
@@ -208,6 +236,7 @@ class Favorites extends Component {
                             {weapons}
                             {equipment}
                             {mounts}
+                            {userMounts}
                         </div>
                         <Dashboard />
                     </div>

@@ -9,7 +9,7 @@ const DashItem = (props) => {
         const { item } = props;
         return (
             <Motion
-                defaultStyle={{ width: 0 }}
+                defaultStyle={{ width: 0, height: 0 }}
                 style={{ width: spring(100) }}
             >
                 {({ width }) =>

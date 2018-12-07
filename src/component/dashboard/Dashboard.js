@@ -123,7 +123,7 @@ class Dashboard extends Component {
                     <DashItem 
                         key={index}
                         item={userMount}
-                        dashType={'userMount'}
+                        dashType={userMount.type}
                         link={'/Mounts'}
                     />
                 )
