@@ -10,17 +10,17 @@ const DashItem = (props) => {
         <div className='DashItem'>
             <Link
                 className='ItemBut'
-                to='/favorites'
+                to={props.link}
             >
                 <button
                     className='ItemBut'
-                    onClick={() => props.displayDashItem({ ...item, type: props.dashType })}
+                    onClick={() => props.addDisplayDashItem(item.name)}
                 >{item.name}
                 </button>
             </Link>
             <button
                 className='DelBut'
-                onClick={() => { props.removeFromDash(item.id) }}
+                onClick={() => { props.remFromDash({name: item.name, dashType: props.dashType}) }}
             >del
             </button>
         </div>
@@ -29,8 +29,8 @@ const DashItem = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        displayDashItem: (payload) => dispatch(actions.displayDashItem(payload)),
-        removeFromDash: (payload) => dispatch(actions.remFromDash(payload))
+        addDisplayDashItem: (payload) => dispatch(actions.addDisplayDashItem(payload)),
+        remFromDash: (payload) => dispatch(actions.remFromDash(payload))
     }
 }
 

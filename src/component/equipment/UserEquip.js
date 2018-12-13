@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactLoading from 'react-loading';
 import { connect } from 'react-redux';
 import { actions } from '../../duck';
 
@@ -10,8 +11,19 @@ class UserEquip extends Component {
             name: null,
             cost: null,
             weight: null,
-            description: null
+            description: null,
+            loading: true
         }
+    }
+
+    componentDidMount() {
+        this.getData();
+    }
+
+    getData() {
+        setTimeout(() => {
+            this.setState({ loading: false })
+        }, 3000)   
     }
 
     handleChange(obj) {
@@ -26,12 +38,29 @@ class UserEquip extends Component {
             weight: this.state.weight || this.props.item.weight,
             description: this.state.description || this.props.item.description,
             id: this.props.item.id
-        })
+        });
+    }
+
+    foundInDash(name) {
+        let check = false;
+        this.props.dash.map(dashItem => {
+            if (name === dashItem.name && dashItem.type === 'userEquip') {
+                check = true
+            }
+        });
+        return check;
     }
 
     render() {
         const {item, key} = this.props;
-        if (this.state.edit === false) {
+
+        if (this.state.loading) {
+            return (
+                <div className='Equip' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <ReactLoading type={'bars'} color={'black'} />
+                </div>
+            );
+        } else if (!this.state.edit) {
             return (
                 <div className='Equip'>
                     <h1>{item.name}</h1>
@@ -48,8 +77,8 @@ class UserEquip extends Component {
                         <button onClick={() => this.setState({edit: true})}>EDIT</button>
                     </div>
                 </div>
-            )
-        } else if(this.state.edit === true) {
+            );
+        } else if(this.state.edit) {
             return (
                 <div className='Equip'>
                     <input className='h1' placeholder={item.name} onChange={e => this.handleChange({name: e.target.value})}/>
@@ -57,12 +86,23 @@ class UserEquip extends Component {
                     <input className='p' placeholder={item.weight} onChange={e => this.handleChange({weight: e.target.value})}/>
                     <textarea className='p' placeholder={item.description} onChange={e => this.handleChange({description: e.target.value})}/>
                     <div className='addButton'>
-                        <button onClick={() => this.props.remUserEquip(item.name)}>DEL</button>
+                        <button onClick={() => {
+                            this.props.remUserEquip(item.name);
+                            if (this.foundInDash(item.name)) {
+                                this.props.remFromDash({name: item.name, dashType: 'userEquip'});
+                            }
+                        }}>DEL</button>
                         <button onClick={() => this.handleSave()}>SAVE</button>
                     </div>
                 </div>
-            )
+            );
         }
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+        dash: state.dash
     }
 }
 
@@ -70,8 +110,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         addToDash: (payload) => dispatch(actions.addToDash(payload)),
         editUserEquip: (payload) => dispatch(actions.editUserEquip(payload)),
-        remUserEquip: (payload) => dispatch(actions.remUserEquip(payload))
+        remUserEquip: (payload) => dispatch(actions.remUserEquip(payload)),
+        remFromDash: (payload) => dispatch(actions.remFromDash(payload))
     }
 }
 
-export default connect(null, mapDispatchToProps)(UserEquip);
+export default connect(mapStateToProps, mapDispatchToProps)(UserEquip);

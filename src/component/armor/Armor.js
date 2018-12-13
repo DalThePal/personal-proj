@@ -9,7 +9,6 @@ import Header from '../Header';
 class Armor extends Component {
     constructor() {
         super();
-
         this.state = {
             name: '',
             category: '',
@@ -22,8 +21,24 @@ class Armor extends Component {
     }
 
     componentDidMount() {
-        this.props.getEquipment();
+        if (this.props.armor.length < 1) {
+            this.props.getEquipment();
+        }
         this.props.getUserArm();
+        this.props.getUser();
+        this.scrollToElmnt();
+    }
+
+    componentDidUpdate() {
+        this.scrollToElmnt();
+    }
+
+    scrollToElmnt() {
+        if (this.props.displayDashItem) {
+            var elmnt = this.refs[this.props.displayDashItem];
+            elmnt.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            this.props.addDisplayDashItem(null);
+        }
     }
 
     render() {
@@ -34,11 +49,16 @@ class Armor extends Component {
 
         const armor = filteredArmor.map((arm, index) => {
             return (
-                <Arm
+                <div
+                    className='armorDiv'
+                    ref={arm.name}
                     key={index}
-                    name={arm.name}
-                    url={arm.url}
-                />
+                >
+                    <Arm
+                        name={arm.name}
+                        url={arm.url}
+                    />
+                </div>
             );
         });
 
@@ -48,10 +68,15 @@ class Armor extends Component {
 
         const userArmor = filteredUserArmor.map((arm, index) => {
             return (
-                <UserArm
+                <div
+                    className='armorDiv'
+                    ref={arm.name}
                     key={index}
-                    item={arm}
-                />
+                >
+                    <UserArm
+                        item={arm}
+                    />
+                </div>
             );
         });
 
@@ -76,7 +101,7 @@ class Armor extends Component {
                     <Dashboard />
                 </div>
             </div>
-        )
+        );
     }
 }
 
@@ -85,7 +110,8 @@ const mapStateToProps = (state) => {
         armor: state.armor,
         userArmor: state.userArmor,
         user: state.user,
-        search: state.search
+        search: state.search,
+        displayDashItem: state.displayDashItem,
     }
 }
 
@@ -93,7 +119,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         getEquipment: () => dispatch(actions.getEquipment()),
         getUserArm: () => dispatch(actions.getUserArm()),
-        createArm: (payload) => dispatch(actions.createArm(payload))
+        getUser: () => dispatch(actions.getUser()),
+        createArm: (payload) => dispatch(actions.createArm(payload)),
+        addDisplayDashItem: (payload) => dispatch(actions.addDisplayDashItem(payload))
     }
 }
 

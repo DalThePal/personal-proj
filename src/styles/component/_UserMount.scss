@@ -1,14 +1,14 @@
+.userMount {
 
-.userArm {
     @include contentDiv();
     @include textDefault();
 
-
     display: flex;
-    flex-direction: column;
     height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
     width: 100%;
-    
+
     .h1 {
         @include textDefault();
         @include h1Tag();
@@ -29,29 +29,29 @@
         @include inputTag();
         margin-bottom: 10px;
     }
-    
+
     h1 {
         @include h1Tag();
     }
-    
+
     h2 {
         @include h2Tag();
     }
-    
+
     p {
         @include pTag();
+
     }
-
-
+    
     .addButton {
-        
+
         display: flex;
         justify-content: space-around;
         
         button {
-
             @include textDefault();
             @include button($button-shadow-tan);
+            
         }
     }
 }

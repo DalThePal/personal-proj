@@ -14,17 +14,28 @@ class Monsters extends Component {
     }
 
     componentDidMount() {
-        this.props.getMonsters();
+        if (this.props.monsters.length < 1) {
+            this.props.getMonsters();
+        }
+        if (this.props.spells.length < 1) {
+            this.props.getSpells();
+        }
+        if (this.props.equipment.length < 1) {
+            this.props.getEquipment();
+        }
         this.props.getUser();
-        console.log(this)
+        this.scrollToElmnt();
+    }
+
+    componentDidUpdate() {
+        this.scrollToElmnt();
+    }
+
+    scrollToElmnt() {
         if (this.props.displayDashItem) {
-            this.setState({
-                displayDashItem: React.createRef()
-            })
-            window.scrollTo({
-                top: this.state.displayDashItem,
-                behavior: 'smooth'
-            })
+            var elmnt = this.refs[this.props.displayDashItem];
+            elmnt.scrollIntoView({behavior: 'smooth', block: 'center'});
+            this.props.addDisplayDashItem(null);
         }
     }
 
@@ -36,12 +47,16 @@ class Monsters extends Component {
 
         const monsters = filteredMonsters.map((monster, index) => {
             return (
-                <Monster
+                <div
+                    className='monsterDiv'
+                    ref={monster.name}
                     key={index}
-                    name={monster.name}
-                    url={monster.url}
-                    ref={this.monsterRef}
-                />
+                >
+                    <Monster
+                        name={monster.name}
+                        url={monster.url}
+                    />
+                </div>
             );
         })
 
@@ -64,6 +79,8 @@ class Monsters extends Component {
 const mapStateToProps = (state) => {
     return {
         monsters: state.monsters,
+        spells: state.spells,
+        equipment: state.equipment,
         user: state.user,
         search: state.search,
         displayDashItem: state.displayDashItem
@@ -73,7 +90,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getMonsters: () => dispatch(actions.getMonsters()),
+        getSpells: () => dispatch(actions.getSpells()),
+        getEquipment: () => dispatch(actions.getEquipment()),
         getUser: () => dispatch(actions.getUser()),
+        addDisplayDashItem: (payload) => dispatch(actions.addDisplayDashItem(payload))
     }
 }
 

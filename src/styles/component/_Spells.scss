@@ -7,6 +7,12 @@
         @include width-height(100%, 85vh);
     
         .Spells {
+
+            .spellDiv {
+                margin-bottom: 20px;
+                min-height: 300px;
+                width: 100%;
+            }
             
             @include width-height(100%, 100%);
             @include content();

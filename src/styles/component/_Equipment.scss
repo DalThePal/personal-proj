@@ -12,16 +12,30 @@
             @include width-height(100%, 100%);
             @include content();
         
-            .createDiv {
-                @include width-height(48%, 45%); 
-                @include contentDiv();
-                @include textDefault();
-
+            .equipDiv {
                 margin-bottom: 20px;
                 margin-right: 20px;
+                min-height: 200px;
+                width: 48%;
+            }
+
+            .equipDiv:nth-child(even) {
+                margin-bottom: 20px;
+                margin-right: 0px;
+            }
+
+            .equipDiv:nth-last-of-type(1) {
+                margin-bottom: 0px;
+                margin-right: 20px;
+            }
+
+            .createDiv {
+                @include contentDiv();
+                @include textDefault();
                 
                 display: flex;
                 flex-direction: column;
+                width: 48%;
                 
 
                 button {
@@ -48,10 +62,12 @@
 }
     
 ::-webkit-scrollbar-track {
+    border-left: 2px solid black;
     background: #f1f1f1;
 }
     
 ::-webkit-scrollbar-thumb {
+    border-left: 2px solid black;
     background: #888;
 }
         

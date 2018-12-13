@@ -13,10 +13,7 @@
         @include textDefault();
         @include width-height(100%, 100%);
         @include button($button-shadow-beige);
-        margin-right: 10px;
-        
-
-        
+        margin-right: 10px;  
     }
 
     .DelBut {

@@ -9,7 +9,7 @@ class Login extends Component {
                 <div><img src='/DND.png' alt='DND' /></div>
                 <a href={process.env.REACT_APP_LOGIN}><button className='LoginBut'>LOGIN</button></a>
             </div>
-        )
+        );
     }
 }
 

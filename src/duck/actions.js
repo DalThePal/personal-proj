@@ -14,9 +14,9 @@ const getUser = () => {
 
 // DASHBOARD
 
-const displayDashItem = (item) => {
+const addDisplayDashItem = (item) => {
     return {
-        type: types.DISPLAY_DASH_ITEM,
+        type: types.ADD_DISPLAY_DASH_ITEM,
         payload: item
     }
 }
@@ -48,7 +48,7 @@ const addToUserDash = (item) => {
 }
 
 const remFromDash = (item) => {
-    const promise = axios.delete(`/dashItems/${item}`)
+    const promise = axios.delete(`/dashItems?name=${item.name}&dashType=${item.dashType}`)
     return {
         type: types.REM_FROM_DASH,
         payload: promise
@@ -205,7 +205,7 @@ export default {
 
 // DASHBOARD
 
-    displayDashItem,
+    addDisplayDashItem,
     getDash,
     addToDash,
     addToUserDash,

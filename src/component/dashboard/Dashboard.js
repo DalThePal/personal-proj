@@ -48,12 +48,12 @@ class Dashboard extends Component {
                         dashType={'armor'}
                         link={'/Armor'}
                     />
-                )
+                );
             } else return null
         })
 
-        const userArmorItems = this.props.userArmor.map((userArm, index) => {
-            if (userArm.dashitem === true) {
+        const userArmorItems = dash.map((userArm, index) => {
+            if (userArm.type === 'userArm') {
                 return (
                     <DashItem
                         key={index}
@@ -61,7 +61,7 @@ class Dashboard extends Component {
                         dashType={'userArm'}
                         link={'/Armor'}
                     />
-                )
+                );
             } else return null
         })
 
@@ -74,7 +74,7 @@ class Dashboard extends Component {
                         dashType={'weapon'}
                         link={'/Weapons'}
                     />
-                )
+                );
             } else return null
         })
 
@@ -87,7 +87,7 @@ class Dashboard extends Component {
                         dashType={'equipment'}
                         link={'/Equipment'}
                     />
-                )
+                );
             } else return null
         })
 
@@ -100,7 +100,7 @@ class Dashboard extends Component {
                         dashType={'userEquip'}
                         link={'/Equipment'}
                     />
-                )
+                );
             } else return null
         })
 
@@ -113,7 +113,7 @@ class Dashboard extends Component {
                         dashType={'mount'}
                         link={'/Mounts'}
                     />
-                )
+                );
             } else return null
         })
 
@@ -126,56 +126,53 @@ class Dashboard extends Component {
                         dashType={userMount.type}
                         link={'/Mounts'}
                     />
-                )
+                );
             } else return null
         })
 
         return (
             <div className='Dashboard'>
-                <div className='displayButton'>
-                    <Link to='/Favorites'><button onClick={() => this.props.displayDashItem(null)}>Display all</button></Link>
-                </div>
                 <div className='SectionTitle'>
-                    <Link to='/Monsters'>MONSTERS</Link>
+                    <Link to='/Monsters'>MONSTERS &#x27A7;</Link>
                 </div>
                 <div className='Items'>
                     {monstItems}
                 </div>
                 <div className='SectionTitle'>
-                    <Link to='/Spells'>SPELLS</Link>
+                    <Link to='/Spells'>SPELLS &#x27A7;</Link>
                 </div>
                 <div className='Items'>
                     {spellItems}
                 </div>
                 <div className='SectionTitle'>
-                    <Link to='/Armor'>ARMOR</Link>
+                    <Link to='/Armor'>ARMOR &#x27A7;</Link>
                 </div>
                 <div className='Items'>
                     {armorItems}
                     {userArmorItems}
                 </div>
                 <div className='SectionTitle'>
-                    <Link to='/Weapons'>WEAPONS</Link>
+                    <Link to='/Weapons'>WEAPONS &#x27A7;</Link>
                 </div>
                 <div className='Items'>
                     {weaponItems}
                 </div>
                 <div className='SectionTitle'>
-                    <Link to='/Equipment'>EQUIPMENT</Link>
+                    <Link to='/Equipment'>EQUIPMENT &#x27A7;</Link>
                 </div>
                 <div className='Items'>
                     {equipItems}
                     {userEquipItems}
                 </div>
                 <div className='SectionTitle'>
-                    <Link to='/Mounts'>MOUNTS & VEHICLES</Link>
+                    <Link to='/Mounts'>MOUNTS & VEHICLES &#x27A7;</Link>
                 </div>
                 <div className='Items'>
                     {mountItems}
                     {userMountItems}
                 </div>
             </div>
-        )
+        );
     }
 }
 

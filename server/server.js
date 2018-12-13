@@ -84,7 +84,7 @@ app.get('/logout', (req, res) => {
 
 app.post('/dashItems', controller.addToDash);
 app.get('/dashItems', controller.getDash)
-app.delete(`/dashItems/:id`, controller.remFromDash);
+app.delete(`/dashItems`, controller.remFromDash);
 app.post('/userDashItems', controller.addToUserDash);
 
 // EQUIPMENT ENDPOINTS

@@ -8,7 +8,24 @@ import Header from '../Header';
 class Spells extends Component {
 
     componentDidMount() {
-        this.props.getSpells();
+        if (this.props.spells.length < 1) {
+            this.props.getSpells();
+        }
+        this.props.getUser();
+        this.scrollToElmnt();
+    }
+
+    componentDidUpdate() {
+        this.scrollToElmnt();
+    }
+
+    scrollToElmnt() {
+        console.log(this.props.displayDashItem)
+        if (this.props.displayDashItem) {
+            var elmnt = this.refs[this.props.displayDashItem];
+            elmnt.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            this.props.addDisplayDashItem(null);
+        }
     }
 
     render() {
@@ -19,11 +36,16 @@ class Spells extends Component {
 
         const spells = filteredSpells.map((spell, index) => {
             return (
-                <Spell
+                <div
+                    className='spellDiv'
+                    ref={spell.name}
                     key={index}
-                    name={spell.name}
-                    url={spell.url}
-                />
+                >
+                    <Spell
+                        name={spell.name}
+                        url={spell.url}
+                    />
+                </div>
             );
         });
 
@@ -45,13 +67,16 @@ const mapStateToProps = (state) => {
     return {
         spells: state.spells,
         user: state.user,
-        search: state.search
+        search: state.search,
+        displayDashItem: state.displayDashItem
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getSpells: () => dispatch(actions.getSpells())
+        getSpells: () => dispatch(actions.getSpells()),
+        getUser: () => dispatch(actions.getUser()),
+        addDisplayDashItem: (payload) => dispatch(actions.addDisplayDashItem(payload))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Spells);

@@ -44,6 +44,9 @@
 
 @mixin button($color) {
 
+    cursor: pointer;
+    padding: none;
+
     @include textDefault();
     background-color: beige;
     border-color: black;

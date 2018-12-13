@@ -8,7 +8,23 @@ import Header from '../Header';
 class Weapons extends Component {
 
     componentDidMount() {
-        this.props.getEquipment();
+        if (this.props.weapons.length < 1) {
+            this.props.getEquipment();
+        }
+        this.props.getUser();
+        this.scrollToElmnt();
+    }
+
+    componentDidUpdate() {
+        this.scrollToElmnt();
+    }
+
+    scrollToElmnt() {
+        if (this.props.displayDashItem) {
+            var elmnt = this.refs[this.props.displayDashItem];
+            elmnt.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            this.props.addDisplayDashItem(null);
+        }
     }
 
     render() {
@@ -19,11 +35,16 @@ class Weapons extends Component {
 
         const weapons = filteredWeapons.map((weapon, index) => {
             return (
-                <Weapon
+                <div
+                    className='weaponDiv'
+                    ref={weapon.name}
                     key={index}
-                    name={weapon.name}
-                    url={weapon.url}
-                />
+                >
+                    <Weapon
+                        name={weapon.name}
+                        url={weapon.url}
+                    />
+                </div>
             );
         });
 
@@ -45,13 +66,16 @@ const mapStateToProps = (state) => {
     return {
         weapons: state.weapons,
         user: state.user,
-        search: state.search
+        search: state.search,
+        displayDashItem: state.displayDashItem
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getEquipment: () => dispatch(actions.getEquipment())
+        getEquipment: () => dispatch(actions.getEquipment()),
+        getUser: () => dispatch(actions.getUser()),
+        addDisplayDashItem: (payload) => dispatch(actions.addDisplayDashItem(payload))
     }
 }
 

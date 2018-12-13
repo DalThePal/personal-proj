@@ -19,8 +19,24 @@ class Mounts extends Component {
     }
 
     componentDidMount() {
-        this.props.getEquipment();
+        if (this.props.mounts.length < 1) {
+            this.props.getEquipment();
+        }
         this.props.getUserMount();
+        this.props.getUser();
+        this.scrollToElmnt();
+    }
+
+    componentDidUpdate() {
+        this.scrollToElmnt();
+    }
+
+    scrollToElmnt() {
+        if (this.props.displayDashItem) {
+            var elmnt = this.refs[this.props.displayDashItem];
+            elmnt.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            this.props.addDisplayDashItem(null);
+        }
     }
 
     render() {
@@ -31,11 +47,16 @@ class Mounts extends Component {
 
         const mounts = filteredMounts.map((mount, index) => {
             return (
-                <Mount
+                <div
+                    className='mountDiv'
+                    ref={mount.name}
                     key={index}
-                    name={mount.name}
-                    url={mount.url}
-                />
+                >
+                    <Mount
+                        name={mount.name}
+                        url={mount.url}
+                    />
+                </div>
             );
         });
 
@@ -45,10 +66,15 @@ class Mounts extends Component {
 
         const userMounts = filteredUserMounts.map((mount, index) => {
             return (
-                <UserMount
+                <div
+                    className='mountDiv'
+                    ref={mount.name}
                     key={index}
-                    item={mount}
-                />
+                >
+                    <UserMount
+                        item={mount}
+                    />
+                </div>
             );
         });
 
@@ -80,7 +106,8 @@ const mapStateToProps = (state) => {
         mounts: state.mounts,
         userMounts: state.userMounts,
         user: state.user,
-        search: state.search
+        search: state.search,
+        displayDashItem: state.displayDashItem
     }
 }
 
@@ -88,7 +115,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         createMount: (payload) => dispatch(actions.createMount(payload)),
         getEquipment: () => dispatch(actions.getEquipment()),
-        getUserMount: () => dispatch(actions.getUserMount())
+        getUserMount: () => dispatch(actions.getUserMount()),
+        getUser: () => dispatch(actions.getUser()),
+        addDisplayDashItem: (payload) => dispatch(actions.addDisplayDashItem(payload))
     }
 }
 

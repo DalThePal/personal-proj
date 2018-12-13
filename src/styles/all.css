@@ -110,6 +110,8 @@ html {
       text-transform: uppercase;
       margin-right: 10px; }
     .Header .ProfileDiv button {
+      cursor: pointer;
+      padding: none;
       font-family: "Nodesto Caps Condensed";
       color: black;
       text-decoration: none;
@@ -153,6 +155,8 @@ html {
       color: black;
       text-decoration: none;
       text-transform: uppercase;
+      cursor: pointer;
+      padding: none;
       font-family: "Nodesto Caps Condensed";
       color: black;
       text-decoration: none;
@@ -202,6 +206,10 @@ html {
     justify-content: center;
     overflow-y: scroll;
     padding: 20px; }
+    .Window .Body .Monsters .monsterDiv {
+      margin-bottom: 20px;
+      min-height: 300px;
+      width: 100%; }
 
 ::-webkit-scrollbar {
   width: 20px; }
@@ -225,8 +233,7 @@ html {
   color: black;
   text-decoration: none;
   text-transform: uppercase;
-  margin-bottom: 20px;
-  min-height: 300px;
+  height: 100%;
   width: 100%; }
   .Monster h1 {
     text-align: center;
@@ -254,6 +261,8 @@ html {
       color: black;
       text-decoration: none;
       text-transform: uppercase;
+      cursor: pointer;
+      padding: none;
       font-family: "Nodesto Caps Condensed";
       color: black;
       text-decoration: none;
@@ -278,6 +287,10 @@ html {
     justify-content: center;
     overflow-y: scroll;
     padding: 20px; }
+    .Window .Body .Spells .spellDiv {
+      margin-bottom: 20px;
+      min-height: 300px;
+      width: 100%; }
 
 ::-webkit-scrollbar {
   width: 20px; }
@@ -292,8 +305,6 @@ html {
   background: #555; }
 
 .Spell {
-  margin-bottom: 20px;
-  min-height: 300px;
   background-color: tan;
   border: 2px solid black;
   box-shadow: 5px 10px 10px #ABB2B9;
@@ -303,7 +314,8 @@ html {
   color: black;
   text-decoration: none;
   text-transform: uppercase;
-  width: 100%; }
+  width: 100%;
+  height: 100%; }
   .Spell h1 {
     text-align: center;
     font-size: 4vh; }
@@ -321,6 +333,8 @@ html {
       color: black;
       text-decoration: none;
       text-transform: uppercase;
+      cursor: pointer;
+      padding: none;
       font-family: "Nodesto Caps Condensed";
       color: black;
       text-decoration: none;
@@ -343,6 +357,8 @@ html {
     text-transform: uppercase;
     width: 100%;
     height: 100%;
+    cursor: pointer;
+    padding: none;
     font-family: "Nodesto Caps Condensed";
     color: black;
     text-decoration: none;
@@ -357,6 +373,8 @@ html {
     color: black;
     text-decoration: none;
     text-transform: uppercase;
+    cursor: pointer;
+    padding: none;
     font-family: "Nodesto Caps Condensed";
     color: black;
     text-decoration: none;
@@ -382,6 +400,14 @@ html {
     justify-content: center;
     overflow-y: scroll;
     padding: 20px; }
+    .Window .Body .Weapons .weaponDiv {
+      margin-bottom: 20px;
+      margin-right: 20px;
+      min-height: 200px;
+      width: 48%; }
+    .Window .Body .Weapons .weaponDiv:nth-child(even) {
+      margin-bottom: 20px;
+      margin-right: 0px; }
 
 ::-webkit-scrollbar {
   width: 20px; }
@@ -405,10 +431,8 @@ html {
   color: black;
   text-decoration: none;
   text-transform: uppercase;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  min-height: 200px;
-  width: 48%; }
+  height: 100%;
+  width: 100%; }
   .Weapon h1 {
     text-align: center;
     font-size: 4vh; }
@@ -428,6 +452,8 @@ html {
       color: black;
       text-decoration: none;
       text-transform: uppercase;
+      cursor: pointer;
+      padding: none;
       font-family: "Nodesto Caps Condensed";
       color: black;
       text-decoration: none;
@@ -436,10 +462,6 @@ html {
       border-color: black;
       font-size: 16px;
       box-shadow: 4px 4px 4px #87735a; }
-
-.Weapon:nth-child(even) {
-  margin-bottom: 20px;
-  margin-right: 0px; }
 
 .Window .Body {
   width: 100%;
@@ -456,6 +478,14 @@ html {
     justify-content: center;
     overflow-y: scroll;
     padding: 20px; }
+    .Window .Body .Armor .armorDiv {
+      margin-bottom: 20px;
+      margin-right: 20px;
+      min-height: 200px;
+      width: 48%; }
+    .Window .Body .Armor .armorDiv:nth-child(even) {
+      margin-bottom: 20px;
+      margin-right: 0px; }
     .Window .Body .Armor .createDiv {
       background-color: tan;
       border: 2px solid black;
@@ -466,12 +496,12 @@ html {
       color: black;
       text-decoration: none;
       text-transform: uppercase;
-      margin-bottom: 20px;
-      margin-right: 20px;
       display: flex;
       flex-direction: column;
       width: 48%; }
       .Window .Body .Armor .createDiv button {
+        cursor: pointer;
+        padding: none;
         font-family: "Nodesto Caps Condensed";
         color: black;
         text-decoration: none;
@@ -502,9 +532,11 @@ html {
   width: 20px; }
 
 ::-webkit-scrollbar-track {
+  border-left: 2px solid black;
   background: #f1f1f1; }
 
 ::-webkit-scrollbar-thumb {
+  border-left: 2px solid black;
   background: #888; }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -520,10 +552,8 @@ html {
   color: black;
   text-decoration: none;
   text-transform: uppercase;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  min-height: 200px;
-  width: 48%; }
+  height: 100%;
+  width: 100%; }
   .Arm h1 {
     text-align: center;
     font-size: 4vh; }
@@ -541,6 +571,8 @@ html {
       color: black;
       text-decoration: none;
       text-transform: uppercase;
+      cursor: pointer;
+      padding: none;
       font-family: "Nodesto Caps Condensed";
       color: black;
       text-decoration: none;
@@ -550,12 +582,7 @@ html {
       font-size: 16px;
       box-shadow: 4px 4px 4px #87735a; }
 
-.Arm:nth-child(even) {
-  margin-bottom: 20px;
-  margin-right: 0px; }
-
-.Arm {
-  width: 48%;
+.userArm {
   background-color: tan;
   border: 2px solid black;
   box-shadow: 5px 10px 10px #ABB2B9;
@@ -565,11 +592,11 @@ html {
   color: black;
   text-decoration: none;
   text-transform: uppercase;
-  margin-bottom: 20px;
-  margin-right: 20px;
   display: flex;
-  flex-direction: column; }
-  .Arm .h1 {
+  flex-direction: column;
+  height: 100%;
+  width: 100%; }
+  .userArm .h1 {
     font-family: "Nodesto Caps Condensed";
     color: black;
     text-decoration: none;
@@ -582,7 +609,7 @@ html {
     text-transform: uppercase;
     border-color: black;
     text-align: center; }
-  .Arm .h2 {
+  .userArm .h2 {
     font-family: "Nodesto Caps Condensed";
     color: black;
     text-decoration: none;
@@ -593,7 +620,7 @@ html {
     text-transform: uppercase;
     border-color: black;
     text-align: center; }
-  .Arm .p {
+  .userArm .p {
     font-family: "Nodesto Caps Condensed";
     color: black;
     text-decoration: none;
@@ -604,23 +631,33 @@ html {
     text-transform: uppercase;
     border-color: black;
     text-align: center; }
-  .Arm h1 {
+  .userArm input {
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-color: black;
+    text-align: center;
+    margin-bottom: 10px; }
+  .userArm h1 {
     text-align: center;
     font-size: 4vh; }
-  .Arm h2 {
+  .userArm h2 {
     text-align: center;
     font-size: 2vh; }
-  .Arm p {
+  .userArm p {
     font-size: 2vh;
     margin-bottom: 5px; }
-  .Arm .addButton {
+  .userArm .addButton {
     display: flex;
     justify-content: space-around; }
-    .Arm .addButton button {
+    .userArm .addButton button {
       font-family: "Nodesto Caps Condensed";
       color: black;
       text-decoration: none;
       text-transform: uppercase;
+      cursor: pointer;
+      padding: none;
       font-family: "Nodesto Caps Condensed";
       color: black;
       text-decoration: none;
@@ -645,9 +682,18 @@ html {
     justify-content: center;
     overflow-y: scroll;
     padding: 20px; }
+    .Window .Body .Equipment .equipDiv {
+      margin-bottom: 20px;
+      margin-right: 20px;
+      min-height: 200px;
+      width: 48%; }
+    .Window .Body .Equipment .equipDiv:nth-child(even) {
+      margin-bottom: 20px;
+      margin-right: 0px; }
+    .Window .Body .Equipment .equipDiv:nth-last-of-type(1) {
+      margin-bottom: 0px;
+      margin-right: 20px; }
     .Window .Body .Equipment .createDiv {
-      width: 48%;
-      height: 45%;
       background-color: tan;
       border: 2px solid black;
       box-shadow: 5px 10px 10px #ABB2B9;
@@ -657,11 +703,12 @@ html {
       color: black;
       text-decoration: none;
       text-transform: uppercase;
-      margin-bottom: 20px;
-      margin-right: 20px;
       display: flex;
-      flex-direction: column; }
+      flex-direction: column;
+      width: 48%; }
       .Window .Body .Equipment .createDiv button {
+        cursor: pointer;
+        padding: none;
         font-family: "Nodesto Caps Condensed";
         color: black;
         text-decoration: none;
@@ -692,9 +739,11 @@ html {
   width: 20px; }
 
 ::-webkit-scrollbar-track {
+  border-left: 2px solid black;
   background: #f1f1f1; }
 
 ::-webkit-scrollbar-thumb {
+  border-left: 2px solid black;
   background: #888; }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -710,10 +759,8 @@ html {
   color: black;
   text-decoration: none;
   text-transform: uppercase;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  min-height: 200px;
-  width: 48%; }
+  width: 100%;
+  height: 100%; }
   .Equip h1 {
     text-align: center;
     font-size: 4vh; }
@@ -731,6 +778,8 @@ html {
       color: black;
       text-decoration: none;
       text-transform: uppercase;
+      cursor: pointer;
+      padding: none;
       font-family: "Nodesto Caps Condensed";
       color: black;
       text-decoration: none;
@@ -739,10 +788,6 @@ html {
       border-color: black;
       font-size: 16px;
       box-shadow: 4px 4px 4px #87735a; }
-
-.Equip:nth-child(even) {
-  margin-bottom: 20px;
-  margin-right: 0px; }
 
 .Equip {
   background-color: tan;
@@ -754,12 +799,11 @@ html {
   color: black;
   text-decoration: none;
   text-transform: uppercase;
-  margin-bottom: 20px;
-  margin-right: 20px;
   display: flex;
+  height: 100%;
   justify-content: space-around;
   flex-direction: column;
-  width: 48%; }
+  width: 100%; }
   .Equip .h1 {
     font-family: "Nodesto Caps Condensed";
     color: black;
@@ -806,6 +850,8 @@ html {
       color: black;
       text-decoration: none;
       text-transform: uppercase;
+      cursor: pointer;
+      padding: none;
       font-family: "Nodesto Caps Condensed";
       color: black;
       text-decoration: none;
@@ -830,6 +876,8 @@ html {
     text-transform: uppercase;
     width: 150px;
     height: 50px;
+    cursor: pointer;
+    padding: none;
     font-family: "Nodesto Caps Condensed";
     color: black;
     text-decoration: none;
@@ -854,9 +902,15 @@ html {
     justify-content: center;
     overflow-y: scroll;
     padding: 20px; }
+    .Window .Body .Mounts .mountDiv {
+      margin-bottom: 20px;
+      margin-right: 20px;
+      min-height: 150px;
+      width: 48%; }
+    .Window .Body .Mounts .mountDiv:nth-child(even) {
+      margin-bottom: 20px;
+      margin-right: 0px; }
     .Window .Body .Mounts .createDiv {
-      width: 48%;
-      height: 45%;
       background-color: tan;
       border: 2px solid black;
       box-shadow: 5px 10px 10px #ABB2B9;
@@ -866,11 +920,12 @@ html {
       color: black;
       text-decoration: none;
       text-transform: uppercase;
-      margin-bottom: 20px;
-      margin-right: 20px;
       display: flex;
-      flex-direction: column; }
+      flex-direction: column;
+      width: 48%; }
       .Window .Body .Mounts .createDiv button {
+        cursor: pointer;
+        padding: none;
         font-family: "Nodesto Caps Condensed";
         color: black;
         text-decoration: none;
@@ -901,19 +956,17 @@ html {
   width: 20px; }
 
 ::-webkit-scrollbar-track {
+  border-left: 2px solid black;
   background: #f1f1f1; }
 
 ::-webkit-scrollbar-thumb {
+  border-left: 2px solid black;
   background: #888; }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555; }
 
 .Mount {
-  margin-bottom: 20px;
-  margin-right: 20px;
-  min-height: 150px;
-  width: 48%;
   background-color: tan;
   border: 2px solid black;
   box-shadow: 5px 10px 10px #ABB2B9;
@@ -922,7 +975,9 @@ html {
   font-family: "Nodesto Caps Condensed";
   color: black;
   text-decoration: none;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  height: 100%;
+  width: 100%; }
   .Mount h1 {
     text-align: center;
     font-size: 4vh; }
@@ -940,6 +995,8 @@ html {
       color: black;
       text-decoration: none;
       text-transform: uppercase;
+      cursor: pointer;
+      padding: none;
       font-family: "Nodesto Caps Condensed";
       color: black;
       text-decoration: none;
@@ -949,9 +1006,91 @@ html {
       font-size: 16px;
       box-shadow: 4px 4px 4px #87735a; }
 
-.Mount:nth-child(even) {
-  margin-bottom: 20px;
-  margin-right: 0px; }
+.userMount {
+  background-color: tan;
+  border: 2px solid black;
+  box-shadow: 5px 10px 10px #ABB2B9;
+  box-sizing: border-box;
+  padding: 10px;
+  font-family: "Nodesto Caps Condensed";
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%; }
+  .userMount .h1 {
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 4vh;
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-color: black;
+    text-align: center; }
+  .userMount .h2 {
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-color: black;
+    text-align: center; }
+  .userMount .p {
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-color: black;
+    text-align: center; }
+  .userMount input {
+    font-family: "Nodesto Caps Condensed";
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-color: black;
+    text-align: center;
+    margin-bottom: 10px; }
+  .userMount h1 {
+    text-align: center;
+    font-size: 4vh; }
+  .userMount h2 {
+    text-align: center;
+    font-size: 2vh; }
+  .userMount p {
+    font-size: 2vh;
+    margin-bottom: 5px; }
+  .userMount .addButton {
+    display: flex;
+    justify-content: space-around; }
+    .userMount .addButton button {
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: none;
+      font-family: "Nodesto Caps Condensed";
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      background-color: beige;
+      border-color: black;
+      font-size: 16px;
+      box-shadow: 4px 4px 4px #87735a; }
 
 .Window .Body {
   width: 100%;

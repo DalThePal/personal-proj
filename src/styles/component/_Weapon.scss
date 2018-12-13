@@ -2,10 +2,8 @@
     @include contentDiv();
     @include textDefault();
     
-    margin-bottom: 20px;
-    margin-right: 20px;
-    min-height: 200px;
-    width: 48%;
+    height: 100%;
+    width: 100%;
     
     h1 {
         @include h1Tag();
@@ -35,7 +33,3 @@
     }
 }
 
-.Weapon:nth-child(even) {
-    margin-bottom: 20px;
-    margin-right: 0px;
-}

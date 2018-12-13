@@ -10,7 +10,7 @@ export const initialState = {
     weapons: [],
     mounts: [],
     dash: [],
-    displayDashItem: {},
+    displayDashItem: null,
     userArmor: [],
     userEquipment: [],
     userMounts: [],
@@ -24,6 +24,7 @@ const dash = (state = [], action) => {
             return state.concat(action.payload.data);
 
         case types.REM_FROM_DASH + '_FULFILLED':
+            console.log(action.payload)
             let index = state.findIndex(item => item.id === action.payload.data[0].id);
             return [...state.slice(0, index), ...state.slice(index + 1)];
 
@@ -37,11 +38,11 @@ const dash = (state = [], action) => {
     }
 }
 
-const displayDashItem = (state = {}, action) => {
+const displayDashItem = (state = '', action) => {
     switch (action.type) {
 
-        case types.DISPLAY_DASH_ITEM:
-            return Object.assign({}, state, action.payload);
+        case types.ADD_DISPLAY_DASH_ITEM:
+            return action.payload;
 
         default:
             return state;
@@ -162,7 +163,7 @@ const userEquipment = (state = [], action) => {
     switch (action.type) {
 
         case types.GET_USER_EQUIP + '_FULFILLED':
-            return state.concat(action.payload.data);
+            return action.payload.data;
 
         case types.CREATE_EQUIP + '_FULFILLED':
             return state.concat(action.payload.data);
@@ -184,7 +185,7 @@ const userMounts = (state = [], action) => {
     switch (action.type) {
 
         case types.GET_USER_MOUNT + '_FULFILLED':
-            return state.concat(action.payload.data);
+            return action.payload.data;
 
         case types.CREATE_MOUNT + '_FULFILLED':
             return state.concat(action.payload.data);
