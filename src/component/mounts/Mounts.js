@@ -28,6 +28,7 @@ class Mounts extends Component {
     }
 
     componentDidUpdate() {
+        this.props.getUserMount();
         this.scrollToElmnt();
     }
 

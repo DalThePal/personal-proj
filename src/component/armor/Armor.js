@@ -30,6 +30,7 @@ class Armor extends Component {
     }
 
     componentDidUpdate() {
+        this.props.getUserArm();
         this.scrollToElmnt();
     }
 

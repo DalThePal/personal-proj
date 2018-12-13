@@ -27,6 +27,7 @@ class Equipment extends Component {
     }
 
     componentDidUpdate() {
+        this.props.getUserEquip();
         this.scrollToElmnt();
     }
 
