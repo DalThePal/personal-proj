@@ -21,6 +21,8 @@ const {
     CALLBACK_URL,
 } = process.env;
 
+console.log(process.env.DOMAIN)
+
 app.use(session({
     secret: SESSION_SECRET,
     resave: false,
