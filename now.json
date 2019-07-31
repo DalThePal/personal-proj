@@ -2,11 +2,11 @@
     "version": 2,
     "name": "dnd-planner",
     "builds": [
-        { "src": "server/server.js", "use": "@now/node-server" },
+        { "src": "server/*.js", "use": "@now/node-server" },
         { "src": "package.json", "use": "@now/static-build", "config": { "distDir": "build" } }
     ],
     "routes": [
-        { "src": "server/*.js", "dest": "server/server.js" }
+        { "src": "/.*", "dest": "server/server.js" }
     ],
     "alias": ["dnd.dallenhoyal.com"],
     "build": {
