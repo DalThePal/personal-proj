@@ -37,7 +37,7 @@ passport.use(new Auth0strategy({
     domain: process.env.DOMAIN,
     clientID: CLIENT_ID,
     clientSecret: CLIENT_SECRET,
-    callbackURL: CALLBACK_URL,
+    callbackURL: "/login",
     scope: 'openid email profile'
 }, function( accessToken, refreshToken, extraParams, profile, done ) {
     const db = app.get('db')
@@ -65,8 +65,8 @@ passport.deserializeUser((profile, done) => {
 });
 
 app.get('/login', passport.authenticate('auth0', {
-    successRedirect: process.env.SUCCESS_REDIRECT,
-    failureRedirect: process.env.FAILURE_REDIRECT,
+    successRedirect: "/#/Monsters",
+    failureRedirect: "/login",
 }))
 
 app.get('/auth/me', function (req, res) {
