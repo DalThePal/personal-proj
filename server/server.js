@@ -35,7 +35,7 @@ app.use(bodyParser.json());
 app.use(express.static(`${__dirname}/../build`));
 
 passport.use(new Auth0strategy({
-    domain: DOMAIN,
+    domain: process.env.DOMAIN,
     clientID: CLIENT_ID,
     clientSecret: CLIENT_SECRET,
     callbackURL: CALLBACK_URL,
