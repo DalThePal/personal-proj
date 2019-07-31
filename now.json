@@ -7,7 +7,7 @@
     ],
     "routes": [
         
-        { "src": "/(.*)", "dest": "server.js" }
+        { "src": "/(.*)", "dest": "server/server.js" }
     ],
     "alias": ["dnd.dallenhoyal.com"],
     "build": {
