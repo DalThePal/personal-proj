@@ -41,6 +41,7 @@ passport.use(new Auth0strategy({
     scope: 'openid email profile'
 }, function( accessToken, refreshToken, extraParams, profile, done ) {
     const db = app.get('db')
+    console.log(db)
     db.find_user(profile.id).then( user => {
         if( user[0] ) {
             console.log( 'old user!' )
