@@ -2,7 +2,7 @@
     "version": 2,
     "name": "dnd-planner",
     "builds": [
-        { "src": "app.js", "use": "@now/node", "config": { "distDir": "build" } }
+        { "src": "src/App.js", "use": "@now/node", "config": { "distDir": "build" } }
     ],
     "alias": ["dnd.dallenhoyal.com"],
     "build": {
