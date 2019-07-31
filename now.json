@@ -2,8 +2,7 @@
     "version": 2,
     "name": "dnd-planner",
     "builds": [
-        { "src": "server/server.js", "use": "@now/node" },
-        { "src": "package.json", "use": "@now/static-build", "config": { "distDir": "build" } }
+        { "src": "server/server.js", "use": "@now/node" }
     ],
     "routes": [
         { "src": "/Equipment", "dest": "/server/server.js"},
