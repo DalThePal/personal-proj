@@ -117,5 +117,6 @@ app.put('/Armor', controller.editUserArm);
 app.put('/ArmorDash', controller.userArmDash);
 
 
-module.exports = app;
+// module.exports = app;
 
+app.listen(port, () => console.log('listening'))
