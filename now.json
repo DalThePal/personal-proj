@@ -22,5 +22,17 @@
             "SUCCESS_REDIRECT": "@dnd_success_redirect",
             "FAILURE_REDIRECT": "@dnd_failure_redirect"
         }
+    },
+    "env": {
+        "SERVER_PORT": "@dnd_server_port",
+        "SESSION_SECRET": "@dnd_session_secret",
+        "DOMAIN": "@dnd_domain",
+        "CALLBACK_URL": "@dnd_callback_url",
+        "CLIENT_ID": "@dnd_client_id",
+        "CLIENT_SECRET": "@dnd_client_secret",
+        "CONNECTION_STRING": "@dnd_connection_string",
+        "REACT_APP_LOGIN": "@dnd_react_app_login",
+        "SUCCESS_REDIRECT": "@dnd_success_redirect",
+        "FAILURE_REDIRECT": "@dnd_failure_redirect"
     }
 }
