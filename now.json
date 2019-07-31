@@ -6,7 +6,7 @@
         { "src": "package.json", "use": "@now/static-build", "config": { "distDir": "build" } }
     ],
     "routes": [
-        { "src": "/Equipment", "dest": "/server/equipment.js"},
+        { "src": "/Equipment", "dest": "/server/server.js"},
         { "src": "/(.*)" }
     ],
     "alias": ["dnd.dallenhoyal.com"],
