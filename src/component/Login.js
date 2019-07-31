@@ -7,7 +7,7 @@ class Login extends Component {
         return (
             <div className='LoginScreen'>
                 <div><img src='/DND.png' alt='DND' /></div>
-                <a href="/login"><button className='LoginBut'>LOGIN</button></a>
+                <a href="https://dnd.dallenhoyal.com/login"><button className='LoginBut'>LOGIN</button></a>
             </div>
         )
     }
