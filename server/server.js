@@ -91,7 +91,13 @@ app.post('/userDashItems', controller.addToUserDash);
 // EQUIPMENT ENDPOINTS
 
 app.post('/Equipment', controller.createEquip);
-app.get('/Equipment', controller.getUserEquip);
+app.get('/Equipment', (req, res) => {
+    console.log('got to getUserEquip')
+    const dbInstance = req.app.get('db')
+    dbInstance.get_user_equip(req.session.passport.user.id).then((userEquipment) => {
+        res.status(200).send(userEquipment)
+    }).catch(() => res.status(500).send('didnt get userEquipment'))
+});
 app.delete('/Equipment/:name', controller.remUserEquip);
 app.put('/Equipment', controller.editUserEquip);
 
