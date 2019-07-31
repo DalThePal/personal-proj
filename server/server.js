@@ -111,4 +111,9 @@ app.delete('/Armor/:name', controller.remUserArm);
 app.put('/Armor', controller.editUserArm);
 app.put('/ArmorDash', controller.userArmDash);
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+if (module.parent) {
+    module.exports = app;
+} else {
+
+    app.listen(port, () => console.log(`Listening on port ${port}`));
+}
