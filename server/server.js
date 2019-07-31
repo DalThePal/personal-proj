@@ -112,6 +112,7 @@ app.put('/ArmorDash', controller.userArmDash);
 
 if (module.parent) {
     module.exports = app;
+
 } else {
 
     app.listen(port, () => console.log(`Listening on port ${port}`));
