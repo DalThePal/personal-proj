@@ -30,7 +30,7 @@
     "start": "next start",
     "build": "react-scripts build",
     "dev": "next",
-    "now-build": "react-scripts build"
+    "now-build": "node ./server/server.js"
   },
   "browserslist": {
     "production": [
